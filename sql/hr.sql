@@ -360,3 +360,481 @@ case when salary between 20000 and 24000 then '1급연봉자'
      else '3급연봉자'
      end as "비고"
 from employees;
+
+select employee_id,department_name
+from employees,departments;
+-- 공통컬럼을 명시하지 않으면,count = 2889, 크로스 조인
+
+-- EQUI JOIN, 등가조인
+
+select employees.employee_id "사원번호",
+        departments.department_name "부서명"
+from employees, departments
+where employees.department_id = departments.department_id;
+
+-- 사원테이블과 부서테이블을 조인해서 사원ID가 100인 사람의 사원ID와 근무 
+-- 지ID를 출력해라.
+select employees.employee_id "사원번호",
+        departments.location_id "근무ID"
+from employees, departments
+where employees.department_id = departments.department_id 
+and employees.employee_id=100;
+
+-- 사원테이블과 부서테이블을 조인해서 사원번호와 부서명을 출력하라.
+select e.employee_id 사원번호, d.department_name 부서명
+from employees e, departments d
+where e.department_id = d.department_id;
+
+-- 사원테이블과 부서테이블을 조인해서 사원ID가 100인 사람의 사원ID와 근무 
+-- 지ID를 출력해라.
+select e.employee_id "사원번호",
+        d.location_id "근무ID"
+from employees e, departments d
+where e.department_id = d.department_id 
+and e.employee_id=100;
+
+-- 표준 조인(ANSI JOIN)
+select e.first_name 사원번호, d.department_name 부서명
+from employees e join departments d
+on e.department_id =d.department_id;
+
+-- 사원테이블과 부서테이블을 조인해서 사원ID가 100인 사람의 사원ID와 근무 
+-- 지ID를 출력해라.
+select e.employee_id 사원ID, d.location_id "근무ID"
+from employees e join departments d
+on e.department_id=d.department_id  and e.employee_id=100;
+
+-- 세 테이블일 때도 가능 일치하는 컬럼값으로 조인
+-- 사원테이블과 부서테이블, 업무테이블을 조인해서 사원번호와 부서명, 업무제목을 출력하라.
+select e.employee_id 사원번호, d.department_name 근무부서, j.job_title 업무제목
+from employees e, departments d, jobs j
+where e.department_id =d.department_id 
+and e.job_id = j.job_id;
+
+-- 사원테이블과 부서테이블,업무테이블을 조인해서 사원ID가 100인 사람의 사원ID 
+-- 와 근무지ID,업무제목를 출력해라.
+select e.employee_id 사원ID, d.location_id 근무ID, j.job_title 업무제목
+from employees e, departments d, jobs j 
+where e.department_id =d.department_id 
+and e.job_id = j.job_id
+and e.employee_id=100;
+
+-- 세 테이블일때도 표준 조인(ANSI JOIN)
+-- 사원테이블과 부서테이블,업무테이블을 조인해서 사원명과 부서명,업무제목을 출력하라.
+select e.employee_id 사원번호, d.department_name 근무부서, j.job_title 업무제목
+from employees e join departments d
+on e.department_id =d.department_id
+join  jobs j
+on e.job_id = j.job_id;
+
+-- 사원테이블과 부서테이블,업무테이블을 조인해서 사원ID가 100인 사람의 사원ID 
+-- 와 근무지ID,업무제목를 출력해라.
+select e.employee_id 사원ID, d.location_id 근무ID, j.job_title 업무제목
+from employees e join departments d
+on e.department_id =d.department_id and e.employee_id=100
+join jobs j
+on e.job_id = j.job_id;
+
+-- employees 와 departments 테이블을 조인하여 사원이름이 ‘Steven’인 
+-- 사원의 이름과 성, 부서명을 출력하되 부서명이 Executive일때는 행정 
+-- 부, Shipping일때는 발송부라고 출력하라.
+select e.last_name 성, e.first_name 이름, decode(d.department_name,'Executive','행정부','Shipping','발송부')
+from employees e , departments d
+where e.department_id =d.department_id
+and e.first_name = 'Steven';
+
+-- employees 와 departments 테이블을 조인하여 급여가 12000이상인 
+-- 사원의 부서ID,부서명,이름,급여를 출력하라.(급여의 내림차순으로 정렬)
+select e.department_id 부서ID, d.department_name 부서명, e.last_name 성, e.first_name 이름, e.salary 급여
+from employees e , departments d
+where e.department_id =d.department_id
+and e.salary >=12000
+order by e.salary desc;
+
+-- 비등가 조인테스트를 위한 테이블 생성
+CREATE TABLE SAL_GRADE 
+(
+  GRADE NUMBER NOT NULL 
+, MIN_SAL NUMBER NOT NULL 
+, MAX_SAL NUMBER NOT NULL 
+, CONSTRAINT SAL_GRADE_PK PRIMARY KEY 
+  (
+    GRADE 
+  )
+  ENABLE 
+);
+
+----------------------------------------
+-- 사원테이블에서 30번 부서사원들의 급여정보
+select employee_id, salary
+from employees
+where department_id=30;
+
+-- 사원테이블에서 30번 부서사원들의 급여정보
+-- 급여등급 테이블과 조인하여 등급별 표기...
+select employee_id, salary, grade
+from employees e join sal_grade s
+on e.salary between s.min_sal and s.max_sal
+and e.department_id=30;
+
+-- SELF JOIN
+select e1.employee_id, e1.first_name||'의 매니저'||e2.first_name 매니저
+from employees e1, employees e2
+where e1.manager_id = e2.employee_id
+order by e1.employee_id;
+
+select * from employees
+where first_name = 'Steven';
+
+-- 오라클 아우터 조인
+-- 매니저가 없는 사원정보도 출력되도록 하기.
+select e1.employee_id, e1.first_name||'의 매니저'||e2.first_name 매니저
+from employees e1 join employees e2
+on e1.manager_id = e2.employee_id(+)
+order by e1.employee_id;
+
+-- 부서테이블과 사원테이블을 조인시
+-- 부서가 없는 사원도 출력되도록 하세요
+SELECT e.employee_id, e.first_name, d.department_name 
+FROM employees e, departments d
+WHERE e.department_id = d.department_id(+) ;
+
+-- 부서테이블과 사원테이블을 조인시
+-- 사원이 없는 부서도 출력되도록 하세요
+SELECT e.employee_id, e.first_name, d.department_name 
+FROM employees e, departments d
+WHERE e.department_id(+) = d.department_id ;
+
+-- join using 사용하기
+SELECT employee_id, department_id, department_name 
+FROM employees join departments 
+using(department_id);
+
+-- 표준 outer join
+SELECT employee_id, department_id, department_name 
+FROM employees left join departments 
+using(department_id);
+
+SELECT employee_id, department_id, department_name 
+FROM employees right join departments 
+using(department_id);
+
+SELECT employee_id, department_id, department_name 
+FROM employees full join departments 
+using(department_id);
+
+-- NATURAL JOIN (시험문제용)
+select employee_id, department_name
+from employees natural join departments;
+
+select department_id, department_name,
+        location_id,city
+from departments natural join locations;
+
+-- 1.사원 테이블과 부서 테이블을 조인하여 모든 사원ID,사원이름,급여,부서명을 
+-- 출력하라.(부서명 내림차순 정렬)
+select e.employee_id "사원ID", e.first_name "사원이름", e.salary "급여", d.department_name "부서명"
+from employees e, departments d
+where e.department_id(+) = d.department_id
+order by d.department_name desc;
+
+-- 2. 사원 테이블과 부서 테이블을 조인하여 직업ID가 ‘IT_PROG‘ 인 사원들의 
+-- 사원이름, 직업ID,부서명, 위치ID를 출력하세요.
+select e.first_name "사원이름", e.job_id "직업ID",d.department_name "부서명",d.location_id "위치ID"
+from employees e, departments d
+where e.department_id(+) = d.department_id
+and e.job_id ='IT_PROG';
+
+-- 3. 부서 테이블과 사원 테이블에서 사번, 사원명, 업무, 급여 , 부서명을 
+-- 검색하시오. 단, 업무명이 '%Manager' 이며 급여가 8000 이상인 
+-- 사원에 대하여 사번을 기준으로 오름차순 정렬할 것.
+select e.employee_id "사번", e.first_name "사원명",j.job_title "업무",e.salary "급여",d.department_name "부서명"
+from employees e, departments d, jobs j
+where e.department_id = d.department_id
+and j.job_title like '%Manager'
+and e.salary >=8000
+order by  e.employee_id asc;
+
+--sub query 사원테이블에서 평균급여보다 급여가 많은 사원들을 출력
+select * from employees where salary < 
+(select round(avg(salary)) from employees);
+
+
+-- David Austin 보다 월급이 작은 사원들만 출력
+select * from employees where salary <
+(select  salary from employees 
+where first_name = 'David' and last_name = 'Austin');
+
+-- David Austin 보다 입사가 늦은 사원들만 출력
+select * from employees where hire_date >
+(select  hire_date from employees 
+where last_name = 'Austin');
+
+-- David Austin 과 같은 부서사원들만 출력
+select * from employees where department_id =
+(select  department_id from employees 
+where last_name = 'Austin');
+
+-- 사원테이블에서 급여가 제일 많은 사원의 정보를 출력하시오.
+select * from employees where salary = 
+(select max(salary) from employees);
+
+
+select salary from employees
+where department_id=60;
+
+--60번 부서 사원들과 같은 급여를 받는 사원들을 출력
+select * from employees
+where salary in (9000,6000,4800,4800,4200);
+
+-- ANY: 60번 부서 사원들의 급여중 가장 작은 급여보다 큰(이상) 급여를 받는 사원들을 출력
+select * from employees
+where salary >any (select salary from employees where department_id=60)
+order by salary;
+
+
+-- ALL: 60번 부서 사원들의 급여중 가장 작은 급여보다 작은(이하) 급여를 받는 사원들을 출력
+select * from employees
+where salary <all (select salary from employees where department_id=60)
+order by salary;
+
+-- 사원테이블에서 업무 별로 최소 급여를 받는 사원의 정보를 사원번호,이름,업무,입사일자,급여,부서번호를 출력하라.
+select min(salary) from employees 
+group by job_id;
+
+select first_name||' '||last_name "이름", job_id, hire_date, salary, department_id
+from employees
+where salary in (select min(salary) from employees 
+group by job_id);
+
+-- 사원 테이블에서 업무 별로 평균 급여가 14000이상인 사원의 최소급여보다 많은 급여를 받는 사원의 정보를 사원번호,이름,업무,입사일자,급여,부서번호를 출력하라.
+select first_name||' '||last_name "이름", job_id, hire_date, salary, department_id
+from employees
+where salary >any (select avg(salary) from employees
+where salary>=14000
+group by job_id);
+
+
+-- 사원 테이블에서 업무 별로 평균 급여가 14000이상인 사원의 최대급여보다 적은 급여를 받는 사원의 정보를 사원번호,이름,업무,입사일자,급여,부서번호를 출력하라.
+select first_name||' '||last_name "이름", job_id, hire_date, salary, department_id
+from employees
+where salary <any (select avg(salary) from employees
+where salary>=14000
+group by job_id);
+
+-- 80번 부서 사원들의 급여보다 많은 급여를 받는 사원을 출력하라.
+select employee_id,first_name||' '||last_name "이름", job_id, hire_date, salary, department_id
+from employees
+where salary >all(select salary from employees
+where department_id=80);
+
+-- 80번 부서 사원들의 급여보다 적은 급여를 받는 사원을 출력하라.
+select employee_id,first_name||' '||last_name "이름", job_id, hire_date, salary, department_id
+from employees
+where salary <all(select salary from employees
+where department_id=80);
+
+-- 사원테이블에 존재하는 부서코드와 부서이름을 출력하라. (exists)
+select department_id, department_name
+from departments
+where exists(select distinct department_id from employees where departments.department_id = employees.department_id);
+
+-- 사원 테이블에서 부하직원이 없는 사원의 모든 정보를 exists를 이용하여 작성하라.
+select employee_id, first_name
+from employees e1
+where not exists(select employee_id from employees e2 where e1.employee_id = e2.manager_id);
+
+-- 업무별로 최소급여를 받는 사원의 정보를 사원번호, 이름, 업무, 급여, 부서번호를 출력하라.
+select employee_id,first_name||' '||last_name "이름", job_id,salary, department_id
+from employees
+where (job_id,salary) in(select job_id,min(salary) from employees group by job_id);
+
+-- 테이블에서 적어도 한 명의 사원으로부터 보고를 받을 수 있는 사원의 정보를 사원번호, 이름, 업무, 입사일자, 급여를 출력하라.
+select employee_id,first_name||' '||last_name "이름", job_id, hire_date, salary
+from employees e
+where exists(select * from employees where e.employee_id = manager_id);
+
+-- 소속부서의 평균 급여보다 많은 급여를 받는 사원을 출력하라.
+select * from employees e
+where salary > (select avg(salary) from employees where department_id = e.department_id);
+
+-- 'David Austin'의 직업을 'John Chen'인 사람의 직업과 같은 직업으로 변경
+update employees set job_id = (select job_id from employees where first_name='John' and last_name='Chen') where first_name = 'David' and last_name = 'Austin';
+
+select job_id from employees where first_name = 'David' and last_name = 'Austin';
+
+--최소급여를 받는 사원들을 삭제 하라.
+select employee_id,first_name||' '||last_name, salary from employees
+where salary = (select min(salary) from employees);
+
+delete from employees where salary = (select min(salary) from employees);
+
+select employee_id,first_name||' '||last_name, salary from employees
+where salary = (select min(salary) from employees);
+
+
+-- Q1) 입사번호(사원ID)가 103인 사원과 같은 직업(job_ID)을 가진 사원들의 정보를 출력하시오.
+select * from employees
+where job_id =(select job_id from employees where employee_id=103);
+
+-- Q2) Diana Lorentz와 같은 부서의 사원들의 정보를 출력하시오.
+select * from employees
+where department_id = (select department_id from employees where first_name='Diana' and last_name='Lorentz');
+
+-- Q3) 사원 테이블에서 110번 부서의 최고 급여를 받는 사원보다 많은 급여를 받는 사원의 정보를 사원번호,이름,업무,입사일자,급여,부서번호를 출력하라.
+select employee_id 사원번호, first_name||' '||last_name 이름, job_id 업무, hire_date 입사일자, salary 급여, department_id 부서번호
+from employees
+where salary > (select max(salary) from employees where department_id=110);
+
+------------------------------------------------- 문제풀이
+
+-- Q1) 사원과 부서 TABLE을 JOIN하여 부서ID,부서명,이름,급여를 출력하라. (단, ANSI JOIN을 사용하라.)
+select d.department_id 부서ID, d.department_name 부서명, first_name||' '||last_name 이름, salary 급여
+from employees e join departments d
+on e.department_id = d.department_id;
+
+-- Q2) 이름이 'Steven'인 사원의 부서명을 출력하라.
+select department_name
+from departments
+where department_id in (select department_id from employees where first_name='Steven');
+
+-- Q3) 부서TABLE에 있는 모든 부서를 출력하고, 사원 TABLE에 있는 DATA와 JOIN하여 모든 사원의 이름,부서ID,부서명,급여를 출력하라.
+select department_name from departments;
+
+select first_name||' '||last_name 이름,d.department_id 부서ID,d.department_name 부서명,salary 급여
+from employees e left join departments d
+on e.department_id = d.department_id;
+
+-- Q4)사원 TABLE에 있는 모든 employee_id와 manager_id을 이용하여 서로의 관계를 다음과 같이 출력하라.
+-- (예: Neena의 매니저는 Steven이다. 단, 매니저가 없으면 없음으로 표시할 것.)
+select e1.employee_id, e1.first_name || '의 매니저는 ' || NVL(e2.first_name, '없음')
+from employees e1 , employees e2
+where e1.manager_id = e2.employee_id(+)
+order by e1.employee_id;
+
+-- Q5-1)'Neena'의 직무와 같은 사원이름,부서ID,급여,직무를 출력하라.
+select first_name||' '||last_name 이름,department_id 부서ID, salary 급여, job_id
+from employees
+where job_id = (select job_id from employees where first_name='Neena');
+
+-- Q5-2)'Neena'의 직무와 같은 사원이름,부서명,급여,직무를 출력하라.
+select e.first_name||' '||e.last_name 이름,d.department_name 부서명, e.salary 급여, e.job_id
+from employees e , departments d
+where e.department_id = d.department_id
+and job_id = (select job_id from employees where first_name='Neena');
+
+-- Q6) 'John'이 속해있는 부서의 모든 사람의 부서번호, 사원ID, 이름, 입사일, 급여를 출력하라.
+select employee_id, first_name||' '||last_name, department_id, hire_date, salary
+from employees
+where department_id in(select department_id from employees where first_name='John');
+
+-- Q7-1) 전체 사원의 평균임금보다 많은 사원의 사원번호, 이름, 부서명, 입사일 , 급여를 출력하라.
+select e.employee_id, e.first_name||' '||e.last_name, d.department_name, e.hire_date,e.salary
+from employees e join departments d
+on e.department_id=d.department_id
+and (salary > (select avg(salary) from employees));
+
+
+select e.employee_id, e.first_name||' '||e.last_name, d.department_name, e.hire_date,e.salary
+from employees e , departments d
+where salary > (select avg(salary) from employees)
+and  e.department_id=d.department_id;
+
+
+
+-- Q7-2) 전체 사원의 평균임금보다 많은 사원의 사원번호, 이름, 부서명, 입사일 ,지역명 ,급여를 출력하라.
+select e.employee_id, e.first_name||' '||e.last_name, d.department_name, e.hire_date,loc.city ,e.salary
+from employees e, departments d, locations loc
+where salary > (select avg(salary) from employees)
+and e.department_id=d.department_id
+and d.location_id = loc.location_id;
+
+-- Q8) 10번 부서 사람들 중에 20번 부서의 사원과 같은 업무를 하는 사원의 사원번호,업무,이름,부서명,입사일,지역명을 출력하라.
+-- select job_id from employees where department_id = 10; -- AD_ASST
+-- select job_id from employees where department_id = 20; -- MK_MAN. MK_REP
+--select e.employee_id, job_id, e.first_name||' '||e.last_name, d.department_name, e.hire_date, loc.city
+--from employees e, departments d, locations loc
+--where job_id in (select job_id from employees where department_id = 20 )
+--and e.department_id=d.department_id
+--and e.department_id =10
+--and d.location_id = loc.location_id; 
+select e.employee_id, job_id, e.first_name||' '||e.last_name, d.department_name, e.hire_date, loc.city
+from employees e join departments d
+on e.department_id=d.department_id
+join locations loc
+on d.location_id = loc.location_id
+and e.department_id =10
+and job_id in (select job_id from employees where department_id = 20 );
+
+
+-- Q9) 10번 부서 중에서 30번 부서에는 없는 업무를 하는 사원의 사원번호, 업무, 이름, 부서명, 입사일, 지역을 출력하라.
+select e.employee_id, job_id, e.first_name||' '||e.last_name, d.department_name, e.hire_date, loc.city
+from employees e, departments d, locations loc
+where job_id not in (select job_id from employees where department_id =30)
+and e.department_id=d.department_id
+and e.department_id =10
+and d.location_id = loc.location_id; 
+
+select e.employee_id, job_id, e.first_name||' '||e.last_name, d.department_name, e.hire_date, loc.city
+from employees e join departments d
+on e.department_id=d.department_id
+join locations loc
+on d.location_id = loc.location_id
+and e.department_id =10
+and job_id not in (select job_id from employees where department_id = 20 );
+
+-- Q10) 10번 부서와 같은 일을 하는 사원의 사원번호, 업무, 이름, 부서번호, 부서명, 지역, 급여를 출력하라.
+select e.employee_id, job_id, e.first_name||' '||e.last_name, e.department_id, d.department_name,loc.city, e.salary
+from employees e join departments d
+on e.department_id=d.department_id
+join locations loc
+on d.location_id = loc.location_id
+and (job_id in (select job_id from employees where e.department_id=10));
+
+-- Q11) 'Neena' 혹은 'David'의 급여와 같은 사원의 사원번호, 이름, 급여를 출력하라.
+select employee_id, first_name||' '|| last_name, salary
+from employees
+where salary in (select salary from employees where first_name='Neena' or (first_name='David' and last_name = 'Austin'));
+
+-- Q12) 급여가 30번 부서의 최고 급여보다 높은 사원의 사원번호, 이름, 급여를 출력하라.
+select employee_id, first_name||' '||last_name, salary
+from employees
+where salary >all (select salary from employees where department_id=30);
+
+-- Q13) 급여가 30번 부서의 최저 급여보다 낮은 사원의 사원번호, 이름, 급여를 출력하라.
+select employee_id, first_name||' '||last_name, salary
+from employees
+where salary <all (select salary from employees where department_id=30);
+
+-- Q14) 급여가 90번 부서의 최저 급여보다 높은 사원의 사원번호, 이름, 급여를 출력하라.
+select salary from employees where department_id=90;
+
+select employee_id, first_name||' '||last_name, salary
+from employees
+where salary >any (select salary from employees where department_id=90);
+
+-- Q15) 급여가 90번 부서의 최고 급여보다 낮은 사원의 사원번호, 이름, 급여를 출력하라.
+select employee_id, first_name||' '||last_name, salary
+from employees
+where salary <any (select salary from employees where department_id=90);
+
+-- Q16) 사원이름과 부서명을 출력하라.(단, 뷰나 조인을 사용하지 말고 서브쿼리 쓸 것)
+select e.first_name||' '||e.last_name, (select d.department_name from departments d where e.department_id=d.department_id)
+from employees e;
+
+select * from employees;
+select * from departments;
+
+create table emp as select * from employees;
+create table dept as select * from departments
+where 1=2;
+
+create table loc as select * from locations;
+create table job as select * from jobs;
+
+
+
+
+
+
+
