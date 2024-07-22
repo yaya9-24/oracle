@@ -305,16 +305,16 @@ CREATE TABLE 학생
   )
   ENABLE 
 );
-INSERT INTO 학생 (학생ID, 이름, 학과ID, 입학년도, 나이) VALUES (1, '김철수', 1, 2024, 20);
-INSERT INTO 학생 (학생ID, 이름, 학과ID, 입학년도, 나이) VALUES (2, '김영희', 2, 2023, 21);
-INSERT INTO 학생 (학생ID, 이름, 학과ID, 입학년도, 나이) VALUES (3, '송종민', 3, 2023, 22);
-INSERT INTO 학생 (학생ID, 이름, 학과ID, 입학년도, 나이) VALUES (4, '김다현', 4, 2022, 23);
-INSERT INTO 학생 (학생ID, 이름, 학과ID, 입학년도, 나이) VALUES (5, '최사나', 5, 2022, 24);
-INSERT INTO 학생 (학생ID, 이름, 학과ID, 입학년도, 나이) VALUES (6, '최대한', 6, 2024, 25);
-INSERT INTO 학생 (학생ID, 이름, 학과ID, 입학년도, 나이) VALUES (7, '오주영', 7, 2023, 26);
-INSERT INTO 학생 (학생ID, 이름, 학과ID, 입학년도, 나이) VALUES (8, '김도연', 8, 2017, 27);
-INSERT INTO 학생 (학생ID, 이름, 학과ID, 입학년도, 나이) VALUES (9, '허만휘', 9, 2015, 28);
-INSERT INTO 학생 (학생ID, 이름, 학과ID, 입학년도, 나이) VALUES (10, '김치형', 10, 2016, 29);
+INSERT INTO 학생 (학생ID, 이름, 학과ID, 입학년도, 나이, 전공ID) VALUES (1, '김철수', 1, 2024, 20,1);
+INSERT INTO 학생 (학생ID, 이름, 학과ID, 입학년도, 나이, 전공ID) VALUES (2, '김영희', 2, 2023, 21,2);
+INSERT INTO 학생 (학생ID, 이름, 학과ID, 입학년도, 나이, 전공ID) VALUES (3, '송종민', 3, 2023, 22,3);
+INSERT INTO 학생 (학생ID, 이름, 학과ID, 입학년도, 나이, 전공ID) VALUES (4, '김다현', 4, 2022, 23,4);
+INSERT INTO 학생 (학생ID, 이름, 학과ID, 입학년도, 나이, 전공ID) VALUES (5, '최사나', 5, 2022, 24,5);
+INSERT INTO 학생 (학생ID, 이름, 학과ID, 입학년도, 나이, 전공ID) VALUES (6, '최대한', 6, 2024, 25,6);
+INSERT INTO 학생 (학생ID, 이름, 학과ID, 입학년도, 나이, 전공ID) VALUES (7, '오주영', 7, 2023, 26,7);
+INSERT INTO 학생 (학생ID, 이름, 학과ID, 입학년도, 나이, 전공ID) VALUES (8, '김도연', 8, 2017, 27,8);
+INSERT INTO 학생 (학생ID, 이름, 학과ID, 입학년도, 나이, 전공ID) VALUES (9, '허만휘', 9, 2015, 28,9);
+INSERT INTO 학생 (학생ID, 이름, 학과ID, 입학년도, 나이, 전공ID) VALUES (10, '김치형', 10, 2016, 29,10);
 
 
 
@@ -333,15 +333,262 @@ CREATE TABLE 전공
   ENABLE 
 );
 
-INSERT INTO 학생 (전공ID, 전공명, 학과ID, 수강학생수, 학점) VALUES (1, '국문학', 1, 52, 3);
-INSERT INTO 학생 (전공ID, 전공명, 학과ID, 수강학생수, 학점) VALUES (2, '로봇공학', 2, 87, 3);
-INSERT INTO 학생 (전공ID, 전공명, 학과ID, 수강학생수, 학점) VALUES (3, '철학', 3, 56, 3);
-INSERT INTO 학생 (전공ID, 전공명, 학과ID, 수강학생수, 학점) VALUES (4, '재료공학', 4, 45, 4);
-INSERT INTO 학생 (전공ID, 전공명, 학과ID, 수강학생수, 학점) VALUES (5, '디지털공학', 5, 89, 4);
-INSERT INTO 학생 (전공ID, 전공명, 학과ID, 수강학생수, 학점) VALUES (6, '해부학', 6, 87, 3);
-INSERT INTO 학생 (전공ID, 전공명, 학과ID, 수강학생수, 학점) VALUES (7, '물리학2', 7, 21, 4);
-INSERT INTO 학생 (전공ID, 전공명, 학과ID, 수강학생수, 학점) VALUES (8, '전자기학', 8, 34, 2);
-INSERT INTO 학생 (전공ID, 전공명, 학과ID, 수강학생수, 학점) VALUES (9, '재료화학', 9, 24, 3);
-INSERT INTO 학생 (전공ID, 전공명, 학과ID, 수강학생수, 학점) VALUES (10, '경영학', 10, 52, 3);
+INSERT INTO 전공 (전공ID, 전공명, 학과ID, 수강학생수, 학점) VALUES (1, '국문학', 1, 52, 3);
+INSERT INTO 전공 (전공ID, 전공명, 학과ID, 수강학생수, 학점) VALUES (2, '로봇공학', 2, 87, 3);
+INSERT INTO 전공 (전공ID, 전공명, 학과ID, 수강학생수, 학점) VALUES (3, '철학', 3, 56, 3);
+INSERT INTO 전공 (전공ID, 전공명, 학과ID, 수강학생수, 학점) VALUES (4, '재료공학', 4, 45, 4);
+INSERT INTO 전공 (전공ID, 전공명, 학과ID, 수강학생수, 학점) VALUES (5, '디지털공학', 5, 89, 4);
+INSERT INTO 전공 (전공ID, 전공명, 학과ID, 수강학생수, 학점) VALUES (6, '해부학', 6, 87, 3);
+INSERT INTO 전공 (전공ID, 전공명, 학과ID, 수강학생수, 학점) VALUES (7, '물리학2', 7, 21, 4);
+INSERT INTO 전공 (전공ID, 전공명, 학과ID, 수강학생수, 학점) VALUES (8, '전자기학', 8, 34, 2);
+INSERT INTO 전공 (전공ID, 전공명, 학과ID, 수강학생수, 학점) VALUES (9, '재료화학', 9, 24, 3);
+INSERT INTO 전공 (전공ID, 전공명, 학과ID, 수강학생수, 학점) VALUES (10, '경영학', 10, 52, 3);
 
+insert into 
+sample1( num, 
+fname, 
+lname, 
+tel, 
+addr ) 
+values( sample1_seq.nextval, 
+dbms_random.string('A',19),
+dbms_random.string('Q',19), 
+'010-0000-0000', 
+'seoul' );
+
+--- 문자랜덤
+select dbms_random.string('A',19)from dual;
+--- 난수랜덤
+select dbms_random.value() from dual;
+--- 0~9 랜덤실수
+select dbms_random.value()*10 from dual;
+--- 0~9 랜덤정수
+select floor(dbms_random.value()*10) from dual;
+--- 1~45 로또정수
+select floor(dbms_random.value()*45+1) from dual;
+
+--- PL/SQL
+--begin
+--    for i in 1..50 loop
+--        insert into
+--        sample1(num,fname,lname,tel,addr)
+--        values(sample1_seq.nextval,
+--        dbms_random.string('A',19),
+--        dbms_random.string('Q',19),
+--        '010-0000-0000',
+--        'seoul');
+--    end loop;
+--    commit;
+--end;
+--/
+Select count(*) from sample1;
+
+
+exec PROCEDURE1();
+truncate table sample1;
+drop sequence sample1_seq;
+
+update sample1 set fname = 'yangssem' where num=1;
+select * from sample1;
+
+update sample1 set fname = 'yangssem2' where fname = 'yangssem';
+
+update sample1
+set fname = 'yangssem3',
+    lname = 'oracle',
+    tel = '010-0000-9494',
+    addr = 'busan',
+    regdate = '24/12/25'
+where fname = 'yangssem2';
+
+update sample1
+set num =500001
+where fname = 'yangssem3';
+
+create table TEST1 (pnum number,p2num number,pcount number,price number);
+insert into test1 values(1001,2001,100,5000);
+insert into test1 values(1002,2002,100,3000);
+insert into test1 values(1003,2003,100,2000);
+insert into test1 values(1004,2003,100,2000);
+
+create table TEST2 (pnum number,p2num number,pcount number,price number);
+insert into test2 values(6001,7001,300,7000);
+insert into test2 values(6002,7002,300,8000);
+insert into test2 values(6003,7003,300,9000);
+
+create table TEST_merge (pnum number,p2num number,pcount number,price 
+number);
+
+MERGE INTO test_merge tm USING test1 t1 
+ ON (tm.pnum=t1.pnum)
+WHEN MATCHED THEN
+UPDATE SET tm.p2num=t1.p2num
+WHEN NOT MATCHED THEN
+INSERT VALUES(t1.pnum, t1.p2num, t1.pcount, t1.price);
+
+MERGE INTO test_merge tm USING test2 t2 
+ ON (tm.pnum=t2.pnum)
+WHEN MATCHED THEN
+UPDATE SET tm.p2num=t2.p2num
+WHEN NOT MATCHED THEN
+INSERT VALUES(t2.pnum, t2.p2num, t2.pcount, t2.price);
+
+delete from test2;
+drop table test1;
+select * from test2;
+
+-- 실습
+CREATE TABLE TEST_BOARD 
+(
+  WNUM NUMBER NOT NULL 
+, WRITER VARCHAR2(50) NOT NULL 
+, TITLE VARCHAR2(100) NOT NULL 
+, CON VARCHAR2(100) NOT NULL 
+, WDATE DATE default sysdate 
+, VCOUNT  NUMBER default 0
+, CONSTRAINT TEST_BOARD_PK PRIMARY KEY 
+  (
+    WNUM 
+  )
+  ENABLE 
+);
+create sequence test_board_seq;
+drop sequence test_board_seq;
+
+--begin
+--    for i in 1..10 loop
+--        insert into 
+--        test_board(wnum,writer,title,con)
+--        values(test_board_seq.nextval,
+--        dbms_random.string('A',3),
+--        dbms_random.string('A',10),
+--        dbms_random.string('A',20));
+--    end loop;
+--    commit;
+--end;
+
+delete from test_board where wnum=4;
+delete from test_board where writer='DkX';
+insert into test_board(wnum,writer,title,con) values(test_board_seq.nextval,'yangssem','oracle','java');
+update test_board set con='즐거운 ORACLE SQL' where writer = 'yangssem';
+select * from test_board
+where title like '%ORACLE%' or con like '%ORACLE%';
+alter table test_board add comm_ch varchar2(50);
+truncate table test_board;
+drop table test_board;
+
+create table dept( deptno number primary key); 
+CREATE TABLE EMP_TAB(
+ EMPNO NUMBER(4),
+ ENAME VARCHAR2(10),
+ JOB_ID VARCHAR2(9),
+ MGR NUMBER(4) CONSTRAINT EMP_SELF_KEY REFERENCES EMP_TAB(EMPNO),
+ HIRE_DATE DATE,
+ SAL NUMBER(7),
+ COMM NUMBER(1),
+ DEPTNO NUMBER(2) NOT NULL,
+ CONSTRAINT EMP_DEPTNO_FK FOREIGN KEY(DEPTNO) REFERENCES DEPT(DEPTNO),
+ CONSTRAINT EMP_EMPNO_PK PRIMARY KEY(EMPNO)
+ );
+ 
+ CREATE TABLE test_dept(
+ deptno NUMBER PRIMARY KEY, 
+ dname VARCHAR2(20) DEFAULT '개발부', 
+ loc CHAR(1) CHECK(loc IN('1', '2')));
+ 
+ CREATE TABLE test_emp(
+ no NUMBER(4) PRIMARY KEY, 
+ name VARCHAR2(20) NOT NULL, 
+ loc VARCHAR2(4) CHECK(loc IN('서울', '부산')),
+ jumin CHAR(13) UNIQUE, 
+ deptno NUMBER REFERENCES test_dept(deptno) );
+ 
+CREATE TABLE TEST_BOARD(
+WNUM NUMBER,
+WRITER VARCHAR2(20) CONSTRAINT test_b_writer_nn NOT NULL,
+TITLE VARCHAR2(400) CONSTRAINT test_b_title_nn NOT NULL,
+CON VARCHAR2(2000) CONSTRAINT test_b_con_nn NOT NULL,
+WDATE DATE default SYSDATE CONSTRAINT test_b_wdate_nn NOT NULL, 
+VCOUNT NUMBER,
+CONSTRAINT test_b_wnum_pk PRIMARY KEY (WNUM)
+);
+
+CREATE TABLE TEST_BOARD_COMM 
+(
+  COMM_ID NUMBER NOT NULL 
+, WRITER VARCHAR2(20) NOT NULL 
+, TITLE VARCHAR2(400) NOT NULL 
+, CON VARCHAR2(2000) NOT NULL 
+, WDATE DATE DEFAULT SYSDATE NOT NULL 
+, WNUM NUMBER 
+, VCOUNT NUMBER 
+, CONSTRAINT TEST_BOARD_COMM_PK PRIMARY KEY 
+  (
+    COMM_ID 
+  )
+  ENABLE 
+);
+
+ALTER TABLE TEST_BOARD_COMM
+ADD CONSTRAINT TEST_BOARD_COMM_FK1 FOREIGN KEY
+(
+  WNUM 
+)
+REFERENCES TEST_BOARD
+(
+  WNUM 
+)
+ON DELETE CASCADE ENABLE;
+
+------ INDEX
+
+drop table test_tab; 
+create table test_tab( num NUMBER(4) , 
+fname VARCHAR2(10),
+loc VARCHAR2(10), 
+jumin CHAR(13), 
+deptno NUMBER
+);
+drop sequence test_tab_seq; 
+create sequence test_tab_seq;
+-- //여러 번 입력해주자.
+insert into test_tab
+values(test_tab_seq.nextval,'yangssem','서울','1234561234567',100); 
+select rowid,num,fname,loc,jumin,deptno from test_tab;
+
+--인덱스 생성
+CREATE INDEX TEST_TAB_DEX ON TEST_TAB (FNAME);
+--인덱스 검색
+select index_name from user_indexes;
+--인덱스 삭제
+drop index test_tab_dex;
+
+---인덱스 활용1. 정렬시 느린 order by 안 쓰고 index로 정렬가능
+drop table test_tab; 
+create table test_tab( num NUMBER(4) , 
+fname VARCHAR2(10),
+loc VARCHAR2(10), 
+jumin CHAR(13), 
+deptno NUMBER
+);
+drop sequence test_tab_seq; 
+create sequence test_tab_seq;
+
+--begin
+--    for i in 1..1000 loop
+--    insert into test_tab
+--    values(test_tab_seq.nextval,
+--    sys.dbms_random.string('A',9),
+--    '서울',
+--    '1234561234567',
+--    100);
+--    end loop;
+--    commit;
+--end;
+
+-- //생성전
+select num, fname from test_tab where fname >'0'; -- 인덱스 사용하라는 의미
+-- //인덱스 생성
+create index test_tab_idx on test_tab(fname);
+select num, fname from test_tab where fname >'0' and rownum=1;
 

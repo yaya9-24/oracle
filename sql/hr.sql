@@ -832,9 +832,174 @@ where 1=2;
 create table loc as select * from locations;
 create table job as select * from jobs;
 
+CREATE TABLE TEST_TCL AS SELECT * FROM DEPARTMENTS;
+SELECT * FROM TEST_TCL;
+COMMIT; --//트랜잭션 시작
+UPDATE TEST_TCL SET DEPARTMENT_ID=50;
+savepoint aaa;
+UPDATE TEST_TCL SET LOCATION_ID=1004 WHERE DEPARTMENT_NAME='IT';
+savepoint bbb;
+DELETE FROM TEST_TCL WHERE DEPARTMENT_NAME='Marketing';
+ROLLBACK to bbb;
+
+SELECT * FROM TEST_TCL;
+ROLLBACK;
+SELECT * FROM TEST_TCL;
+
+select * from emp_details_view order by salary desc;
+
+create or replace noforce view test_view_emp
+as
+select employee_id,first_name,salary from employees;
+
+select * from test_view_emp;
+
+select * from tab;
+
+select e.first_name, d.department_name
+from employees e join departments d
+on d.department_id = e.department_id;
+
+-- join하고 view로 만들기
+create or replace view test_join_view
+as
+select e.first_name, d.department_name
+from employees e join departments d
+on d.department_id = e.department_id;
+
+select * from test_join_view;
+
+-- self join하고 view로 만들기
+select e1.employee_id, e1.first_name||'의 매니저'||e2.first_name 매니저
+from employees e1 join employees e2
+on e1.manager_id = e2.employee_id
+order by e1.employee_id asc;
+
+create or replace view test_self_join_view
+as
+select e1.employee_id, e1.first_name||'의 매니저'||e2.first_name 매니저
+from employees e1 join employees e2
+on e1.manager_id = e2.employee_id
+order by e1.employee_id asc;
+
+select * from test_self_join_view;
 
 
+-- 아래와 같은 테이블 생성
 
+drop TABLE test4_dept CASCADE CONSTRAINTS PURGE; -- // 제약조건 무시하고 삭제
+    CREATE TABLE test4_dept(
+    deptno NUMBER(2), 
+    dname VARCHAR2(15) default '개발부', 
+    loc_id CHAR(1), 
+    CONSTRAINT test4_dept_deptno_pk PRIMARY KEY (deptno), 
+    CONSTRAINT test4_dept_loc_ck CHECK(loc_id IN('1', '2'))
+    );
+drop TABLE test4_emp CASCADE CONSTRAINTS PURGE; 
+CREATE TABLE test4_emp( 
+empno NUMBER(4), 
+ename VARCHAR2(10) CONSTRAINT test4_emp_ename_nn NOT NULL, 
+loc_name VARCHAR2(6), 
+jumin CHAR(13), 
+deptno NUMBER(2), 
+sal NUMBER, 
+CONSTRAINT test4_emp_no_pk PRIMARY KEY (empno), 
+CONSTRAINT test4_emp_jumin_uq UNIQUE (jumin), 
+CONSTRAINT test4_emp_deptno_fk FOREIGN KEY (deptno) REFERENCES test4_dept(deptno)
+);
+INSERT INTO test4_dept VALUES(10, '영업부', '1'); 
+INSERT INTO test4_dept VALUES(20, '기획부', '1'); 
+INSERT INTO test4_dept VALUES(30, '홍보부', '2'); 
+INSERT INTO test4_dept VALUES(40, '관리부', '2'); 
+INSERT INTO test4_emp VALUES(1001, '홍길동', '서울', '1234561234567', 10,3000); 
+INSERT INTO test4_emp VALUES(1002, '최길동', '서울', '1234561234568', 10,4000); 
+INSERT INTO test4_emp VALUES(1003, '박길동', '경기', '1234561234569', 20,5000); 
+INSERT INTO test4_emp VALUES(1004, '양길동', '경기', '1234561234571', 30,6000); 
+INSERT INTO test4_emp VALUES(1005, '한길동', '서울', '1234561234572', 40,7000); 
+INSERT INTO test4_emp VALUES(1006, '강길동', '서울', '1234561234573', 40,8000); 
+Commit;
 
+-- Q1) 부서ID가 10번인 사원데이터를 갖는 이름이 test4_emp_view인 뷰를 생성시 
+-- empno, ename 두 개 컬럼만으로 생성후,뷰검색,뷰구조를 확인하라.
+select * from test4_emp
+where deptno =10;
 
+create or replace view test4_emp_view
+as
+select empno, ename from test4_emp
+where deptno =10;
 
+select * from test4_emp_view;
+
+-- Q2) 부서ID가 20번인 부서데이터를 갖는 이름이 test4_dept_view인 뷰를 생성시 
+-- deptno, dname 두 개 컬럼만으로 생성후,뷰검색,뷰구조를 확인하라.
+select * from test4_dept
+where deptno =20;
+
+create or replace view test4_dept_view as
+select deptno, dname from test4_dept
+where deptno =20;
+
+select * from test4_dept_view;
+
+-- Q3) 부서ID가 10번인 사원데이터를 갖는 이름이 test4_emp_view인 뷰를 생성시 
+-- empno를 employee_id, ename을 employee_name으로 별칭 설정하라.
+select * from test4_emp
+where deptno =10; 
+
+create or replace view test4_emp_view(employee_id,employee_name) as
+select empno ,ename from test4_emp
+where deptno =10;
+
+select * from test4_emp_view;
+
+-- Q4) 부서ID가 20번인 부서데이터를 갖는 이름이 test4_dept_view인 뷰를 생성시 
+-- deptno를 department_id, dname을 department_name으로 별칭 설정하라.
+select * from test4_dept
+where deptno =20; 
+
+create or replace view test4_dept_view(department_id,department_name) as
+select deptno ,dname from test4_dept
+where deptno =20;
+
+select * from test4_dept_view;
+
+-- Q5) test4_emp 테이블과 test4_dept 테이블을 조인하여 empno를 사원번호로, ename을 사원명으로, 
+-- dname을 부서명으로, loc_name을 지역명으로 바꾸는 test4_emp_join_dept_view를 생성하시오.
+select * from
+test4_emp join test4_dept
+on test4_emp.deptno = test4_dept.deptno;
+
+create or replace view test4_emp_join_dept_view(사원번호,사원명,부서명,지역명) as
+select e.empno , e.ename, d.dname, e.loc_name 
+from test4_emp e join test4_dept d
+on e.deptno = d.deptno;
+
+select * from test4_emp_join_dept_view;
+
+-- Q6) test4_emp 테이블과 test4_dept 테이블을 조인하여 dname을 부서명으로,
+-- min(e.sal)을 최저급여로, max(e.sal)을 최고급여로, avg(e.sal)을 평균급여로 바꾸고
+-- 부서이름별로 test4_emp_join_dept_view를 생성하시오.
+select * from
+test4_emp e join test4_dept d
+on e.deptno = d.deptno;
+
+create or replace view test4_emp_join_dept_view(부서명,최저급여,최고급여,평균급여) as
+select d.dname, min(e.sal), max(e.sal),avg(e.sal)
+from test4_emp e join test4_dept d
+on e.deptno = d.deptno
+group by d.dname;
+
+select * from test4_emp_join_dept_view;
+
+-- 10 개행씩 잘라서 검색되도록 DQL을 작성하세요. -----------------------
+-- 예:1,10(100-109)-11,20(110,119)
+select * from employees;
+
+select *
+from (select e.* ,rownum rnum from employees e where rownum<=10)
+where rownum >=1;
+
+select *
+from (select e.* ,rownum rnum from employees e where rownum<=20)
+where rnum >=11;
