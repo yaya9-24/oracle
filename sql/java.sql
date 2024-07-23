@@ -163,7 +163,7 @@ create sequence seq_member;
 
 ------------------DML
 insert into member(num,id,pw,name,tel)
-values(seq_member.nextval, 'admin','hi1234','yang','010-2222-4444');
+values(seq_member.nextval, 'admin','hi1111','kim1','010-2222-4444');
 
 update member set id = 'admin22', pw = '22hihi',name = 'lee', tel = '010-2222-2222'
 where num>=2 and num<=3;
@@ -592,3 +592,19 @@ select num, fname from test_tab where fname >'0'; -- 인덱스 사용하라는 의미
 create index test_tab_idx on test_tab(fname);
 select num, fname from test_tab where fname >'0' and rownum=1;
 
+
+
+
+---------------------------------
+exec PC_MEMBER_INSERT;
+select * from member;
+delete from member;
+
+exec PC_PRODUCT_INSERT;
+select * from product;
+delete from product;
+
+exec PC_BOARD_INSERT;
+
+select * from member order by num desc;
+select * from board order by num desc;

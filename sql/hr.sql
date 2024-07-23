@@ -997,9 +997,50 @@ select * from test4_emp_join_dept_view;
 select * from employees;
 
 select *
-from (select e.* ,rownum rnum from employees e where rownum<=10)
-where rownum >=1;
+from (select e.* ,rownum rnum from employees e )
+where rnum between 1 and 10;
 
 select *
-from (select e.* ,rownum rnum from employees e where rownum<=20)
-where rnum >=11;
+from (select e.* ,rownum rnum from employees e)
+where rnum>10 and rnum<=20;
+
+-- 웹페이지에서 1 2 3 4 5 페이지블럭 구현시 자주 사용됨.
+
+
+-- rollup 
+-- 예) 부서번호가 40번이하인 사원들에 대해 부서별, 직급별, 월급이 얼마인지 조회하라.
+select department_id,job_id,sum(salary)
+from employees
+where department_id <=40
+group by rollup(department_id, job_id)
+order by department_id;
+
+select department_id,job_id,sum(salary)
+from employees
+where department_id <=40
+group by cube(department_id, job_id)
+order by department_id;
+
+--with 쿼리 절
+with e as
+    (select employee_id,manager_id,salary,last_name
+    from employees
+    where department_id=50),
+    d as
+    (select avg(salary) avg_salary
+    from employees
+    where department_id=50)
+select e.employee_id, e.last_name, e.salary
+from e,d
+where e.salary < d.avg_salary;
+
+-- 전체 부서별 평균 급여액보다 부서별 급여합계액이 큰 부서의 명단을 추출하라.
+with dept_costs as
+    (select department_name,sum(salary) sum_sal
+    from employees e join departments d
+    on e.department_id = d.department_id
+    group by department_name),
+    avg_cost as(select sum(sum_sal)/count(*) avg from dept_costs)
+select dept_costs.*
+from dept_costs, avg_cost
+where dept_costs.sum_sal > avg_cost.avg;
