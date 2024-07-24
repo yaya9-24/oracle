@@ -142,24 +142,7 @@ where num =2;
 
 delete from person where num>=3 and num<5;
 
--- 회원테이블 member
--- 번호, 아이디,비번,이름,폰번
-drop table member;
-CREATE TABLE MEMBER 
-(
-  NUM NUMBER NOT NULL 
-, ID VARCHAR2(20) NOT NULL 
-, PW VARCHAR2(20) NOT NULL 
-, name VARCHAR2(20) NOT NULL 
-, tel VARCHAR2(20) NOT NULL 
-, CONSTRAINT MEMBER_PK PRIMARY KEY 
-  (
-    NUM 
-  )
-  ENABLE 
-);
-drop sequence seq_member;
-create sequence seq_member;
+
 
 ------------------DML
 insert into member(num,id,pw,name,tel)
@@ -595,16 +578,10 @@ select num, fname from test_tab where fname >'0' and rownum=1;
 
 
 
----------------------------------
-exec PC_MEMBER_INSERT;
-select * from member;
-delete from member;
 
-exec PC_PRODUCT_INSERT;
-select * from product;
-delete from product;
 
-exec PC_BOARD_INSERT;
+
+
 
 select * from member order by num desc;
 select * from board order by num desc;
