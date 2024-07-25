@@ -1044,3 +1044,19 @@ with dept_costs as
 select dept_costs.*
 from dept_costs, avg_cost
 where dept_costs.sum_sal > avg_cost.avg;
+
+-- mission 
+-- 0.프로젝트명 java22jdbc_hr, 패키지명(test.com.emp,test.com.dept,test.com.job,test.com.main)
+-- 1.테이블 복제 employees->emp, departments->dept, jobs->job 원본데이터 유지
+create table emp as select * from employees;
+create table dept as select * from departments;
+create table job as select * from jobs;
+
+drop sequence seq_emp;
+create sequence seq_emp;
+drop sequence seq_dept;
+create sequence seq_dept;
+-- 2.제약조건설정(pk,fk)
+-- 3.객체생성(EmpVO,DeptVO,JobVO)
+-- 4.각 객체에 따른 CRUD처리객체(~~DAO<---~DAOimpl)
+-- 5.jdbc연동해서 각 메인클래스(EmpMain,DeptMain,JobMain) 에서 입력처리 완성하기.
