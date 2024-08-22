@@ -43,7 +43,7 @@ addr varchar2(100),
 regdate date default sysdate
 );
 
-insert into sample1(num,fname,lname,tel,addr,regdate) values(1,'kim','young','02','¼­¿ï½Ã',null);
+insert into sample1(num,fname,lname,tel,addr,regdate) values(1,'kim','young','02','ì„œìš¸ì‹œ',null);
 create sequence sample1_seq;
 
 drop table sample1;
@@ -77,7 +77,7 @@ alter table sample2 modify (momo date);
 alter table sample2 modify (num number primary key);
 alter table sample2 modify (memo date default sysdate);
 
--- ÄÃ·³ÀÇ ÀÌ¸§À» ¹Ù²Ü¶© modify°¡ ¾Æ´Ï¶ó rename columnÀÌ´Ù.
+-- ì»¬ëŸ¼ì˜ ì´ë¦„ì„ ë°”ê¿€ë• modifyê°€ ì•„ë‹ˆë¼ rename columnì´ë‹¤.
 alter table sample2 rename column memo to regdate;
 
 alter table sample2 drop column addr;
@@ -100,25 +100,25 @@ alter table sample3 add constraint sample_fk_join_id
 foreign key(join_id) references sample4(join_id);
 alter table sample3 drop constraint sample_fk_join_id;
 
-alter table sample3 disable constraint sample_fk_join_id;  -- Á¦¾àÁ¶°Ç ºñÈ°¼ºÈ­
-alter table sample3 enable constraint sample_fk_join_id;  -- Á¦¾àÁ¶°Ç È°¼ºÈ­
-alter table sample3 disable primary key cascade; -- Á¦¾àÁ¶°Ç ¹«½ÃÇÏ°í ±âº»Å° ºñÈ°¼ºÈ­
-alter table sample3 enable primary key ; -- Á¦¾àÁ¶°Ç ¹«½ÃÇÏ°í ±âº»Å° È°¼ºÈ­
+alter table sample3 disable constraint sample_fk_join_id;  -- ì œì•½ì¡°ê±´ ë¹„í™œì„±í™”
+alter table sample3 enable constraint sample_fk_join_id;  -- ì œì•½ì¡°ê±´ í™œì„±í™”
+alter table sample3 disable primary key cascade; -- ì œì•½ì¡°ê±´ ë¬´ì‹œí•˜ê³  ê¸°ë³¸í‚¤ ë¹„í™œì„±í™”
+alter table sample3 enable primary key ; -- ì œì•½ì¡°ê±´ ë¬´ì‹œí•˜ê³  ê¸°ë³¸í‚¤ í™œì„±í™”
 alter table sample3 read only; alter table sample3 read write;
 
--- °´Ã¼¸¦ »èÁ¦ÇÒ ¶§ ----------------------
+-- ê°ì²´ë¥¼ ì‚­ì œí•  ë•Œ ----------------------
 drop table sample3;
-drop table sample4 cascade CONSTRAINTS; -- Á¦¾àÁ¶°Ç ¹«½Ã »èÁ¦
-drop table sample4 cascade CONSTRAINTS purge; -- recyclebin ÀúÀå¹«½Ã
+drop table sample4 cascade CONSTRAINTS; -- ì œì•½ì¡°ê±´ ë¬´ì‹œ ì‚­ì œ
+drop table sample4 cascade CONSTRAINTS purge; -- recyclebin ì €ìž¥ë¬´ì‹œ
 
--- truncate : deleteÃ³·³ µ¥ÀÌÅÍ¸¦ »èÁ¦ÇÒ ¶§ »ç¿ë. (Â÷ÀÌÁ¡ delete´Â ·Ñ¹é °¡´É, ddlÀº ·Ñ¹éÀÌ ¾ÈµÈ´Ù.)
+-- truncate : deleteì²˜ëŸ¼ ë°ì´í„°ë¥¼ ì‚­ì œí•  ë•Œ ì‚¬ìš©. (ì°¨ì´ì  deleteëŠ” ë¡¤ë°± ê°€ëŠ¥, ddlì€ ë¡¤ë°±ì´ ì•ˆëœë‹¤.)
 truncate table sample1;
 
--- ¸ðµç ¹øÈ£´Â pk¼³Á¤ -------------------------------
--- °¢ Å×ÀÌºíº° ¹øÈ£¿¡ »ç¿ëµÉ ½ÃÄö½º °¢°¢»ý¼º
+-- ëª¨ë“  ë²ˆí˜¸ëŠ” pkì„¤ì • -------------------------------
+-- ê° í…Œì´ë¸”ë³„ ë²ˆí˜¸ì— ì‚¬ìš©ë  ì‹œí€€ìŠ¤ ê°ê°ìƒì„±
 
--- »ç¶÷Å×ÀÌºí person
--- ¹øÈ£, ÀÌ¸§, ³ªÀÌ, »ýÀÏ
+-- ì‚¬ëžŒí…Œì´ë¸” person
+-- ë²ˆí˜¸, ì´ë¦„, ë‚˜ì´, ìƒì¼
 drop table person;
 create table person(
 num number primary key,
@@ -153,8 +153,8 @@ where num>=2 and num<=3;
 
 delete from member where num>=8;
 
--- °Ô½Ã±ÛÅ×ÀÌºí board
--- ¹øÈ£,Á¦¸ñ,³»¿ë,ÀÛ¼ºÀÚ,ÀÛ¼ºÀÏÀÚ
+-- ê²Œì‹œê¸€í…Œì´ë¸” board
+-- ë²ˆí˜¸,ì œëª©,ë‚´ìš©,ìž‘ì„±ìž,ìž‘ì„±ì¼ìž
 drop table board;
 create table board(
 num number primary key,
@@ -189,8 +189,8 @@ where num =1;
 
 delete from board where num>2 and num<=5;
 
--- »óÇ°Å×ÀÌºíproduct
--- ¹øÈ£,Á¦Ç°¸í,¸ðµ¨,°¡°Ý,°³¼ö(pcount)
+-- ìƒí’ˆí…Œì´ë¸”product
+-- ë²ˆí˜¸,ì œí’ˆëª…,ëª¨ë¸,ê°€ê²©,ê°œìˆ˜(pcount)
 create table product(
 num number primary key,
 pname varchar2(20),
@@ -222,110 +222,110 @@ where num>7;
 
 delete from product where num<3;
 
--- ÇÐ±³Å×ÀÌºí - ÀÓÀÇÀÇ ÄÃ·³pk¿ë ¹øÈ£Æ÷ÇÔ 5ÄÃ·³(µ¥ÀÌÅÍ´Â 10°³Çà ¾¿ Ãß°¡)
-CREATE TABLE ´ëÇÐ±³ 
+-- í•™êµí…Œì´ë¸” - ìž„ì˜ì˜ ì»¬ëŸ¼pkìš© ë²ˆí˜¸í¬í•¨ 5ì»¬ëŸ¼(ë°ì´í„°ëŠ” 10ê°œí–‰ ì”© ì¶”ê°€)
+CREATE TABLE ëŒ€í•™êµ 
 (
-  ´ëÇÐ±³ID NUMBER NOT NULL 
-, ´ëÇÐ±³ÀÌ¸§ VARCHAR2(40) NOT NULL 
-, À§Ä¡ VARCHAR2(100) NOT NULL 
-, ¼³¸³¿¬µµ NUMBER NOT NULL 
-, ÇÐ»ý¼ö NUMBER NOT NULL 
-, CONSTRAINT ´ëÇÐ±³_PK PRIMARY KEY 
+  ëŒ€í•™êµID NUMBER NOT NULL 
+, ëŒ€í•™êµì´ë¦„ VARCHAR2(40) NOT NULL 
+, ìœ„ì¹˜ VARCHAR2(100) NOT NULL 
+, ì„¤ë¦½ì—°ë„ NUMBER NOT NULL 
+, í•™ìƒìˆ˜ NUMBER NOT NULL 
+, CONSTRAINT ëŒ€í•™êµ_PK PRIMARY KEY 
   (
-    ´ëÇÐ±³ID 
+    ëŒ€í•™êµID 
   )
   ENABLE 
 );
 
-INSERT INTO ´ëÇÐ±³ (´ëÇÐ±³ID, ´ëÇÐ±³ÀÌ¸§, À§Ä¡, ¼³¸³¿¬µµ, ÇÐ»ý¼ö) VALUES (1, '¼­¿ï´ëÇÐ±³', '¼­¿ï', 1943, 30000);
-INSERT INTO ´ëÇÐ±³ (´ëÇÐ±³ID, ´ëÇÐ±³ÀÌ¸§, À§Ä¡, ¼³¸³¿¬µµ, ÇÐ»ý¼ö) VALUES (2, 'ÀÎÃµ´ëÇÐ±³', 'ÀÎÃµ', 1974, 22000);
-INSERT INTO ´ëÇÐ±³ (´ëÇÐ±³ID, ´ëÇÐ±³ÀÌ¸§, À§Ä¡, ¼³¸³¿¬µµ, ÇÐ»ý¼ö) VALUES (3, 'ºÎ»ê´ëÇÐ±³', 'ºÎ»ê', 1941, 18000);
-INSERT INTO ´ëÇÐ±³ (´ëÇÐ±³ID, ´ëÇÐ±³ÀÌ¸§, À§Ä¡, ¼³¸³¿¬µµ, ÇÐ»ý¼ö) VALUES (4, '°­¿ø´ëÇÐ±³', '°­¿ø', 1982, 19200);
-INSERT INTO ´ëÇÐ±³ (´ëÇÐ±³ID, ´ëÇÐ±³ÀÌ¸§, À§Ä¡, ¼³¸³¿¬µµ, ÇÐ»ý¼ö) VALUES (5, 'ÀüºÏ´ëÇÐ±³', 'ÀüºÏ', 1983, 16000);
-INSERT INTO ´ëÇÐ±³ (´ëÇÐ±³ID, ´ëÇÐ±³ÀÌ¸§, À§Ä¡, ¼³¸³¿¬µµ, ÇÐ»ý¼ö) VALUES (6, 'ÀÎÇÏ´ëÇÐ±³', 'ÀÎÃµ', 1968, 27000);
-INSERT INTO ´ëÇÐ±³ (´ëÇÐ±³ID, ´ëÇÐ±³ÀÌ¸§, À§Ä¡, ¼³¸³¿¬µµ, ÇÐ»ý¼ö) VALUES (7, '¿¬¼¼´ëÇÐ±³', '¼­¿ï', 1942, 38000);
-INSERT INTO ´ëÇÐ±³ (´ëÇÐ±³ID, ´ëÇÐ±³ÀÌ¸§, À§Ä¡, ¼³¸³¿¬µµ, ÇÐ»ý¼ö) VALUES (8, '°í·Á´ëÇÐ±³', '¼­¿ï', 1965, 25000);
-INSERT INTO ´ëÇÐ±³ (´ëÇÐ±³ID, ´ëÇÐ±³ÀÌ¸§, À§Ä¡, ¼³¸³¿¬µµ, ÇÐ»ý¼ö) VALUES (9, 'ÇÑ¾ç´ëÇÐ±³', '¼­¿ï', 1945, 24000);
-INSERT INTO ´ëÇÐ±³ (´ëÇÐ±³ID, ´ëÇÐ±³ÀÌ¸§, À§Ä¡, ¼³¸³¿¬µµ, ÇÐ»ý¼ö) VALUES (10, 'ÀÌÈ­´ëÇÐ±³', '¼­¿ï', 1938, 12000);
+INSERT INTO ëŒ€í•™êµ (ëŒ€í•™êµID, ëŒ€í•™êµì´ë¦„, ìœ„ì¹˜, ì„¤ë¦½ì—°ë„, í•™ìƒìˆ˜) VALUES (1, 'ì„œìš¸ëŒ€í•™êµ', 'ì„œìš¸', 1943, 30000);
+INSERT INTO ëŒ€í•™êµ (ëŒ€í•™êµID, ëŒ€í•™êµì´ë¦„, ìœ„ì¹˜, ì„¤ë¦½ì—°ë„, í•™ìƒìˆ˜) VALUES (2, 'ì¸ì²œëŒ€í•™êµ', 'ì¸ì²œ', 1974, 22000);
+INSERT INTO ëŒ€í•™êµ (ëŒ€í•™êµID, ëŒ€í•™êµì´ë¦„, ìœ„ì¹˜, ì„¤ë¦½ì—°ë„, í•™ìƒìˆ˜) VALUES (3, 'ë¶€ì‚°ëŒ€í•™êµ', 'ë¶€ì‚°', 1941, 18000);
+INSERT INTO ëŒ€í•™êµ (ëŒ€í•™êµID, ëŒ€í•™êµì´ë¦„, ìœ„ì¹˜, ì„¤ë¦½ì—°ë„, í•™ìƒìˆ˜) VALUES (4, 'ê°•ì›ëŒ€í•™êµ', 'ê°•ì›', 1982, 19200);
+INSERT INTO ëŒ€í•™êµ (ëŒ€í•™êµID, ëŒ€í•™êµì´ë¦„, ìœ„ì¹˜, ì„¤ë¦½ì—°ë„, í•™ìƒìˆ˜) VALUES (5, 'ì „ë¶ëŒ€í•™êµ', 'ì „ë¶', 1983, 16000);
+INSERT INTO ëŒ€í•™êµ (ëŒ€í•™êµID, ëŒ€í•™êµì´ë¦„, ìœ„ì¹˜, ì„¤ë¦½ì—°ë„, í•™ìƒìˆ˜) VALUES (6, 'ì¸í•˜ëŒ€í•™êµ', 'ì¸ì²œ', 1968, 27000);
+INSERT INTO ëŒ€í•™êµ (ëŒ€í•™êµID, ëŒ€í•™êµì´ë¦„, ìœ„ì¹˜, ì„¤ë¦½ì—°ë„, í•™ìƒìˆ˜) VALUES (7, 'ì—°ì„¸ëŒ€í•™êµ', 'ì„œìš¸', 1942, 38000);
+INSERT INTO ëŒ€í•™êµ (ëŒ€í•™êµID, ëŒ€í•™êµì´ë¦„, ìœ„ì¹˜, ì„¤ë¦½ì—°ë„, í•™ìƒìˆ˜) VALUES (8, 'ê³ ë ¤ëŒ€í•™êµ', 'ì„œìš¸', 1965, 25000);
+INSERT INTO ëŒ€í•™êµ (ëŒ€í•™êµID, ëŒ€í•™êµì´ë¦„, ìœ„ì¹˜, ì„¤ë¦½ì—°ë„, í•™ìƒìˆ˜) VALUES (9, 'í•œì–‘ëŒ€í•™êµ', 'ì„œìš¸', 1945, 24000);
+INSERT INTO ëŒ€í•™êµ (ëŒ€í•™êµID, ëŒ€í•™êµì´ë¦„, ìœ„ì¹˜, ì„¤ë¦½ì—°ë„, í•™ìƒìˆ˜) VALUES (10, 'ì´í™”ëŒ€í•™êµ', 'ì„œìš¸', 1938, 12000);
 
 
--- ÇÐ°úÅ×ÀÌºí - ÀÓÀÇÀÇ ÄÃ·³pk¿ë ¹øÈ£Æ÷ÇÔ 5ÄÃ·³(µ¥ÀÌÅÍ´Â 10°³Çà ¾¿ Ãß°¡)
-CREATE TABLE ÇÐ°ú 
+-- í•™ê³¼í…Œì´ë¸” - ìž„ì˜ì˜ ì»¬ëŸ¼pkìš© ë²ˆí˜¸í¬í•¨ 5ì»¬ëŸ¼(ë°ì´í„°ëŠ” 10ê°œí–‰ ì”© ì¶”ê°€)
+CREATE TABLE í•™ê³¼ 
 (
-  ÇÐ°úID NUMBER NOT NULL 
-, ÇÐ°ú¸í VARCHAR2(50) NOT NULL 
-, ´ëÇÐ±³ID NUMBER NOT NULL 
-, ¼³¸³¿¬µµ NUMBER NOT NULL 
-, ÇÐ»ý¼ö NUMBER NOT NULL 
-, CONSTRAINT ÇÐ°ú_PK PRIMARY KEY 
+  í•™ê³¼ID NUMBER NOT NULL 
+, í•™ê³¼ëª… VARCHAR2(50) NOT NULL 
+, ëŒ€í•™êµID NUMBER NOT NULL 
+, ì„¤ë¦½ì—°ë„ NUMBER NOT NULL 
+, í•™ìƒìˆ˜ NUMBER NOT NULL 
+, CONSTRAINT í•™ê³¼_PK PRIMARY KEY 
   (
-    ÇÐ°úID 
+    í•™ê³¼ID 
   )
   ENABLE 
 );
 
-INSERT INTO ÇÐ°ú (ÇÐ°úID, ÇÐ°ú¸í, ´ëÇÐ±³ID, ¼³¸³¿¬µµ, ÇÐ»ý¼ö) VALUES (1, '±¹¹®ÇÐ°ú', 1, 1943, 50);
-INSERT INTO ÇÐ°ú (ÇÐ°úID, ÇÐ°ú¸í, ´ëÇÐ±³ID, ¼³¸³¿¬µµ, ÇÐ»ý¼ö) VALUES (2, '±â°èÇÐ°ú', 2, 1976, 77);
-INSERT INTO ÇÐ°ú (ÇÐ°úID, ÇÐ°ú¸í, ´ëÇÐ±³ID, ¼³¸³¿¬µµ, ÇÐ»ý¼ö) VALUES (3, 'Ã¶ÇÐ°ú', 3, 1947, 28);
-INSERT INTO ÇÐ°ú (ÇÐ°úID, ÇÐ°ú¸í, ´ëÇÐ±³ID, ¼³¸³¿¬µµ, ÇÐ»ý¼ö) VALUES (4, '½Å¼ÒÀç°øÇÐ°ú', 4, 2000, 56);
-INSERT INTO ÇÐ°ú (ÇÐ°úID, ÇÐ°ú¸í, ´ëÇÐ±³ID, ¼³¸³¿¬µµ, ÇÐ»ý¼ö) VALUES (5, 'Àü»êÇÐ°ú', 5, 1987, 48);
-INSERT INTO ÇÐ°ú (ÇÐ°úID, ÇÐ°ú¸í, ´ëÇÐ±³ID, ¼³¸³¿¬µµ, ÇÐ»ý¼ö) VALUES (6, 'ÀÇÇÐ°ú', 6, 1968, 100);
-INSERT INTO ÇÐ°ú (ÇÐ°úID, ÇÐ°ú¸í, ´ëÇÐ±³ID, ¼³¸³¿¬µµ, ÇÐ»ý¼ö) VALUES (7, '¹°¸®ÇÐ°ú', 7, 1942, 88);
-INSERT INTO ÇÐ°ú (ÇÐ°úID, ÇÐ°ú¸í, ´ëÇÐ±³ID, ¼³¸³¿¬µµ, ÇÐ»ý¼ö) VALUES (8, 'ÀüÀÚ°øÇÐ°ú', 8, 1972, 67);
-INSERT INTO ÇÐ°ú (ÇÐ°úID, ÇÐ°ú¸í, ´ëÇÐ±³ID, ¼³¸³¿¬µµ, ÇÐ»ý¼ö) VALUES (9, 'È­ÇÐ°øÇÐ°ú', 9, 1970, 35);
-INSERT INTO ÇÐ°ú (ÇÐ°úID, ÇÐ°ú¸í, ´ëÇÐ±³ID, ¼³¸³¿¬µµ, ÇÐ»ý¼ö) VALUES (10, '°æ¿µÇÐ°ú', 10, 1940, 100);
--- ÇÐ»ýÅ×ÀÌºí - ÀÓÀÇÀÇ ÄÃ·³pk¿ë ¹øÈ£Æ÷ÇÔ 5ÄÃ·³(µ¥ÀÌÅÍ´Â 10°³Çà ¾¿ Ãß°¡)
-CREATE TABLE ÇÐ»ý 
+INSERT INTO í•™ê³¼ (í•™ê³¼ID, í•™ê³¼ëª…, ëŒ€í•™êµID, ì„¤ë¦½ì—°ë„, í•™ìƒìˆ˜) VALUES (1, 'êµ­ë¬¸í•™ê³¼', 1, 1943, 50);
+INSERT INTO í•™ê³¼ (í•™ê³¼ID, í•™ê³¼ëª…, ëŒ€í•™êµID, ì„¤ë¦½ì—°ë„, í•™ìƒìˆ˜) VALUES (2, 'ê¸°ê³„í•™ê³¼', 2, 1976, 77);
+INSERT INTO í•™ê³¼ (í•™ê³¼ID, í•™ê³¼ëª…, ëŒ€í•™êµID, ì„¤ë¦½ì—°ë„, í•™ìƒìˆ˜) VALUES (3, 'ì² í•™ê³¼', 3, 1947, 28);
+INSERT INTO í•™ê³¼ (í•™ê³¼ID, í•™ê³¼ëª…, ëŒ€í•™êµID, ì„¤ë¦½ì—°ë„, í•™ìƒìˆ˜) VALUES (4, 'ì‹ ì†Œìž¬ê³µí•™ê³¼', 4, 2000, 56);
+INSERT INTO í•™ê³¼ (í•™ê³¼ID, í•™ê³¼ëª…, ëŒ€í•™êµID, ì„¤ë¦½ì—°ë„, í•™ìƒìˆ˜) VALUES (5, 'ì „ì‚°í•™ê³¼', 5, 1987, 48);
+INSERT INTO í•™ê³¼ (í•™ê³¼ID, í•™ê³¼ëª…, ëŒ€í•™êµID, ì„¤ë¦½ì—°ë„, í•™ìƒìˆ˜) VALUES (6, 'ì˜í•™ê³¼', 6, 1968, 100);
+INSERT INTO í•™ê³¼ (í•™ê³¼ID, í•™ê³¼ëª…, ëŒ€í•™êµID, ì„¤ë¦½ì—°ë„, í•™ìƒìˆ˜) VALUES (7, 'ë¬¼ë¦¬í•™ê³¼', 7, 1942, 88);
+INSERT INTO í•™ê³¼ (í•™ê³¼ID, í•™ê³¼ëª…, ëŒ€í•™êµID, ì„¤ë¦½ì—°ë„, í•™ìƒìˆ˜) VALUES (8, 'ì „ìžê³µí•™ê³¼', 8, 1972, 67);
+INSERT INTO í•™ê³¼ (í•™ê³¼ID, í•™ê³¼ëª…, ëŒ€í•™êµID, ì„¤ë¦½ì—°ë„, í•™ìƒìˆ˜) VALUES (9, 'í™”í•™ê³µí•™ê³¼', 9, 1970, 35);
+INSERT INTO í•™ê³¼ (í•™ê³¼ID, í•™ê³¼ëª…, ëŒ€í•™êµID, ì„¤ë¦½ì—°ë„, í•™ìƒìˆ˜) VALUES (10, 'ê²½ì˜í•™ê³¼', 10, 1940, 100);
+-- í•™ìƒí…Œì´ë¸” - ìž„ì˜ì˜ ì»¬ëŸ¼pkìš© ë²ˆí˜¸í¬í•¨ 5ì»¬ëŸ¼(ë°ì´í„°ëŠ” 10ê°œí–‰ ì”© ì¶”ê°€)
+CREATE TABLE í•™ìƒ 
 (
-  ÇÐ»ýID NUMBER NOT NULL 
-, ÀÌ¸§ VARCHAR2(40) NOT NULL 
-, ÇÐ°úID NUMBER NOT NULL 
-, ÀÔÇÐ³âµµ NUMBER NOT NULL 
-, ³ªÀÌ NUMBER NOT NULL 
-, CONSTRAINT ÇÐ»ý_PK PRIMARY KEY 
+  í•™ìƒID NUMBER NOT NULL 
+, ì´ë¦„ VARCHAR2(40) NOT NULL 
+, í•™ê³¼ID NUMBER NOT NULL 
+, ìž…í•™ë…„ë„ NUMBER NOT NULL 
+, ë‚˜ì´ NUMBER NOT NULL 
+, CONSTRAINT í•™ìƒ_PK PRIMARY KEY 
   (
-    ÇÐ»ýID 
+    í•™ìƒID 
   )
   ENABLE 
 );
-INSERT INTO ÇÐ»ý (ÇÐ»ýID, ÀÌ¸§, ÇÐ°úID, ÀÔÇÐ³âµµ, ³ªÀÌ, Àü°øID) VALUES (1, '±èÃ¶¼ö', 1, 2024, 20,1);
-INSERT INTO ÇÐ»ý (ÇÐ»ýID, ÀÌ¸§, ÇÐ°úID, ÀÔÇÐ³âµµ, ³ªÀÌ, Àü°øID) VALUES (2, '±è¿µÈñ', 2, 2023, 21,2);
-INSERT INTO ÇÐ»ý (ÇÐ»ýID, ÀÌ¸§, ÇÐ°úID, ÀÔÇÐ³âµµ, ³ªÀÌ, Àü°øID) VALUES (3, '¼ÛÁ¾¹Î', 3, 2023, 22,3);
-INSERT INTO ÇÐ»ý (ÇÐ»ýID, ÀÌ¸§, ÇÐ°úID, ÀÔÇÐ³âµµ, ³ªÀÌ, Àü°øID) VALUES (4, '±è´ÙÇö', 4, 2022, 23,4);
-INSERT INTO ÇÐ»ý (ÇÐ»ýID, ÀÌ¸§, ÇÐ°úID, ÀÔÇÐ³âµµ, ³ªÀÌ, Àü°øID) VALUES (5, 'ÃÖ»ç³ª', 5, 2022, 24,5);
-INSERT INTO ÇÐ»ý (ÇÐ»ýID, ÀÌ¸§, ÇÐ°úID, ÀÔÇÐ³âµµ, ³ªÀÌ, Àü°øID) VALUES (6, 'ÃÖ´ëÇÑ', 6, 2024, 25,6);
-INSERT INTO ÇÐ»ý (ÇÐ»ýID, ÀÌ¸§, ÇÐ°úID, ÀÔÇÐ³âµµ, ³ªÀÌ, Àü°øID) VALUES (7, '¿ÀÁÖ¿µ', 7, 2023, 26,7);
-INSERT INTO ÇÐ»ý (ÇÐ»ýID, ÀÌ¸§, ÇÐ°úID, ÀÔÇÐ³âµµ, ³ªÀÌ, Àü°øID) VALUES (8, '±èµµ¿¬', 8, 2017, 27,8);
-INSERT INTO ÇÐ»ý (ÇÐ»ýID, ÀÌ¸§, ÇÐ°úID, ÀÔÇÐ³âµµ, ³ªÀÌ, Àü°øID) VALUES (9, 'Çã¸¸ÈÖ', 9, 2015, 28,9);
-INSERT INTO ÇÐ»ý (ÇÐ»ýID, ÀÌ¸§, ÇÐ°úID, ÀÔÇÐ³âµµ, ³ªÀÌ, Àü°øID) VALUES (10, '±èÄ¡Çü', 10, 2016, 29,10);
+INSERT INTO í•™ìƒ (í•™ìƒID, ì´ë¦„, í•™ê³¼ID, ìž…í•™ë…„ë„, ë‚˜ì´, ì „ê³µID) VALUES (1, 'ê¹€ì² ìˆ˜', 1, 2024, 20,1);
+INSERT INTO í•™ìƒ (í•™ìƒID, ì´ë¦„, í•™ê³¼ID, ìž…í•™ë…„ë„, ë‚˜ì´, ì „ê³µID) VALUES (2, 'ê¹€ì˜í¬', 2, 2023, 21,2);
+INSERT INTO í•™ìƒ (í•™ìƒID, ì´ë¦„, í•™ê³¼ID, ìž…í•™ë…„ë„, ë‚˜ì´, ì „ê³µID) VALUES (3, 'ì†¡ì¢…ë¯¼', 3, 2023, 22,3);
+INSERT INTO í•™ìƒ (í•™ìƒID, ì´ë¦„, í•™ê³¼ID, ìž…í•™ë…„ë„, ë‚˜ì´, ì „ê³µID) VALUES (4, 'ê¹€ë‹¤í˜„', 4, 2022, 23,4);
+INSERT INTO í•™ìƒ (í•™ìƒID, ì´ë¦„, í•™ê³¼ID, ìž…í•™ë…„ë„, ë‚˜ì´, ì „ê³µID) VALUES (5, 'ìµœì‚¬ë‚˜', 5, 2022, 24,5);
+INSERT INTO í•™ìƒ (í•™ìƒID, ì´ë¦„, í•™ê³¼ID, ìž…í•™ë…„ë„, ë‚˜ì´, ì „ê³µID) VALUES (6, 'ìµœëŒ€í•œ', 6, 2024, 25,6);
+INSERT INTO í•™ìƒ (í•™ìƒID, ì´ë¦„, í•™ê³¼ID, ìž…í•™ë…„ë„, ë‚˜ì´, ì „ê³µID) VALUES (7, 'ì˜¤ì£¼ì˜', 7, 2023, 26,7);
+INSERT INTO í•™ìƒ (í•™ìƒID, ì´ë¦„, í•™ê³¼ID, ìž…í•™ë…„ë„, ë‚˜ì´, ì „ê³µID) VALUES (8, 'ê¹€ë„ì—°', 8, 2017, 27,8);
+INSERT INTO í•™ìƒ (í•™ìƒID, ì´ë¦„, í•™ê³¼ID, ìž…í•™ë…„ë„, ë‚˜ì´, ì „ê³µID) VALUES (9, 'í—ˆë§Œíœ˜', 9, 2015, 28,9);
+INSERT INTO í•™ìƒ (í•™ìƒID, ì´ë¦„, í•™ê³¼ID, ìž…í•™ë…„ë„, ë‚˜ì´, ì „ê³µID) VALUES (10, 'ê¹€ì¹˜í˜•', 10, 2016, 29,10);
 
 
 
--- Àü°øÅ×ÀÌºí - ÀÓÀÇÀÇ ÄÃ·³pk¿ë ¹øÈ£Æ÷ÇÔ 5ÄÃ·³(µ¥ÀÌÅÍ´Â 10°³Çà ¾¿ Ãß°¡)
-CREATE TABLE Àü°ø 
+-- ì „ê³µí…Œì´ë¸” - ìž„ì˜ì˜ ì»¬ëŸ¼pkìš© ë²ˆí˜¸í¬í•¨ 5ì»¬ëŸ¼(ë°ì´í„°ëŠ” 10ê°œí–‰ ì”© ì¶”ê°€)
+CREATE TABLE ì „ê³µ 
 (
-  Àü°øID NUMBER NOT NULL 
-, Àü°ø¸í VARCHAR2(50) NOT NULL 
-, ÇÐ°úID NUMBER NOT NULL 
-, ¼ö°­ÇÐ»ý¼ö NUMBER NOT NULL 
-, ÇÐÁ¡ NUMBER NOT NULL 
-, CONSTRAINT Àü°ø_PK PRIMARY KEY 
+  ì „ê³µID NUMBER NOT NULL 
+, ì „ê³µëª… VARCHAR2(50) NOT NULL 
+, í•™ê³¼ID NUMBER NOT NULL 
+, ìˆ˜ê°•í•™ìƒìˆ˜ NUMBER NOT NULL 
+, í•™ì  NUMBER NOT NULL 
+, CONSTRAINT ì „ê³µ_PK PRIMARY KEY 
   (
-    Àü°øID 
+    ì „ê³µID 
   )
   ENABLE 
 );
 
-INSERT INTO Àü°ø (Àü°øID, Àü°ø¸í, ÇÐ°úID, ¼ö°­ÇÐ»ý¼ö, ÇÐÁ¡) VALUES (1, '±¹¹®ÇÐ', 1, 52, 3);
-INSERT INTO Àü°ø (Àü°øID, Àü°ø¸í, ÇÐ°úID, ¼ö°­ÇÐ»ý¼ö, ÇÐÁ¡) VALUES (2, '·Îº¿°øÇÐ', 2, 87, 3);
-INSERT INTO Àü°ø (Àü°øID, Àü°ø¸í, ÇÐ°úID, ¼ö°­ÇÐ»ý¼ö, ÇÐÁ¡) VALUES (3, 'Ã¶ÇÐ', 3, 56, 3);
-INSERT INTO Àü°ø (Àü°øID, Àü°ø¸í, ÇÐ°úID, ¼ö°­ÇÐ»ý¼ö, ÇÐÁ¡) VALUES (4, 'Àç·á°øÇÐ', 4, 45, 4);
-INSERT INTO Àü°ø (Àü°øID, Àü°ø¸í, ÇÐ°úID, ¼ö°­ÇÐ»ý¼ö, ÇÐÁ¡) VALUES (5, 'µðÁöÅÐ°øÇÐ', 5, 89, 4);
-INSERT INTO Àü°ø (Àü°øID, Àü°ø¸í, ÇÐ°úID, ¼ö°­ÇÐ»ý¼ö, ÇÐÁ¡) VALUES (6, 'ÇØºÎÇÐ', 6, 87, 3);
-INSERT INTO Àü°ø (Àü°øID, Àü°ø¸í, ÇÐ°úID, ¼ö°­ÇÐ»ý¼ö, ÇÐÁ¡) VALUES (7, '¹°¸®ÇÐ2', 7, 21, 4);
-INSERT INTO Àü°ø (Àü°øID, Àü°ø¸í, ÇÐ°úID, ¼ö°­ÇÐ»ý¼ö, ÇÐÁ¡) VALUES (8, 'ÀüÀÚ±âÇÐ', 8, 34, 2);
-INSERT INTO Àü°ø (Àü°øID, Àü°ø¸í, ÇÐ°úID, ¼ö°­ÇÐ»ý¼ö, ÇÐÁ¡) VALUES (9, 'Àç·áÈ­ÇÐ', 9, 24, 3);
-INSERT INTO Àü°ø (Àü°øID, Àü°ø¸í, ÇÐ°úID, ¼ö°­ÇÐ»ý¼ö, ÇÐÁ¡) VALUES (10, '°æ¿µÇÐ', 10, 52, 3);
+INSERT INTO ì „ê³µ (ì „ê³µID, ì „ê³µëª…, í•™ê³¼ID, ìˆ˜ê°•í•™ìƒìˆ˜, í•™ì ) VALUES (1, 'êµ­ë¬¸í•™', 1, 52, 3);
+INSERT INTO ì „ê³µ (ì „ê³µID, ì „ê³µëª…, í•™ê³¼ID, ìˆ˜ê°•í•™ìƒìˆ˜, í•™ì ) VALUES (2, 'ë¡œë´‡ê³µí•™', 2, 87, 3);
+INSERT INTO ì „ê³µ (ì „ê³µID, ì „ê³µëª…, í•™ê³¼ID, ìˆ˜ê°•í•™ìƒìˆ˜, í•™ì ) VALUES (3, 'ì² í•™', 3, 56, 3);
+INSERT INTO ì „ê³µ (ì „ê³µID, ì „ê³µëª…, í•™ê³¼ID, ìˆ˜ê°•í•™ìƒìˆ˜, í•™ì ) VALUES (4, 'ìž¬ë£Œê³µí•™', 4, 45, 4);
+INSERT INTO ì „ê³µ (ì „ê³µID, ì „ê³µëª…, í•™ê³¼ID, ìˆ˜ê°•í•™ìƒìˆ˜, í•™ì ) VALUES (5, 'ë””ì§€í„¸ê³µí•™', 5, 89, 4);
+INSERT INTO ì „ê³µ (ì „ê³µID, ì „ê³µëª…, í•™ê³¼ID, ìˆ˜ê°•í•™ìƒìˆ˜, í•™ì ) VALUES (6, 'í•´ë¶€í•™', 6, 87, 3);
+INSERT INTO ì „ê³µ (ì „ê³µID, ì „ê³µëª…, í•™ê³¼ID, ìˆ˜ê°•í•™ìƒìˆ˜, í•™ì ) VALUES (7, 'ë¬¼ë¦¬í•™2', 7, 21, 4);
+INSERT INTO ì „ê³µ (ì „ê³µID, ì „ê³µëª…, í•™ê³¼ID, ìˆ˜ê°•í•™ìƒìˆ˜, í•™ì ) VALUES (8, 'ì „ìžê¸°í•™', 8, 34, 2);
+INSERT INTO ì „ê³µ (ì „ê³µID, ì „ê³µëª…, í•™ê³¼ID, ìˆ˜ê°•í•™ìƒìˆ˜, í•™ì ) VALUES (9, 'ìž¬ë£Œí™”í•™', 9, 24, 3);
+INSERT INTO ì „ê³µ (ì „ê³µID, ì „ê³µëª…, í•™ê³¼ID, ìˆ˜ê°•í•™ìƒìˆ˜, í•™ì ) VALUES (10, 'ê²½ì˜í•™', 10, 52, 3);
 
 insert into 
 sample1( num, 
@@ -339,15 +339,15 @@ dbms_random.string('Q',19),
 '010-0000-0000', 
 'seoul' );
 
---- ¹®ÀÚ·£´ý
+--- ë¬¸ìžëžœë¤
 select dbms_random.string('A',19)from dual;
---- ³­¼ö·£´ý
+--- ë‚œìˆ˜ëžœë¤
 select dbms_random.value() from dual;
---- 0~9 ·£´ý½Ç¼ö
+--- 0~9 ëžœë¤ì‹¤ìˆ˜
 select dbms_random.value()*10 from dual;
---- 0~9 ·£´ýÁ¤¼ö
+--- 0~9 ëžœë¤ì •ìˆ˜
 select floor(dbms_random.value()*10) from dual;
---- 1~45 ·Î¶ÇÁ¤¼ö
+--- 1~45 ë¡œë˜ì •ìˆ˜
 select floor(dbms_random.value()*45+1) from dual;
 
 --- PL/SQL
@@ -420,7 +420,7 @@ delete from test2;
 drop table test1;
 select * from test2;
 
--- ½Ç½À
+-- ì‹¤ìŠµ
 CREATE TABLE TEST_BOARD 
 (
   WNUM NUMBER NOT NULL 
@@ -453,7 +453,7 @@ drop sequence test_board_seq;
 delete from test_board where wnum=4;
 delete from test_board where writer='DkX';
 insert into test_board(wnum,writer,title,con) values(test_board_seq.nextval,'yangssem','oracle','java');
-update test_board set con='Áñ°Å¿î ORACLE SQL' where writer = 'yangssem';
+update test_board set con='ì¦ê±°ìš´ ORACLE SQL' where writer = 'yangssem';
 select * from test_board
 where title like '%ORACLE%' or con like '%ORACLE%';
 alter table test_board add comm_ch varchar2(50);
@@ -476,13 +476,13 @@ CREATE TABLE EMP_TAB(
  
  CREATE TABLE test_dept(
  deptno NUMBER PRIMARY KEY, 
- dname VARCHAR2(20) DEFAULT '°³¹ßºÎ', 
+ dname VARCHAR2(20) DEFAULT 'ê°œë°œë¶€', 
  loc CHAR(1) CHECK(loc IN('1', '2')));
  
  CREATE TABLE test_emp(
  no NUMBER(4) PRIMARY KEY, 
  name VARCHAR2(20) NOT NULL, 
- loc VARCHAR2(4) CHECK(loc IN('¼­¿ï', 'ºÎ»ê')),
+ loc VARCHAR2(4) CHECK(loc IN('ì„œìš¸', 'ë¶€ì‚°')),
  jumin CHAR(13) UNIQUE, 
  deptno NUMBER REFERENCES test_dept(deptno) );
  
@@ -534,19 +534,19 @@ deptno NUMBER
 );
 drop sequence test_tab_seq; 
 create sequence test_tab_seq;
--- //¿©·¯ ¹ø ÀÔ·ÂÇØÁÖÀÚ.
+-- //ì—¬ëŸ¬ ë²ˆ ìž…ë ¥í•´ì£¼ìž.
 insert into test_tab
-values(test_tab_seq.nextval,'yangssem','¼­¿ï','1234561234567',100); 
+values(test_tab_seq.nextval,'yangssem','ì„œìš¸','1234561234567',100); 
 select rowid,num,fname,loc,jumin,deptno from test_tab;
 
---ÀÎµ¦½º »ý¼º
+--ì¸ë±ìŠ¤ ìƒì„±
 CREATE INDEX TEST_TAB_DEX ON TEST_TAB (FNAME);
---ÀÎµ¦½º °Ë»ö
+--ì¸ë±ìŠ¤ ê²€ìƒ‰
 select index_name from user_indexes;
---ÀÎµ¦½º »èÁ¦
+--ì¸ë±ìŠ¤ ì‚­ì œ
 drop index test_tab_dex;
 
----ÀÎµ¦½º È°¿ë1. Á¤·Ä½Ã ´À¸° order by ¾È ¾²°í index·Î Á¤·Ä°¡´É
+---ì¸ë±ìŠ¤ í™œìš©1. ì •ë ¬ì‹œ ëŠë¦° order by ì•ˆ ì“°ê³  indexë¡œ ì •ë ¬ê°€ëŠ¥
 drop table test_tab; 
 create table test_tab( num NUMBER(4) , 
 fname VARCHAR2(10),
@@ -562,22 +562,18 @@ create sequence test_tab_seq;
 --    insert into test_tab
 --    values(test_tab_seq.nextval,
 --    sys.dbms_random.string('A',9),
---    '¼­¿ï',
+--    'ì„œìš¸',
 --    '1234561234567',
 --    100);
 --    end loop;
 --    commit;
 --end;
 
--- //»ý¼ºÀü
-select num, fname from test_tab where fname >'0'; -- ÀÎµ¦½º »ç¿ëÇÏ¶ó´Â ÀÇ¹Ì
--- //ÀÎµ¦½º »ý¼º
+-- //ìƒì„±ì „
+select num, fname from test_tab where fname >'0'; -- ì¸ë±ìŠ¤ ì‚¬ìš©í•˜ë¼ëŠ” ì˜ë¯¸
+-- //ì¸ë±ìŠ¤ ìƒì„±
 create index test_tab_idx on test_tab(fname);
 select num, fname from test_tab where fname >'0' and rownum=1;
-
-
-
-
 
 
 

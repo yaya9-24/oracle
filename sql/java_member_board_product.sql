@@ -1,6 +1,6 @@
------java21 jdbc ÇÁ·ÎÁ§Æ®¿ë sql¼³Á¤----------------------------
--- È¸¿øÅ×ÀÌºí member
--- ¹øÈ£, ¾ÆÀÌµð,ºñ¹ø,ÀÌ¸§,Æù¹ø
+-----java21 jdbc í”„ë¡œì íŠ¸ìš© sqlì„¤ì •----------------------------
+-- íšŒì›í…Œì´ë¸” member
+-- ë²ˆí˜¸, ì•„ì´ë””,ë¹„ë²ˆ,ì´ë¦„,í°ë²ˆ
 drop table member cascade constraints;
 CREATE TABLE MEMBER 
 (
@@ -21,8 +21,8 @@ exec PC_MEMBER_INSERT;
 -------------end member----------------
 
 -------------------------------------
--- »óÇ°Å×ÀÌºíproduct
--- ¹øÈ£,Á¦Ç°¸í,¸ðµ¨,°¡°Ý,°³¼ö(pcount)
+-- ìƒí’ˆí…Œì´ë¸”product
+-- ë²ˆí˜¸,ì œí’ˆëª…,ëª¨ë¸,ê°€ê²©,ê°œìˆ˜(pcount)
 DROP TABLE PRODUCT;
 CREATE TABLE PRODUCT 
 (
@@ -44,8 +44,8 @@ exec PC_PRODUCT_INSERT;
 ------------end product-------------
 
 ---------------------------
--- °Ô½Ã±Û Å×ÀÌºí
--- ¹øÈ£,Á¦¸ñ,³»¿ë,ÀÛ¼ºÀÚ,ÀÛ¼ºÀÏÀÚ
+-- ê²Œì‹œê¸€ í…Œì´ë¸”
+-- ë²ˆí˜¸,ì œëª©,ë‚´ìš©,ìž‘ì„±ìž,ìž‘ì„±ì¼ìž
 drop table board;
 CREATE TABLE BOARD 
 (
@@ -66,8 +66,8 @@ exec PC_BOARD_INSERT;
 --------------end board-----------------
 
 ----------------------------
--- ´ñ±Û Å×ÀÌºí
--- ¹øÈ£,³»¿ë,ÀÛ¼ºÀÚ,ÀÛ¼ºÀÏÀÚ,ÇØ´ç°Ô½Ã±Û¹øÈ£
+-- ëŒ“ê¸€ í…Œì´ë¸”
+-- ë²ˆí˜¸,ë‚´ìš©,ìž‘ì„±ìž,ìž‘ì„±ì¼ìž,í•´ë‹¹ê²Œì‹œê¸€ë²ˆí˜¸
 DROP TABLE COMMENTS;
 CREATE TABLE COMMENTS 
 (
@@ -86,7 +86,7 @@ CREATE TABLE COMMENTS
 DROP SEQUENCE SEQ_COMMENTS;
 CREATE SEQUENCE SEQ_COMMENTS;
 EXEC PC_COMMENTS_INSERT;
-------ÂüÁ¶ Á¦¾àÁ¶°Ç Ãß°¡------------------------------
+------ì°¸ì¡° ì œì•½ì¡°ê±´ ì¶”ê°€------------------------------
 ALTER TABLE MEMBER ADD CONSTRAINT MEMBER_UK1 UNIQUE (ID) ENABLE;
 ALTER TABLE BOARD ADD CONSTRAINT BOARD_FK1 
     FOREIGN KEY(WRITER)REFERENCES MEMBER(ID)ON DELETE CASCADE ENABLE;

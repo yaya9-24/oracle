@@ -25,7 +25,7 @@ GRANT CREATE VIEW TO "TEST" ;
 
 
 
--- java°èÁ¤ »ý¼º,±ÇÇÑ3Á¾ºÎ¿©, Á¢¼Ó
+-- javaê³„ì • ìƒì„±,ê¶Œí•œ3ì¢…ë¶€ì—¬, ì ‘ì†
 -- USER SQL
 CREATE USER "JAVA" IDENTIFIED BY "hi123456"  ;
 

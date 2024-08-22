@@ -1,19 +1,19 @@
--- hr°èÁ¤ÀÇ ¸ğµç Å×ÀÌºíÀÇ ÄÃ·³Á¤º¸ °Ë»ö(Ãâ·Â)
+-- hrê³„ì •ì˜ ëª¨ë“  í…Œì´ë¸”ì˜ ì»¬ëŸ¼ì •ë³´ ê²€ìƒ‰(ì¶œë ¥)
 select * from tab;
 
--- *(¸ğµçÄÃ·³) : ºÎ¼­Å×ÀÌºíÀÇ ¸ğµç Á¤º¸°Ë»ö
+-- *(ëª¨ë“ ì»¬ëŸ¼) : ë¶€ì„œí…Œì´ë¸”ì˜ ëª¨ë“  ì •ë³´ê²€ìƒ‰
 select * from departments;
 
--- ºÎ¼­Å×ÀÌºíÀÇ ¸ğµç Á¤º¸°Ë»ö-ºÎ¼­¸í¸¸
+-- ë¶€ì„œí…Œì´ë¸”ì˜ ëª¨ë“  ì •ë³´ê²€ìƒ‰-ë¶€ì„œëª…ë§Œ
 select department_name from departments;
 
--- ºÎ¼­Å×ÀÌºíÀÇ ¸ğµç Á¤º¸°Ë»ö-ºÎ¼­¹øÈ£,ºÎ¼­¸í
+-- ë¶€ì„œí…Œì´ë¸”ì˜ ëª¨ë“  ì •ë³´ê²€ìƒ‰-ë¶€ì„œë²ˆí˜¸,ë¶€ì„œëª…
 select department_id,department_name from departments;
 
--- Å×ÀÌºí Á¤º¸¾ò±â
+-- í…Œì´ë¸” ì •ë³´ì–»ê¸°
 desc employees;
 
--- »ç¿øÅ×ÀÌºí¿¡¼­ ¾÷¹«ÄÚµå Ãâ·ÂÇÏ±â(Áßº¹¹èÁ¦)
+-- ì‚¬ì›í…Œì´ë¸”ì—ì„œ ì—…ë¬´ì½”ë“œ ì¶œë ¥í•˜ê¸°(ì¤‘ë³µë°°ì œ)
 select distinct JOB_ID from employees;
 
 select EMPLOYEE_ID,SALARY from employees;
@@ -32,31 +32,31 @@ select JOB_ID,SALARY from employees order by JOB_ID asc,salary asc;
 
 select JOB_ID,SALARY from employees order by JOB_ID,salary desc;
 
--- »ç¿øÅ×ÀÌºí¿¡¼­ ¾÷¹«ÄÚµå¿Í ±Ş¿© Ãâ·Â(¾÷¹«ÄÚµå¿Í ±Ş¿©´Â ¿ªÁ¤·Ä)
+-- ì‚¬ì›í…Œì´ë¸”ì—ì„œ ì—…ë¬´ì½”ë“œì™€ ê¸‰ì—¬ ì¶œë ¥(ì—…ë¬´ì½”ë“œì™€ ê¸‰ì—¬ëŠ” ì—­ì •ë ¬)
 select JOB_ID,SALARY 
 from employees 
 order by JOB_ID desc,salary desc;
 
--- »ç¿øÅ×ÀÌºí¿¡¼­ Á÷¾÷ ,ºÀ±ŞÀ» Ãâ·Â (as´Â »ı·«ÀÌ µÇ¾ú´Ù.)
-select job_id "Á÷¾÷",salary "ºÀ±Ş" from employees;
-select job_id "Á÷¾÷",salary "ºÀ±Ş \Ãµ¿ø" from employees;
+-- ì‚¬ì›í…Œì´ë¸”ì—ì„œ ì§ì—… ,ë´‰ê¸‰ì„ ì¶œë ¥ (asëŠ” ìƒëµì´ ë˜ì—ˆë‹¤.)
+select job_id "ì§ì—…",salary "ë´‰ê¸‰" from employees;
+select job_id "ì§ì—…",salary "ë´‰ê¸‰ \ì²œì›" from employees;
 
--- »ç¿øÅ×ÀÌºí¿¡¼­ »ç¿ø¹øÈ£,ºÎ¼­¹øÈ£¸¦ Ãâ·Â, ´ë½Å ºÎ¼­¹øÈ£°¡ 10ÀÎ °Í¸¸
+-- ì‚¬ì›í…Œì´ë¸”ì—ì„œ ì‚¬ì›ë²ˆí˜¸,ë¶€ì„œë²ˆí˜¸ë¥¼ ì¶œë ¥, ëŒ€ì‹  ë¶€ì„œë²ˆí˜¸ê°€ 10ì¸ ê²ƒë§Œ
 select employee_id,department_id from employees where department_id=10;
 
--- »ç¿øÅ×ÀÌºí¿¡¼­ ºÀ±Ş,»ç¿ø¹øÈ£¸¦ Ãâ·Â, ´ë½Å »ç¿ø¹øÈ£°¡ 30ÀÎ°Í¸¸
+-- ì‚¬ì›í…Œì´ë¸”ì—ì„œ ë´‰ê¸‰,ì‚¬ì›ë²ˆí˜¸ë¥¼ ì¶œë ¥, ëŒ€ì‹  ì‚¬ì›ë²ˆí˜¸ê°€ 30ì¸ê²ƒë§Œ
 select salary, employee_id from employees where employee_id=30;
 
--- »ç¿øÅ×ÀÌºí¿¡¼­ ºÀ±Ş,»ç¿ø¹øÈ£¸¦ Ãâ·Â, ´ë½Å »ç¿ø¹øÈ£°¡ 30ÀÎ °Í¸¸ Ãâ·ÂÇÏ°í ºÀ±ŞÀº ³»¸²Â÷¼ø
+-- ì‚¬ì›í…Œì´ë¸”ì—ì„œ ë´‰ê¸‰,ì‚¬ì›ë²ˆí˜¸ë¥¼ ì¶œë ¥, ëŒ€ì‹  ì‚¬ì›ë²ˆí˜¸ê°€ 30ì¸ ê²ƒë§Œ ì¶œë ¥í•˜ê³  ë´‰ê¸‰ì€ ë‚´ë¦¼ì°¨ìˆœ
 select salary, employee_id from employees where employee_id=30 order by salary desc;
 
--- »ç¿øÅ×ÀÌºí¿¡¼­ ¾÷¹«ÄÚµå,¼ºÀ» Ãâ·Â, ´ë½Å ¾÷¹«ÄÚµå°¡ 'IT_PROG' °Í¸¸ Ãâ·ÂÇÏ±â
+-- ì‚¬ì›í…Œì´ë¸”ì—ì„œ ì—…ë¬´ì½”ë“œ,ì„±ì„ ì¶œë ¥, ëŒ€ì‹  ì—…ë¬´ì½”ë“œê°€ 'IT_PROG' ê²ƒë§Œ ì¶œë ¥í•˜ê¸°
 select job_id,first_name from employees where job_id='IT_PROG';
 
 select employee_id,first_name,hire_date from employees where hire_date='07/12/07';
 
 
--- »ç¿øÅ×ÀÌºí¿¡¼­ »ç¿øÀÌ¸§, ºÀ±Ş *1.1
+-- ì‚¬ì›í…Œì´ë¸”ì—ì„œ ì‚¬ì›ì´ë¦„, ë´‰ê¸‰ *1.1
 select first_name, salary*1.1 from employees where department_id=10;
 
 SELECT ename, sal FROM employees WHERE sal=950;
@@ -80,7 +80,7 @@ SELECT deptno, ename, sal FROM employees
 WHERE NOT deptno=30;
 
 
--- UNIONÀº Áßº¹Á¦°Å
+-- UNIONì€ ì¤‘ë³µì œê±°
 SELECT EMPLOYEE_ID,SALARY FROM EMPLOYEES 
 WHERE SALARY>=20000 OR SALARY <=2100
 UNION
@@ -114,22 +114,22 @@ MINUS
 SELECT EMPLOYEE_ID,SALARY FROM EMPLOYEES 
 WHERE SALARY>=20000 OR SALARY <=2100;
 
--- inÀº 10,20,100ÀÎ °É ¸ğµÎ Ãâ·ÂÇÑ´Ù.
+-- inì€ 10,20,100ì¸ ê±¸ ëª¨ë‘ ì¶œë ¥í•œë‹¤.
 select department_id, salary from employees
 where department_id in (10,20,100);
 
--- ANY´Â ()¾ÈÀÇ °ª8000,20000º¸´Ù ÀÌ»óÀÌ³Ä ÀÌÇÏ³Ä
+-- ANYëŠ” ()ì•ˆì˜ ê°’8000,20000ë³´ë‹¤ ì´ìƒì´ëƒ ì´í•˜ëƒ
 select department_id, salary from employees
 where salary >= ANY(8000,12000,20000);
 
 select job_id, first_name, salary from employees
 where salary >=10000 and salary <=12000;
 
--- betweenÀº and¶û ¼¼Æ®´Ù.
+-- betweenì€ andë‘ ì„¸íŠ¸ë‹¤.
 select job_id, first_name, salary from employees
 where salary between 10000 and 12000;
 
--- ¹®ÀÚµµ between »ç¿ë°¡´É
+-- ë¬¸ìë„ between ì‚¬ìš©ê°€ëŠ¥
 SELECT last_name FROM employees WHERE last_name 
 BETWEEN 'Chen' AND 'Dilly' ORDER BY last_name;
 
@@ -140,11 +140,11 @@ WHERE NOT last_name = 'Dilly' ORDER BY last_name;
 select last_name from employees
 where last_name LIKE 't%';
 
--- Áß°£¿¡ y°¡ ÀÖÀ¸¸é ´Ù Ãâ·Â
+-- ì¤‘ê°„ì— yê°€ ìˆìœ¼ë©´ ë‹¤ ì¶œë ¥
 select last_name from employees
 where last_name LIKE '%y%';
 
--- __e´Â ¾Õ¿¡ µÎ±ÛÀÚ ÀÌÈÄ ¼¼¹øÂ°¿¡ e°¡ ¿Í¾ßÇÑ´Ù.
+-- __eëŠ” ì•ì— ë‘ê¸€ì ì´í›„ ì„¸ë²ˆì§¸ì— eê°€ ì™€ì•¼í•œë‹¤.
 select last_name from employees
 where last_name LIKE '__e%';
 
@@ -157,19 +157,19 @@ where last_name LIKE '%Di%';
 select last_name, commission_pct from employees
 where commission_pct is null;
 
--- commission_pctÀÌ nullÀÌ ¾Æ´Ñ °Í¸¸ Ãâ·Â
+-- commission_pctì´ nullì´ ì•„ë‹Œ ê²ƒë§Œ ì¶œë ¥
 select last_name, commission_pct from employees
 where commission_pct is not null;
 
--- °áÇÕ¿¬»êÀÚ
-SELECT first_name||''||last_name ||'ÀÇ ¿¬ºÀ['|| SALARY ||']'
+-- ê²°í•©ì—°ì‚°ì
+SELECT first_name||''||last_name ||'ì˜ ì—°ë´‰['|| SALARY ||']'
 FROM employees ;
 
--- ¿¬»êÀÚ ¿ì¼±¼øÀ§: ()¾ÈÀÇ ºñ±³¿¬»êÀÚ ¸ÕÀúÇÏ°í andÇÏ°í not
+-- ì—°ì‚°ì ìš°ì„ ìˆœìœ„: ()ì•ˆì˜ ë¹„êµì—°ì‚°ì ë¨¼ì €í•˜ê³  andí•˜ê³  not
 SELECT EMPLOYEE_ID FROM employees
 WHERE NOT (SALARY > 1000 AND SALARY < 12000); 
 
--- >1000ÇÏ°í notÇÏ°í and
+-- >1000í•˜ê³  notí•˜ê³  and
 SELECT EMPLOYEE_ID FROM employees
 WHERE NOT SALARY > 1000 AND SALARY < 12000;
 
@@ -207,37 +207,37 @@ select commission_pct from employees;
 select nvl(commission_pct,0),nvl(commission_pct,0.1)*salary, salary from employees;
 select nvl(commission_pct,0),nvl2(commission_pct,0.1,2)*salary, salary from employees;
 
--- ½ÃÇè¿¡ ÀÚÁÖ ³ª¿È decode
+-- ì‹œí—˜ì— ìì£¼ ë‚˜ì˜´ decode
 select last_name,job_id,salary,
-    decode(job_id,'IT_PROG',salary*1.1) AS "½Ç¼ö·É¾×"
+    decode(job_id,'IT_PROG',salary*1.1) AS "ì‹¤ìˆ˜ë ¹ì•¡"
 from employees;
 
 select last_name,job_id,salary,
-    decode(job_id,'IT_PROG',salary*1.1, salary) AS "½Ç¼ö·É¾×"
+    decode(job_id,'IT_PROG',salary*1.1, salary) AS "ì‹¤ìˆ˜ë ¹ì•¡"
 from employees;
 
 select last_name,job_id,salary,
     decode(job_id, 'IT_PROG', salary*1.1,
                     'AD_PRES',salary*1.2,
-                    'AD_VP',salary*1.3, salary) as "½Ç¼ö·É¾×"
+                    'AD_VP',salary*1.3, salary) as "ì‹¤ìˆ˜ë ¹ì•¡"
 from employees;
 
--- case ~then ½ÃÇè¿¡ ÀÚÁÖ ³ª¿È
+-- case ~then ì‹œí—˜ì— ìì£¼ ë‚˜ì˜´
 select last_name,job_id,salary,
     case job_id when 'IT_PROG' then salary*1.1
                 when 'AD_PRES' then salary*1.2
                 when 'AD_VP' then salary*1.3
     else salary
-    end as "½Ç¼ö·É¾×"
+    end as "ì‹¤ìˆ˜ë ¹ì•¡"
 from employees;
 
--- sysdate ÇöÀç ³¯Â¥¸¦ ¾Ë·ÁÁØ´Ù.
+-- sysdate í˜„ì¬ ë‚ ì§œë¥¼ ì•Œë ¤ì¤€ë‹¤.
 select sysdate from dual;
 
 -- to_char
 select sysdate, to_char(sysdate,'D') from dual; -- 4
-select sysdate, to_char(sysdate,'DAY') from dual; -- ¼ö¿äÀÏ
-select sysdate, to_char(sysdate,'DY') from dual; -- ¼ö
+select sysdate, to_char(sysdate,'DAY') from dual; -- ìˆ˜ìš”ì¼
+select sysdate, to_char(sysdate,'DY') from dual; -- ìˆ˜
 select sysdate, to_char(sysdate,'dd') from dual;
 select sysdate, to_char(sysdate,'mm') from dual;
 select sysdate, to_char(sysdate,'month') from dual;
@@ -254,27 +254,27 @@ select sysdate, to_char(sysdate,'yyyy-mm-dd day am hh:mi:ss') from dual;
 select to_number('100'+1) from dual; -- 101
 select to_number('3.14') from dual; -- 3.14
 
--- ³¯Â¥ º¯È¯ ÇÔ¼ö to_date
+-- ë‚ ì§œ ë³€í™˜ í•¨ìˆ˜ to_date
 select to_date(sysdate,'yy/mm/dd') from dual;
 select to_date('13-03-20','dd/mm/yy') from dual;
 
--- ½Ã½ºÅÛ ÇÔ¼ö
+-- ì‹œìŠ¤í…œ í•¨ìˆ˜
 select user from dual;
 
 -- abs
 select abs(-30) from dual;
 
--- mod: ³ª¸ÓÁö¸¦ ±¸ÇÑ´Ù.
+-- mod: ë‚˜ë¨¸ì§€ë¥¼ êµ¬í•œë‹¤.
 select MOD(11,4) from dual;
 
--- power()°ÅµìÁ¦°ö
+-- power()ê±°ë“­ì œê³±
 select power(2,7) from dual;
 select power(2,10) from dual;
 
--- trunc : ¹ö¸®±â
+-- trunc : ë²„ë¦¬ê¸°
 select trunc(99.123456,3) from dual; -- 99.123
 
--- º¹¼öÇà ÇÔ¼ö *****
+-- ë³µìˆ˜í–‰ í•¨ìˆ˜ *****
 -- count
 select count(first_name) from employees;
 select count(employee_id) from employees;
@@ -294,164 +294,164 @@ select max(salary) from employees;
 select min(salary) from employees;
 
 -- group by , having *****
-select avg(salary) "¿¬ºÀÀÇ Æò±Õ", department_id from employees
+select avg(salary) "ì—°ë´‰ì˜ í‰ê· ", department_id from employees
 group by department_id;
 
-select round(avg(salary)) "¿¬ºÀÀÇ Æò±Õ", department_id from employees
+select round(avg(salary)) "ì—°ë´‰ì˜ í‰ê· ", department_id from employees
 group by department_id;
 
-select round(avg(salary)) "¿¬ºÀÀÇ Æò±Õ", department_id from employees
+select round(avg(salary)) "ì—°ë´‰ì˜ í‰ê· ", department_id from employees
 group by department_id
 having department_id is not null;
 
--- Q1:¿¬ºÀ 8000ÀÌ»óÀÎ »ç¿øµéÀÇ ºÎ¼­º° Æò±Õ¿¬ºÀÀÇ ¹İ¿Ã¸²°ªÀ» Ãâ·ÂÇÏ¶ó.
+-- Q1:ì—°ë´‰ 8000ì´ìƒì¸ ì‚¬ì›ë“¤ì˜ ë¶€ì„œë³„ í‰ê· ì—°ë´‰ì˜ ë°˜ì˜¬ë¦¼ê°’ì„ ì¶œë ¥í•˜ë¼.
 select round(avg(salary)),department_id from employees
 where salary >=8000
 group by department_id;
 
--- Q2:¿¬ºÀ 8000ÀÌ»óÀÎ »ç¿øµéÀÇ ºÎ¼­º° Æò±Õ¿¬ºÀÀÇ ¹İ¿Ã¸²°ªÀ» 
--- ºÎ¼­¹øÈ£ÀÇ ³»¸²Â÷¼øÀ¸·Î Á¤·ÄÇÏ¶ó
+-- Q2:ì—°ë´‰ 8000ì´ìƒì¸ ì‚¬ì›ë“¤ì˜ ë¶€ì„œë³„ í‰ê· ì—°ë´‰ì˜ ë°˜ì˜¬ë¦¼ê°’ì„ 
+-- ë¶€ì„œë²ˆí˜¸ì˜ ë‚´ë¦¼ì°¨ìˆœìœ¼ë¡œ ì •ë ¬í•˜ë¼
 select round(avg(salary)),department_id from employees
 where salary >=8000
 group by department_id
 order by department_id desc;
 
--- Q3:¿¬ºÀ 8000ÀÌ»óÀÎ »ç¿øµéÀÇ ºÎ¼­º° Æò±Õ¿¬ºÀÀÇ ¹İ¿Ã¸²°ªÀ»
--- Æò±Õ¿¬ºÀÀÇ ¹İ¿Ã¸²°ªÀ¸·Î ¿À¸§Â÷¼ø Á¤·ÄÇÏ¶ó
-select round(avg(salary)) "Æò±Õ¿¬ºÀ",department_id from employees
+-- Q3:ì—°ë´‰ 8000ì´ìƒì¸ ì‚¬ì›ë“¤ì˜ ë¶€ì„œë³„ í‰ê· ì—°ë´‰ì˜ ë°˜ì˜¬ë¦¼ê°’ì„
+-- í‰ê· ì—°ë´‰ì˜ ë°˜ì˜¬ë¦¼ê°’ìœ¼ë¡œ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬í•˜ë¼
+select round(avg(salary)) "í‰ê· ì—°ë´‰",department_id from employees
 where salary >= 8000
 group by department_id
-order by "Æò±Õ¿¬ºÀ" asc;
+order by "í‰ê· ì—°ë´‰" asc;
 
--- Q4:¿¬ºÀ 10000ÀÌ»óÀÎ »ç¿øµéÀÇ ºÎ¼­º° Æò±Õ¿¬ºÀÀÇ ¹İ¿Ã¸²°ªÀ»
--- ºÎ¼­¹øÈ£·Î ¿À¸§Â÷¼ø Á¤·ÄÇÏ¶ó
-select department_id, round(avg(salary)) as "Æò±Õ¿¬ºÀ" from employees
+-- Q4:ì—°ë´‰ 10000ì´ìƒì¸ ì‚¬ì›ë“¤ì˜ ë¶€ì„œë³„ í‰ê· ì—°ë´‰ì˜ ë°˜ì˜¬ë¦¼ê°’ì„
+-- ë¶€ì„œë²ˆí˜¸ë¡œ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬í•˜ë¼
+select department_id, round(avg(salary)) as "í‰ê· ì—°ë´‰" from employees
 where salary >=10000
 group by department_id
 order by department_id asc;
 
--- Q5:°¢ ºÎ¼­º° °°Àº ¾÷¹«¸¦ ÇÏ´Â »ç¶÷ÀÇ ÀÎ¿ø¼ö¸¦ ±¸ÇÏ¿© 
--- ºÎ¼­¹øÈ£,¾÷¹«¸í,ÀÎ¿ø¼ö¸¦ Ãâ·ÂÇÏ¶ó.
--- (´Ü, ºÎ¼­¹øÈ£¿Í ¾÷¹«¸íÀ¸·Î °¢°¢ ³»¸²Â÷¼ø Á¤·Ä!)
-select department_id,job_id,count(*) as "ÀÎ¿ø¼ö"
+-- Q5:ê° ë¶€ì„œë³„ ê°™ì€ ì—…ë¬´ë¥¼ í•˜ëŠ” ì‚¬ëŒì˜ ì¸ì›ìˆ˜ë¥¼ êµ¬í•˜ì—¬ 
+-- ë¶€ì„œë²ˆí˜¸,ì—…ë¬´ëª…,ì¸ì›ìˆ˜ë¥¼ ì¶œë ¥í•˜ë¼.
+-- (ë‹¨, ë¶€ì„œë²ˆí˜¸ì™€ ì—…ë¬´ëª…ìœ¼ë¡œ ê°ê° ë‚´ë¦¼ì°¨ìˆœ ì •ë ¬!)
+select department_id,job_id,count(*) as "ì¸ì›ìˆ˜"
 from employees
 group by department_id, job_id
 order by department_id desc, job_id desc;
 
--- Q6:»ç¿ø Å×ÀÌºí¿¡¼­ ¿¬ºÀ°ú »ç¿øID¸¦ Ãâ·ÂÇÏµÇ
--- ¿¬ºÀÀÌ 12000ÀÎ »ç¿øÀº °í¾×¿¬ºÀÀÚ¶ó°í Ãâ·ÂÇÏ¶ó.
-select salary, employee_id,decode(salary,12000,'°í¾×¿¬ºÀÀÚ') as "°í¾×¿¬ºÀÀÚ"
+-- Q6:ì‚¬ì› í…Œì´ë¸”ì—ì„œ ì—°ë´‰ê³¼ ì‚¬ì›IDë¥¼ ì¶œë ¥í•˜ë˜
+-- ì—°ë´‰ì´ 12000ì¸ ì‚¬ì›ì€ ê³ ì•¡ì—°ë´‰ìë¼ê³  ì¶œë ¥í•˜ë¼.
+select salary, employee_id,decode(salary,12000,'ê³ ì•¡ì—°ë´‰ì') as "ê³ ì•¡ì—°ë´‰ì"
 from employees;
 
--- Q7:»ç¿ø Å×ÀÌºí¿¡¼­ ¿¬ºÀ°ú »ç¿øID¸¦ Ãâ·ÂÇÏµÇ
--- ¿¬ºÀÀÌ 12000ÀÌ»óÀÎ »ç¿øÀº ºñ°í¿¡ °í¾×¿¬ºÀÀÚ¶ó°í 
--- Ãâ·ÂÇÏ¶ó.  (´Ü, ÃÖ°í¿¬ºÀ¾×Àº 24000ÀÌ´Ù.)
-select salary, employee_id, case when salary between 12000 and 24000 then '°í¾×¿¬ºÀÀÚ'end as "ºñ°í" 
+-- Q7:ì‚¬ì› í…Œì´ë¸”ì—ì„œ ì—°ë´‰ê³¼ ì‚¬ì›IDë¥¼ ì¶œë ¥í•˜ë˜
+-- ì—°ë´‰ì´ 12000ì´ìƒì¸ ì‚¬ì›ì€ ë¹„ê³ ì— ê³ ì•¡ì—°ë´‰ìë¼ê³  
+-- ì¶œë ¥í•˜ë¼.  (ë‹¨, ìµœê³ ì—°ë´‰ì•¡ì€ 24000ì´ë‹¤.)
+select salary, employee_id, case when salary between 12000 and 24000 then 'ê³ ì•¡ì—°ë´‰ì'end as "ë¹„ê³ " 
 from employees;
 
--- Q8:»ç¿ø Å×ÀÌºí¿¡¼­ ¿¬ºÀ°ú »ç¿øID¸¦ Ãâ·ÂÇÏµÇ 
--- ¿¬ºÀÀÌ 20000ÀÌ»óÀÎ »ç¿øÀº 1±Ş¿¬ºÀÀÚ,
--- ¿¬ºÀÀÌ 15000 ¿¡¼­ 19000 ÀÌÇÏÀÎ »ç¿øÀº 2±Ş¿¬ºÀÀÚ, 
--- ¿¬ºÀÀÌ ±âÅ¸¿¬ºÀÀÎ »ç¿øÀº 3±Ş¿¬ºÀÀÚ ¶ó°í Ãâ·ÂÇÏ¶ó. 
--- (´Ü, ÃÖ°í¿¬ºÀ¾×Àº 24000ÀÌ´Ù.)
+-- Q8:ì‚¬ì› í…Œì´ë¸”ì—ì„œ ì—°ë´‰ê³¼ ì‚¬ì›IDë¥¼ ì¶œë ¥í•˜ë˜ 
+-- ì—°ë´‰ì´ 20000ì´ìƒì¸ ì‚¬ì›ì€ 1ê¸‰ì—°ë´‰ì,
+-- ì—°ë´‰ì´ 15000 ì—ì„œ 19000 ì´í•˜ì¸ ì‚¬ì›ì€ 2ê¸‰ì—°ë´‰ì, 
+-- ì—°ë´‰ì´ ê¸°íƒ€ì—°ë´‰ì¸ ì‚¬ì›ì€ 3ê¸‰ì—°ë´‰ì ë¼ê³  ì¶œë ¥í•˜ë¼. 
+-- (ë‹¨, ìµœê³ ì—°ë´‰ì•¡ì€ 24000ì´ë‹¤.)
 select salary, employee_id,
-case when salary between 20000 and 24000 then '1±Ş¿¬ºÀÀÚ'
-     when salary between 15000 and 19000 then '2±Ş¿¬ºÀÀÚ'
-     else '3±Ş¿¬ºÀÀÚ'
-     end as "ºñ°í"
+case when salary between 20000 and 24000 then '1ê¸‰ì—°ë´‰ì'
+     when salary between 15000 and 19000 then '2ê¸‰ì—°ë´‰ì'
+     else '3ê¸‰ì—°ë´‰ì'
+     end as "ë¹„ê³ "
 from employees;
 
 select employee_id,department_name
 from employees,departments;
--- °øÅëÄÃ·³À» ¸í½ÃÇÏÁö ¾ÊÀ¸¸é,count = 2889, Å©·Î½º Á¶ÀÎ
+-- ê³µí†µì»¬ëŸ¼ì„ ëª…ì‹œí•˜ì§€ ì•Šìœ¼ë©´,count = 2889, í¬ë¡œìŠ¤ ì¡°ì¸
 
--- EQUI JOIN, µî°¡Á¶ÀÎ
+-- EQUI JOIN, ë“±ê°€ì¡°ì¸
 
-select employees.employee_id "»ç¿ø¹øÈ£",
-        departments.department_name "ºÎ¼­¸í"
+select employees.employee_id "ì‚¬ì›ë²ˆí˜¸",
+        departments.department_name "ë¶€ì„œëª…"
 from employees, departments
 where employees.department_id = departments.department_id;
 
--- »ç¿øÅ×ÀÌºí°ú ºÎ¼­Å×ÀÌºíÀ» Á¶ÀÎÇØ¼­ »ç¿øID°¡ 100ÀÎ »ç¶÷ÀÇ »ç¿øID¿Í ±Ù¹« 
--- ÁöID¸¦ Ãâ·ÂÇØ¶ó.
-select employees.employee_id "»ç¿ø¹øÈ£",
-        departments.location_id "±Ù¹«ID"
+-- ì‚¬ì›í…Œì´ë¸”ê³¼ ë¶€ì„œí…Œì´ë¸”ì„ ì¡°ì¸í•´ì„œ ì‚¬ì›IDê°€ 100ì¸ ì‚¬ëŒì˜ ì‚¬ì›IDì™€ ê·¼ë¬´ 
+-- ì§€IDë¥¼ ì¶œë ¥í•´ë¼.
+select employees.employee_id "ì‚¬ì›ë²ˆí˜¸",
+        departments.location_id "ê·¼ë¬´ID"
 from employees, departments
 where employees.department_id = departments.department_id 
 and employees.employee_id=100;
 
--- »ç¿øÅ×ÀÌºí°ú ºÎ¼­Å×ÀÌºíÀ» Á¶ÀÎÇØ¼­ »ç¿ø¹øÈ£¿Í ºÎ¼­¸íÀ» Ãâ·ÂÇÏ¶ó.
-select e.employee_id »ç¿ø¹øÈ£, d.department_name ºÎ¼­¸í
+-- ì‚¬ì›í…Œì´ë¸”ê³¼ ë¶€ì„œí…Œì´ë¸”ì„ ì¡°ì¸í•´ì„œ ì‚¬ì›ë²ˆí˜¸ì™€ ë¶€ì„œëª…ì„ ì¶œë ¥í•˜ë¼.
+select e.employee_id ì‚¬ì›ë²ˆí˜¸, d.department_name ë¶€ì„œëª…
 from employees e, departments d
 where e.department_id = d.department_id;
 
--- »ç¿øÅ×ÀÌºí°ú ºÎ¼­Å×ÀÌºíÀ» Á¶ÀÎÇØ¼­ »ç¿øID°¡ 100ÀÎ »ç¶÷ÀÇ »ç¿øID¿Í ±Ù¹« 
--- ÁöID¸¦ Ãâ·ÂÇØ¶ó.
-select e.employee_id "»ç¿ø¹øÈ£",
-        d.location_id "±Ù¹«ID"
+-- ì‚¬ì›í…Œì´ë¸”ê³¼ ë¶€ì„œí…Œì´ë¸”ì„ ì¡°ì¸í•´ì„œ ì‚¬ì›IDê°€ 100ì¸ ì‚¬ëŒì˜ ì‚¬ì›IDì™€ ê·¼ë¬´ 
+-- ì§€IDë¥¼ ì¶œë ¥í•´ë¼.
+select e.employee_id "ì‚¬ì›ë²ˆí˜¸",
+        d.location_id "ê·¼ë¬´ID"
 from employees e, departments d
 where e.department_id = d.department_id 
 and e.employee_id=100;
 
--- Ç¥ÁØ Á¶ÀÎ(ANSI JOIN)
-select e.first_name »ç¿ø¹øÈ£, d.department_name ºÎ¼­¸í
+-- í‘œì¤€ ì¡°ì¸(ANSI JOIN)
+select e.first_name ì‚¬ì›ë²ˆí˜¸, d.department_name ë¶€ì„œëª…
 from employees e join departments d
 on e.department_id =d.department_id;
 
--- »ç¿øÅ×ÀÌºí°ú ºÎ¼­Å×ÀÌºíÀ» Á¶ÀÎÇØ¼­ »ç¿øID°¡ 100ÀÎ »ç¶÷ÀÇ »ç¿øID¿Í ±Ù¹« 
--- ÁöID¸¦ Ãâ·ÂÇØ¶ó.
-select e.employee_id »ç¿øID, d.location_id "±Ù¹«ID"
+-- ì‚¬ì›í…Œì´ë¸”ê³¼ ë¶€ì„œí…Œì´ë¸”ì„ ì¡°ì¸í•´ì„œ ì‚¬ì›IDê°€ 100ì¸ ì‚¬ëŒì˜ ì‚¬ì›IDì™€ ê·¼ë¬´ 
+-- ì§€IDë¥¼ ì¶œë ¥í•´ë¼.
+select e.employee_id ì‚¬ì›ID, d.location_id "ê·¼ë¬´ID"
 from employees e join departments d
 on e.department_id=d.department_id  and e.employee_id=100;
 
--- ¼¼ Å×ÀÌºíÀÏ ¶§µµ °¡´É ÀÏÄ¡ÇÏ´Â ÄÃ·³°ªÀ¸·Î Á¶ÀÎ
--- »ç¿øÅ×ÀÌºí°ú ºÎ¼­Å×ÀÌºí, ¾÷¹«Å×ÀÌºíÀ» Á¶ÀÎÇØ¼­ »ç¿ø¹øÈ£¿Í ºÎ¼­¸í, ¾÷¹«Á¦¸ñÀ» Ãâ·ÂÇÏ¶ó.
-select e.employee_id »ç¿ø¹øÈ£, d.department_name ±Ù¹«ºÎ¼­, j.job_title ¾÷¹«Á¦¸ñ
+-- ì„¸ í…Œì´ë¸”ì¼ ë•Œë„ ê°€ëŠ¥ ì¼ì¹˜í•˜ëŠ” ì»¬ëŸ¼ê°’ìœ¼ë¡œ ì¡°ì¸
+-- ì‚¬ì›í…Œì´ë¸”ê³¼ ë¶€ì„œí…Œì´ë¸”, ì—…ë¬´í…Œì´ë¸”ì„ ì¡°ì¸í•´ì„œ ì‚¬ì›ë²ˆí˜¸ì™€ ë¶€ì„œëª…, ì—…ë¬´ì œëª©ì„ ì¶œë ¥í•˜ë¼.
+select e.employee_id ì‚¬ì›ë²ˆí˜¸, d.department_name ê·¼ë¬´ë¶€ì„œ, j.job_title ì—…ë¬´ì œëª©
 from employees e, departments d, jobs j
 where e.department_id =d.department_id 
 and e.job_id = j.job_id;
 
--- »ç¿øÅ×ÀÌºí°ú ºÎ¼­Å×ÀÌºí,¾÷¹«Å×ÀÌºíÀ» Á¶ÀÎÇØ¼­ »ç¿øID°¡ 100ÀÎ »ç¶÷ÀÇ »ç¿øID 
--- ¿Í ±Ù¹«ÁöID,¾÷¹«Á¦¸ñ¸¦ Ãâ·ÂÇØ¶ó.
-select e.employee_id »ç¿øID, d.location_id ±Ù¹«ID, j.job_title ¾÷¹«Á¦¸ñ
+-- ì‚¬ì›í…Œì´ë¸”ê³¼ ë¶€ì„œí…Œì´ë¸”,ì—…ë¬´í…Œì´ë¸”ì„ ì¡°ì¸í•´ì„œ ì‚¬ì›IDê°€ 100ì¸ ì‚¬ëŒì˜ ì‚¬ì›ID 
+-- ì™€ ê·¼ë¬´ì§€ID,ì—…ë¬´ì œëª©ë¥¼ ì¶œë ¥í•´ë¼.
+select e.employee_id ì‚¬ì›ID, d.location_id ê·¼ë¬´ID, j.job_title ì—…ë¬´ì œëª©
 from employees e, departments d, jobs j 
 where e.department_id =d.department_id 
 and e.job_id = j.job_id
 and e.employee_id=100;
 
--- ¼¼ Å×ÀÌºíÀÏ¶§µµ Ç¥ÁØ Á¶ÀÎ(ANSI JOIN)
--- »ç¿øÅ×ÀÌºí°ú ºÎ¼­Å×ÀÌºí,¾÷¹«Å×ÀÌºíÀ» Á¶ÀÎÇØ¼­ »ç¿ø¸í°ú ºÎ¼­¸í,¾÷¹«Á¦¸ñÀ» Ãâ·ÂÇÏ¶ó.
-select e.employee_id »ç¿ø¹øÈ£, d.department_name ±Ù¹«ºÎ¼­, j.job_title ¾÷¹«Á¦¸ñ
+-- ì„¸ í…Œì´ë¸”ì¼ë•Œë„ í‘œì¤€ ì¡°ì¸(ANSI JOIN)
+-- ì‚¬ì›í…Œì´ë¸”ê³¼ ë¶€ì„œí…Œì´ë¸”,ì—…ë¬´í…Œì´ë¸”ì„ ì¡°ì¸í•´ì„œ ì‚¬ì›ëª…ê³¼ ë¶€ì„œëª…,ì—…ë¬´ì œëª©ì„ ì¶œë ¥í•˜ë¼.
+select e.employee_id ì‚¬ì›ë²ˆí˜¸, d.department_name ê·¼ë¬´ë¶€ì„œ, j.job_title ì—…ë¬´ì œëª©
 from employees e join departments d
 on e.department_id =d.department_id
 join  jobs j
 on e.job_id = j.job_id;
 
--- »ç¿øÅ×ÀÌºí°ú ºÎ¼­Å×ÀÌºí,¾÷¹«Å×ÀÌºíÀ» Á¶ÀÎÇØ¼­ »ç¿øID°¡ 100ÀÎ »ç¶÷ÀÇ »ç¿øID 
--- ¿Í ±Ù¹«ÁöID,¾÷¹«Á¦¸ñ¸¦ Ãâ·ÂÇØ¶ó.
-select e.employee_id »ç¿øID, d.location_id ±Ù¹«ID, j.job_title ¾÷¹«Á¦¸ñ
+-- ì‚¬ì›í…Œì´ë¸”ê³¼ ë¶€ì„œí…Œì´ë¸”,ì—…ë¬´í…Œì´ë¸”ì„ ì¡°ì¸í•´ì„œ ì‚¬ì›IDê°€ 100ì¸ ì‚¬ëŒì˜ ì‚¬ì›ID 
+-- ì™€ ê·¼ë¬´ì§€ID,ì—…ë¬´ì œëª©ë¥¼ ì¶œë ¥í•´ë¼.
+select e.employee_id ì‚¬ì›ID, d.location_id ê·¼ë¬´ID, j.job_title ì—…ë¬´ì œëª©
 from employees e join departments d
 on e.department_id =d.department_id and e.employee_id=100
 join jobs j
 on e.job_id = j.job_id;
 
--- employees ¿Í departments Å×ÀÌºíÀ» Á¶ÀÎÇÏ¿© »ç¿øÀÌ¸§ÀÌ ¡®Steven¡¯ÀÎ 
--- »ç¿øÀÇ ÀÌ¸§°ú ¼º, ºÎ¼­¸íÀ» Ãâ·ÂÇÏµÇ ºÎ¼­¸íÀÌ ExecutiveÀÏ¶§´Â ÇàÁ¤ 
--- ºÎ, ShippingÀÏ¶§´Â ¹ß¼ÛºÎ¶ó°í Ãâ·ÂÇÏ¶ó.
-select e.last_name ¼º, e.first_name ÀÌ¸§, decode(d.department_name,'Executive','ÇàÁ¤ºÎ','Shipping','¹ß¼ÛºÎ')
+-- employees ì™€ departments í…Œì´ë¸”ì„ ì¡°ì¸í•˜ì—¬ ì‚¬ì›ì´ë¦„ì´ â€˜Stevenâ€™ì¸ 
+-- ì‚¬ì›ì˜ ì´ë¦„ê³¼ ì„±, ë¶€ì„œëª…ì„ ì¶œë ¥í•˜ë˜ ë¶€ì„œëª…ì´ Executiveì¼ë•ŒëŠ” í–‰ì • 
+-- ë¶€, Shippingì¼ë•ŒëŠ” ë°œì†¡ë¶€ë¼ê³  ì¶œë ¥í•˜ë¼.
+select e.last_name ì„±, e.first_name ì´ë¦„, decode(d.department_name,'Executive','í–‰ì •ë¶€','Shipping','ë°œì†¡ë¶€')
 from employees e , departments d
 where e.department_id =d.department_id
 and e.first_name = 'Steven';
 
--- employees ¿Í departments Å×ÀÌºíÀ» Á¶ÀÎÇÏ¿© ±Ş¿©°¡ 12000ÀÌ»óÀÎ 
--- »ç¿øÀÇ ºÎ¼­ID,ºÎ¼­¸í,ÀÌ¸§,±Ş¿©¸¦ Ãâ·ÂÇÏ¶ó.(±Ş¿©ÀÇ ³»¸²Â÷¼øÀ¸·Î Á¤·Ä)
-select e.department_id ºÎ¼­ID, d.department_name ºÎ¼­¸í, e.last_name ¼º, e.first_name ÀÌ¸§, e.salary ±Ş¿©
+-- employees ì™€ departments í…Œì´ë¸”ì„ ì¡°ì¸í•˜ì—¬ ê¸‰ì—¬ê°€ 12000ì´ìƒì¸ 
+-- ì‚¬ì›ì˜ ë¶€ì„œID,ë¶€ì„œëª…,ì´ë¦„,ê¸‰ì—¬ë¥¼ ì¶œë ¥í•˜ë¼.(ê¸‰ì—¬ì˜ ë‚´ë¦¼ì°¨ìˆœìœ¼ë¡œ ì •ë ¬)
+select e.department_id ë¶€ì„œID, d.department_name ë¶€ì„œëª…, e.last_name ì„±, e.first_name ì´ë¦„, e.salary ê¸‰ì—¬
 from employees e , departments d
 where e.department_id =d.department_id
 and e.salary >=12000
 order by e.salary desc;
 
--- ºñµî°¡ Á¶ÀÎÅ×½ºÆ®¸¦ À§ÇÑ Å×ÀÌºí »ı¼º
+-- ë¹„ë“±ê°€ ì¡°ì¸í…ŒìŠ¤íŠ¸ë¥¼ ìœ„í•œ í…Œì´ë¸” ìƒì„±
 CREATE TABLE SAL_GRADE 
 (
   GRADE NUMBER NOT NULL 
@@ -465,20 +465,20 @@ CREATE TABLE SAL_GRADE
 );
 
 ----------------------------------------
--- »ç¿øÅ×ÀÌºí¿¡¼­ 30¹ø ºÎ¼­»ç¿øµéÀÇ ±Ş¿©Á¤º¸
+-- ì‚¬ì›í…Œì´ë¸”ì—ì„œ 30ë²ˆ ë¶€ì„œì‚¬ì›ë“¤ì˜ ê¸‰ì—¬ì •ë³´
 select employee_id, salary
 from employees
 where department_id=30;
 
--- »ç¿øÅ×ÀÌºí¿¡¼­ 30¹ø ºÎ¼­»ç¿øµéÀÇ ±Ş¿©Á¤º¸
--- ±Ş¿©µî±Ş Å×ÀÌºí°ú Á¶ÀÎÇÏ¿© µî±Şº° Ç¥±â...
+-- ì‚¬ì›í…Œì´ë¸”ì—ì„œ 30ë²ˆ ë¶€ì„œì‚¬ì›ë“¤ì˜ ê¸‰ì—¬ì •ë³´
+-- ê¸‰ì—¬ë“±ê¸‰ í…Œì´ë¸”ê³¼ ì¡°ì¸í•˜ì—¬ ë“±ê¸‰ë³„ í‘œê¸°...
 select employee_id, salary, grade
 from employees e join sal_grade s
 on e.salary between s.min_sal and s.max_sal
 and e.department_id=30;
 
 -- SELF JOIN
-select e1.employee_id, e1.first_name||'ÀÇ ¸Å´ÏÀú'||e2.first_name ¸Å´ÏÀú
+select e1.employee_id, e1.first_name||'ì˜ ë§¤ë‹ˆì €'||e2.first_name ë§¤ë‹ˆì €
 from employees e1, employees e2
 where e1.manager_id = e2.employee_id
 order by e1.employee_id;
@@ -486,31 +486,31 @@ order by e1.employee_id;
 select * from employees
 where first_name = 'Steven';
 
--- ¿À¶óÅ¬ ¾Æ¿ìÅÍ Á¶ÀÎ
--- ¸Å´ÏÀú°¡ ¾ø´Â »ç¿øÁ¤º¸µµ Ãâ·ÂµÇµµ·Ï ÇÏ±â.
-select e1.employee_id, e1.first_name||'ÀÇ ¸Å´ÏÀú'||e2.first_name ¸Å´ÏÀú
+-- ì˜¤ë¼í´ ì•„ìš°í„° ì¡°ì¸
+-- ë§¤ë‹ˆì €ê°€ ì—†ëŠ” ì‚¬ì›ì •ë³´ë„ ì¶œë ¥ë˜ë„ë¡ í•˜ê¸°.
+select e1.employee_id, e1.first_name||'ì˜ ë§¤ë‹ˆì €'||e2.first_name ë§¤ë‹ˆì €
 from employees e1 join employees e2
 on e1.manager_id = e2.employee_id(+)
 order by e1.employee_id;
 
--- ºÎ¼­Å×ÀÌºí°ú »ç¿øÅ×ÀÌºíÀ» Á¶ÀÎ½Ã
--- ºÎ¼­°¡ ¾ø´Â »ç¿øµµ Ãâ·ÂµÇµµ·Ï ÇÏ¼¼¿ä
+-- ë¶€ì„œí…Œì´ë¸”ê³¼ ì‚¬ì›í…Œì´ë¸”ì„ ì¡°ì¸ì‹œ
+-- ë¶€ì„œê°€ ì—†ëŠ” ì‚¬ì›ë„ ì¶œë ¥ë˜ë„ë¡ í•˜ì„¸ìš”
 SELECT e.employee_id, e.first_name, d.department_name 
 FROM employees e, departments d
 WHERE e.department_id = d.department_id(+) ;
 
--- ºÎ¼­Å×ÀÌºí°ú »ç¿øÅ×ÀÌºíÀ» Á¶ÀÎ½Ã
--- »ç¿øÀÌ ¾ø´Â ºÎ¼­µµ Ãâ·ÂµÇµµ·Ï ÇÏ¼¼¿ä
+-- ë¶€ì„œí…Œì´ë¸”ê³¼ ì‚¬ì›í…Œì´ë¸”ì„ ì¡°ì¸ì‹œ
+-- ì‚¬ì›ì´ ì—†ëŠ” ë¶€ì„œë„ ì¶œë ¥ë˜ë„ë¡ í•˜ì„¸ìš”
 SELECT e.employee_id, e.first_name, d.department_name 
 FROM employees e, departments d
 WHERE e.department_id(+) = d.department_id ;
 
--- join using »ç¿ëÇÏ±â
+-- join using ì‚¬ìš©í•˜ê¸°
 SELECT employee_id, department_id, department_name 
 FROM employees join departments 
 using(department_id);
 
--- Ç¥ÁØ outer join
+-- í‘œì¤€ outer join
 SELECT employee_id, department_id, department_name 
 FROM employees left join departments 
 using(department_id);
@@ -523,7 +523,7 @@ SELECT employee_id, department_id, department_name
 FROM employees full join departments 
 using(department_id);
 
--- NATURAL JOIN (½ÃÇè¹®Á¦¿ë)
+-- NATURAL JOIN (ì‹œí—˜ë¬¸ì œìš©)
 select employee_id, department_name
 from employees natural join departments;
 
@@ -531,51 +531,51 @@ select department_id, department_name,
         location_id,city
 from departments natural join locations;
 
--- 1.»ç¿ø Å×ÀÌºí°ú ºÎ¼­ Å×ÀÌºíÀ» Á¶ÀÎÇÏ¿© ¸ğµç »ç¿øID,»ç¿øÀÌ¸§,±Ş¿©,ºÎ¼­¸íÀ» 
--- Ãâ·ÂÇÏ¶ó.(ºÎ¼­¸í ³»¸²Â÷¼ø Á¤·Ä)
-select e.employee_id "»ç¿øID", e.first_name "»ç¿øÀÌ¸§", e.salary "±Ş¿©", d.department_name "ºÎ¼­¸í"
+-- 1.ì‚¬ì› í…Œì´ë¸”ê³¼ ë¶€ì„œ í…Œì´ë¸”ì„ ì¡°ì¸í•˜ì—¬ ëª¨ë“  ì‚¬ì›ID,ì‚¬ì›ì´ë¦„,ê¸‰ì—¬,ë¶€ì„œëª…ì„ 
+-- ì¶œë ¥í•˜ë¼.(ë¶€ì„œëª… ë‚´ë¦¼ì°¨ìˆœ ì •ë ¬)
+select e.employee_id "ì‚¬ì›ID", e.first_name "ì‚¬ì›ì´ë¦„", e.salary "ê¸‰ì—¬", d.department_name "ë¶€ì„œëª…"
 from employees e, departments d
 where e.department_id(+) = d.department_id
 order by d.department_name desc;
 
--- 2. »ç¿ø Å×ÀÌºí°ú ºÎ¼­ Å×ÀÌºíÀ» Á¶ÀÎÇÏ¿© Á÷¾÷ID°¡ ¡®IT_PROG¡® ÀÎ »ç¿øµéÀÇ 
--- »ç¿øÀÌ¸§, Á÷¾÷ID,ºÎ¼­¸í, À§Ä¡ID¸¦ Ãâ·ÂÇÏ¼¼¿ä.
-select e.first_name "»ç¿øÀÌ¸§", e.job_id "Á÷¾÷ID",d.department_name "ºÎ¼­¸í",d.location_id "À§Ä¡ID"
+-- 2. ì‚¬ì› í…Œì´ë¸”ê³¼ ë¶€ì„œ í…Œì´ë¸”ì„ ì¡°ì¸í•˜ì—¬ ì§ì—…IDê°€ â€˜IT_PROGâ€˜ ì¸ ì‚¬ì›ë“¤ì˜ 
+-- ì‚¬ì›ì´ë¦„, ì§ì—…ID,ë¶€ì„œëª…, ìœ„ì¹˜IDë¥¼ ì¶œë ¥í•˜ì„¸ìš”.
+select e.first_name "ì‚¬ì›ì´ë¦„", e.job_id "ì§ì—…ID",d.department_name "ë¶€ì„œëª…",d.location_id "ìœ„ì¹˜ID"
 from employees e, departments d
 where e.department_id(+) = d.department_id
 and e.job_id ='IT_PROG';
 
--- 3. ºÎ¼­ Å×ÀÌºí°ú »ç¿ø Å×ÀÌºí¿¡¼­ »ç¹ø, »ç¿ø¸í, ¾÷¹«, ±Ş¿© , ºÎ¼­¸íÀ» 
--- °Ë»öÇÏ½Ã¿À. ´Ü, ¾÷¹«¸íÀÌ '%Manager' ÀÌ¸ç ±Ş¿©°¡ 8000 ÀÌ»óÀÎ 
--- »ç¿ø¿¡ ´ëÇÏ¿© »ç¹øÀ» ±âÁØÀ¸·Î ¿À¸§Â÷¼ø Á¤·ÄÇÒ °Í.
-select e.employee_id "»ç¹ø", e.first_name "»ç¿ø¸í",j.job_title "¾÷¹«",e.salary "±Ş¿©",d.department_name "ºÎ¼­¸í"
+-- 3. ë¶€ì„œ í…Œì´ë¸”ê³¼ ì‚¬ì› í…Œì´ë¸”ì—ì„œ ì‚¬ë²ˆ, ì‚¬ì›ëª…, ì—…ë¬´, ê¸‰ì—¬ , ë¶€ì„œëª…ì„ 
+-- ê²€ìƒ‰í•˜ì‹œì˜¤. ë‹¨, ì—…ë¬´ëª…ì´ '%Manager' ì´ë©° ê¸‰ì—¬ê°€ 8000 ì´ìƒì¸ 
+-- ì‚¬ì›ì— ëŒ€í•˜ì—¬ ì‚¬ë²ˆì„ ê¸°ì¤€ìœ¼ë¡œ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬í•  ê²ƒ.
+select e.employee_id "ì‚¬ë²ˆ", e.first_name "ì‚¬ì›ëª…",j.job_title "ì—…ë¬´",e.salary "ê¸‰ì—¬",d.department_name "ë¶€ì„œëª…"
 from employees e, departments d, jobs j
 where e.department_id = d.department_id
 and j.job_title like '%Manager'
 and e.salary >=8000
 order by  e.employee_id asc;
 
---sub query »ç¿øÅ×ÀÌºí¿¡¼­ Æò±Õ±Ş¿©º¸´Ù ±Ş¿©°¡ ¸¹Àº »ç¿øµéÀ» Ãâ·Â
+--sub query ì‚¬ì›í…Œì´ë¸”ì—ì„œ í‰ê· ê¸‰ì—¬ë³´ë‹¤ ê¸‰ì—¬ê°€ ë§ì€ ì‚¬ì›ë“¤ì„ ì¶œë ¥
 select * from employees where salary < 
 (select round(avg(salary)) from employees);
 
 
--- David Austin º¸´Ù ¿ù±ŞÀÌ ÀÛÀº »ç¿øµé¸¸ Ãâ·Â
+-- David Austin ë³´ë‹¤ ì›”ê¸‰ì´ ì‘ì€ ì‚¬ì›ë“¤ë§Œ ì¶œë ¥
 select * from employees where salary <
 (select  salary from employees 
 where first_name = 'David' and last_name = 'Austin');
 
--- David Austin º¸´Ù ÀÔ»ç°¡ ´ÊÀº »ç¿øµé¸¸ Ãâ·Â
+-- David Austin ë³´ë‹¤ ì…ì‚¬ê°€ ëŠ¦ì€ ì‚¬ì›ë“¤ë§Œ ì¶œë ¥
 select * from employees where hire_date >
 (select  hire_date from employees 
 where last_name = 'Austin');
 
--- David Austin °ú °°Àº ºÎ¼­»ç¿øµé¸¸ Ãâ·Â
+-- David Austin ê³¼ ê°™ì€ ë¶€ì„œì‚¬ì›ë“¤ë§Œ ì¶œë ¥
 select * from employees where department_id =
 (select  department_id from employees 
 where last_name = 'Austin');
 
--- »ç¿øÅ×ÀÌºí¿¡¼­ ±Ş¿©°¡ Á¦ÀÏ ¸¹Àº »ç¿øÀÇ Á¤º¸¸¦ Ãâ·ÂÇÏ½Ã¿À.
+-- ì‚¬ì›í…Œì´ë¸”ì—ì„œ ê¸‰ì—¬ê°€ ì œì¼ ë§ì€ ì‚¬ì›ì˜ ì •ë³´ë¥¼ ì¶œë ¥í•˜ì‹œì˜¤.
 select * from employees where salary = 
 (select max(salary) from employees);
 
@@ -583,87 +583,87 @@ select * from employees where salary =
 select salary from employees
 where department_id=60;
 
---60¹ø ºÎ¼­ »ç¿øµé°ú °°Àº ±Ş¿©¸¦ ¹Ş´Â »ç¿øµéÀ» Ãâ·Â
+--60ë²ˆ ë¶€ì„œ ì‚¬ì›ë“¤ê³¼ ê°™ì€ ê¸‰ì—¬ë¥¼ ë°›ëŠ” ì‚¬ì›ë“¤ì„ ì¶œë ¥
 select * from employees
 where salary in (9000,6000,4800,4800,4200);
 
--- ANY: 60¹ø ºÎ¼­ »ç¿øµéÀÇ ±Ş¿©Áß °¡Àå ÀÛÀº ±Ş¿©º¸´Ù Å«(ÀÌ»ó) ±Ş¿©¸¦ ¹Ş´Â »ç¿øµéÀ» Ãâ·Â
+-- ANY: 60ë²ˆ ë¶€ì„œ ì‚¬ì›ë“¤ì˜ ê¸‰ì—¬ì¤‘ ê°€ì¥ ì‘ì€ ê¸‰ì—¬ë³´ë‹¤ í°(ì´ìƒ) ê¸‰ì—¬ë¥¼ ë°›ëŠ” ì‚¬ì›ë“¤ì„ ì¶œë ¥
 select * from employees
 where salary >any (select salary from employees where department_id=60)
 order by salary;
 
 
--- ALL: 60¹ø ºÎ¼­ »ç¿øµéÀÇ ±Ş¿©Áß °¡Àå ÀÛÀº ±Ş¿©º¸´Ù ÀÛÀº(ÀÌÇÏ) ±Ş¿©¸¦ ¹Ş´Â »ç¿øµéÀ» Ãâ·Â
+-- ALL: 60ë²ˆ ë¶€ì„œ ì‚¬ì›ë“¤ì˜ ê¸‰ì—¬ì¤‘ ê°€ì¥ ì‘ì€ ê¸‰ì—¬ë³´ë‹¤ ì‘ì€(ì´í•˜) ê¸‰ì—¬ë¥¼ ë°›ëŠ” ì‚¬ì›ë“¤ì„ ì¶œë ¥
 select * from employees
 where salary <all (select salary from employees where department_id=60)
 order by salary;
 
--- »ç¿øÅ×ÀÌºí¿¡¼­ ¾÷¹« º°·Î ÃÖ¼Ò ±Ş¿©¸¦ ¹Ş´Â »ç¿øÀÇ Á¤º¸¸¦ »ç¿ø¹øÈ£,ÀÌ¸§,¾÷¹«,ÀÔ»çÀÏÀÚ,±Ş¿©,ºÎ¼­¹øÈ£¸¦ Ãâ·ÂÇÏ¶ó.
+-- ì‚¬ì›í…Œì´ë¸”ì—ì„œ ì—…ë¬´ ë³„ë¡œ ìµœì†Œ ê¸‰ì—¬ë¥¼ ë°›ëŠ” ì‚¬ì›ì˜ ì •ë³´ë¥¼ ì‚¬ì›ë²ˆí˜¸,ì´ë¦„,ì—…ë¬´,ì…ì‚¬ì¼ì,ê¸‰ì—¬,ë¶€ì„œë²ˆí˜¸ë¥¼ ì¶œë ¥í•˜ë¼.
 select min(salary) from employees 
 group by job_id;
 
-select first_name||' '||last_name "ÀÌ¸§", job_id, hire_date, salary, department_id
+select first_name||' '||last_name "ì´ë¦„", job_id, hire_date, salary, department_id
 from employees
 where salary in (select min(salary) from employees 
 group by job_id);
 
--- »ç¿ø Å×ÀÌºí¿¡¼­ ¾÷¹« º°·Î Æò±Õ ±Ş¿©°¡ 14000ÀÌ»óÀÎ »ç¿øÀÇ ÃÖ¼Ò±Ş¿©º¸´Ù ¸¹Àº ±Ş¿©¸¦ ¹Ş´Â »ç¿øÀÇ Á¤º¸¸¦ »ç¿ø¹øÈ£,ÀÌ¸§,¾÷¹«,ÀÔ»çÀÏÀÚ,±Ş¿©,ºÎ¼­¹øÈ£¸¦ Ãâ·ÂÇÏ¶ó.
-select first_name||' '||last_name "ÀÌ¸§", job_id, hire_date, salary, department_id
+-- ì‚¬ì› í…Œì´ë¸”ì—ì„œ ì—…ë¬´ ë³„ë¡œ í‰ê·  ê¸‰ì—¬ê°€ 14000ì´ìƒì¸ ì‚¬ì›ì˜ ìµœì†Œê¸‰ì—¬ë³´ë‹¤ ë§ì€ ê¸‰ì—¬ë¥¼ ë°›ëŠ” ì‚¬ì›ì˜ ì •ë³´ë¥¼ ì‚¬ì›ë²ˆí˜¸,ì´ë¦„,ì—…ë¬´,ì…ì‚¬ì¼ì,ê¸‰ì—¬,ë¶€ì„œë²ˆí˜¸ë¥¼ ì¶œë ¥í•˜ë¼.
+select first_name||' '||last_name "ì´ë¦„", job_id, hire_date, salary, department_id
 from employees
 where salary >any (select avg(salary) from employees
 where salary>=14000
 group by job_id);
 
 
--- »ç¿ø Å×ÀÌºí¿¡¼­ ¾÷¹« º°·Î Æò±Õ ±Ş¿©°¡ 14000ÀÌ»óÀÎ »ç¿øÀÇ ÃÖ´ë±Ş¿©º¸´Ù ÀûÀº ±Ş¿©¸¦ ¹Ş´Â »ç¿øÀÇ Á¤º¸¸¦ »ç¿ø¹øÈ£,ÀÌ¸§,¾÷¹«,ÀÔ»çÀÏÀÚ,±Ş¿©,ºÎ¼­¹øÈ£¸¦ Ãâ·ÂÇÏ¶ó.
-select first_name||' '||last_name "ÀÌ¸§", job_id, hire_date, salary, department_id
+-- ì‚¬ì› í…Œì´ë¸”ì—ì„œ ì—…ë¬´ ë³„ë¡œ í‰ê·  ê¸‰ì—¬ê°€ 14000ì´ìƒì¸ ì‚¬ì›ì˜ ìµœëŒ€ê¸‰ì—¬ë³´ë‹¤ ì ì€ ê¸‰ì—¬ë¥¼ ë°›ëŠ” ì‚¬ì›ì˜ ì •ë³´ë¥¼ ì‚¬ì›ë²ˆí˜¸,ì´ë¦„,ì—…ë¬´,ì…ì‚¬ì¼ì,ê¸‰ì—¬,ë¶€ì„œë²ˆí˜¸ë¥¼ ì¶œë ¥í•˜ë¼.
+select first_name||' '||last_name "ì´ë¦„", job_id, hire_date, salary, department_id
 from employees
 where salary <any (select avg(salary) from employees
 where salary>=14000
 group by job_id);
 
--- 80¹ø ºÎ¼­ »ç¿øµéÀÇ ±Ş¿©º¸´Ù ¸¹Àº ±Ş¿©¸¦ ¹Ş´Â »ç¿øÀ» Ãâ·ÂÇÏ¶ó.
-select employee_id,first_name||' '||last_name "ÀÌ¸§", job_id, hire_date, salary, department_id
+-- 80ë²ˆ ë¶€ì„œ ì‚¬ì›ë“¤ì˜ ê¸‰ì—¬ë³´ë‹¤ ë§ì€ ê¸‰ì—¬ë¥¼ ë°›ëŠ” ì‚¬ì›ì„ ì¶œë ¥í•˜ë¼.
+select employee_id,first_name||' '||last_name "ì´ë¦„", job_id, hire_date, salary, department_id
 from employees
 where salary >all(select salary from employees
 where department_id=80);
 
--- 80¹ø ºÎ¼­ »ç¿øµéÀÇ ±Ş¿©º¸´Ù ÀûÀº ±Ş¿©¸¦ ¹Ş´Â »ç¿øÀ» Ãâ·ÂÇÏ¶ó.
-select employee_id,first_name||' '||last_name "ÀÌ¸§", job_id, hire_date, salary, department_id
+-- 80ë²ˆ ë¶€ì„œ ì‚¬ì›ë“¤ì˜ ê¸‰ì—¬ë³´ë‹¤ ì ì€ ê¸‰ì—¬ë¥¼ ë°›ëŠ” ì‚¬ì›ì„ ì¶œë ¥í•˜ë¼.
+select employee_id,first_name||' '||last_name "ì´ë¦„", job_id, hire_date, salary, department_id
 from employees
 where salary <all(select salary from employees
 where department_id=80);
 
--- »ç¿øÅ×ÀÌºí¿¡ Á¸ÀçÇÏ´Â ºÎ¼­ÄÚµå¿Í ºÎ¼­ÀÌ¸§À» Ãâ·ÂÇÏ¶ó. (exists)
+-- ì‚¬ì›í…Œì´ë¸”ì— ì¡´ì¬í•˜ëŠ” ë¶€ì„œì½”ë“œì™€ ë¶€ì„œì´ë¦„ì„ ì¶œë ¥í•˜ë¼. (exists)
 select department_id, department_name
 from departments
 where exists(select distinct department_id from employees where departments.department_id = employees.department_id);
 
--- »ç¿ø Å×ÀÌºí¿¡¼­ ºÎÇÏÁ÷¿øÀÌ ¾ø´Â »ç¿øÀÇ ¸ğµç Á¤º¸¸¦ exists¸¦ ÀÌ¿ëÇÏ¿© ÀÛ¼ºÇÏ¶ó.
+-- ì‚¬ì› í…Œì´ë¸”ì—ì„œ ë¶€í•˜ì§ì›ì´ ì—†ëŠ” ì‚¬ì›ì˜ ëª¨ë“  ì •ë³´ë¥¼ existsë¥¼ ì´ìš©í•˜ì—¬ ì‘ì„±í•˜ë¼.
 select employee_id, first_name
 from employees e1
 where not exists(select employee_id from employees e2 where e1.employee_id = e2.manager_id);
 
--- ¾÷¹«º°·Î ÃÖ¼Ò±Ş¿©¸¦ ¹Ş´Â »ç¿øÀÇ Á¤º¸¸¦ »ç¿ø¹øÈ£, ÀÌ¸§, ¾÷¹«, ±Ş¿©, ºÎ¼­¹øÈ£¸¦ Ãâ·ÂÇÏ¶ó.
-select employee_id,first_name||' '||last_name "ÀÌ¸§", job_id,salary, department_id
+-- ì—…ë¬´ë³„ë¡œ ìµœì†Œê¸‰ì—¬ë¥¼ ë°›ëŠ” ì‚¬ì›ì˜ ì •ë³´ë¥¼ ì‚¬ì›ë²ˆí˜¸, ì´ë¦„, ì—…ë¬´, ê¸‰ì—¬, ë¶€ì„œë²ˆí˜¸ë¥¼ ì¶œë ¥í•˜ë¼.
+select employee_id,first_name||' '||last_name "ì´ë¦„", job_id,salary, department_id
 from employees
 where (job_id,salary) in(select job_id,min(salary) from employees group by job_id);
 
--- Å×ÀÌºí¿¡¼­ Àû¾îµµ ÇÑ ¸íÀÇ »ç¿øÀ¸·ÎºÎÅÍ º¸°í¸¦ ¹ŞÀ» ¼ö ÀÖ´Â »ç¿øÀÇ Á¤º¸¸¦ »ç¿ø¹øÈ£, ÀÌ¸§, ¾÷¹«, ÀÔ»çÀÏÀÚ, ±Ş¿©¸¦ Ãâ·ÂÇÏ¶ó.
-select employee_id,first_name||' '||last_name "ÀÌ¸§", job_id, hire_date, salary
+-- í…Œì´ë¸”ì—ì„œ ì ì–´ë„ í•œ ëª…ì˜ ì‚¬ì›ìœ¼ë¡œë¶€í„° ë³´ê³ ë¥¼ ë°›ì„ ìˆ˜ ìˆëŠ” ì‚¬ì›ì˜ ì •ë³´ë¥¼ ì‚¬ì›ë²ˆí˜¸, ì´ë¦„, ì—…ë¬´, ì…ì‚¬ì¼ì, ê¸‰ì—¬ë¥¼ ì¶œë ¥í•˜ë¼.
+select employee_id,first_name||' '||last_name "ì´ë¦„", job_id, hire_date, salary
 from employees e
 where exists(select * from employees where e.employee_id = manager_id);
 
--- ¼Ò¼ÓºÎ¼­ÀÇ Æò±Õ ±Ş¿©º¸´Ù ¸¹Àº ±Ş¿©¸¦ ¹Ş´Â »ç¿øÀ» Ãâ·ÂÇÏ¶ó.
+-- ì†Œì†ë¶€ì„œì˜ í‰ê·  ê¸‰ì—¬ë³´ë‹¤ ë§ì€ ê¸‰ì—¬ë¥¼ ë°›ëŠ” ì‚¬ì›ì„ ì¶œë ¥í•˜ë¼.
 select * from employees e
 where salary > (select avg(salary) from employees where department_id = e.department_id);
 
--- 'David Austin'ÀÇ Á÷¾÷À» 'John Chen'ÀÎ »ç¶÷ÀÇ Á÷¾÷°ú °°Àº Á÷¾÷À¸·Î º¯°æ
+-- 'David Austin'ì˜ ì§ì—…ì„ 'John Chen'ì¸ ì‚¬ëŒì˜ ì§ì—…ê³¼ ê°™ì€ ì§ì—…ìœ¼ë¡œ ë³€ê²½
 update employees set job_id = (select job_id from employees where first_name='John' and last_name='Chen') where first_name = 'David' and last_name = 'Austin';
 
 select job_id from employees where first_name = 'David' and last_name = 'Austin';
 
---ÃÖ¼Ò±Ş¿©¸¦ ¹Ş´Â »ç¿øµéÀ» »èÁ¦ ÇÏ¶ó.
+--ìµœì†Œê¸‰ì—¬ë¥¼ ë°›ëŠ” ì‚¬ì›ë“¤ì„ ì‚­ì œ í•˜ë¼.
 select employee_id,first_name||' '||last_name, salary from employees
 where salary = (select min(salary) from employees);
 
@@ -673,62 +673,62 @@ select employee_id,first_name||' '||last_name, salary from employees
 where salary = (select min(salary) from employees);
 
 
--- Q1) ÀÔ»ç¹øÈ£(»ç¿øID)°¡ 103ÀÎ »ç¿ø°ú °°Àº Á÷¾÷(job_ID)À» °¡Áø »ç¿øµéÀÇ Á¤º¸¸¦ Ãâ·ÂÇÏ½Ã¿À.
+-- Q1) ì…ì‚¬ë²ˆí˜¸(ì‚¬ì›ID)ê°€ 103ì¸ ì‚¬ì›ê³¼ ê°™ì€ ì§ì—…(job_ID)ì„ ê°€ì§„ ì‚¬ì›ë“¤ì˜ ì •ë³´ë¥¼ ì¶œë ¥í•˜ì‹œì˜¤.
 select * from employees
 where job_id =(select job_id from employees where employee_id=103);
 
--- Q2) Diana Lorentz¿Í °°Àº ºÎ¼­ÀÇ »ç¿øµéÀÇ Á¤º¸¸¦ Ãâ·ÂÇÏ½Ã¿À.
+-- Q2) Diana Lorentzì™€ ê°™ì€ ë¶€ì„œì˜ ì‚¬ì›ë“¤ì˜ ì •ë³´ë¥¼ ì¶œë ¥í•˜ì‹œì˜¤.
 select * from employees
 where department_id = (select department_id from employees where first_name='Diana' and last_name='Lorentz');
 
--- Q3) »ç¿ø Å×ÀÌºí¿¡¼­ 110¹ø ºÎ¼­ÀÇ ÃÖ°í ±Ş¿©¸¦ ¹Ş´Â »ç¿øº¸´Ù ¸¹Àº ±Ş¿©¸¦ ¹Ş´Â »ç¿øÀÇ Á¤º¸¸¦ »ç¿ø¹øÈ£,ÀÌ¸§,¾÷¹«,ÀÔ»çÀÏÀÚ,±Ş¿©,ºÎ¼­¹øÈ£¸¦ Ãâ·ÂÇÏ¶ó.
-select employee_id »ç¿ø¹øÈ£, first_name||' '||last_name ÀÌ¸§, job_id ¾÷¹«, hire_date ÀÔ»çÀÏÀÚ, salary ±Ş¿©, department_id ºÎ¼­¹øÈ£
+-- Q3) ì‚¬ì› í…Œì´ë¸”ì—ì„œ 110ë²ˆ ë¶€ì„œì˜ ìµœê³  ê¸‰ì—¬ë¥¼ ë°›ëŠ” ì‚¬ì›ë³´ë‹¤ ë§ì€ ê¸‰ì—¬ë¥¼ ë°›ëŠ” ì‚¬ì›ì˜ ì •ë³´ë¥¼ ì‚¬ì›ë²ˆí˜¸,ì´ë¦„,ì—…ë¬´,ì…ì‚¬ì¼ì,ê¸‰ì—¬,ë¶€ì„œë²ˆí˜¸ë¥¼ ì¶œë ¥í•˜ë¼.
+select employee_id ì‚¬ì›ë²ˆí˜¸, first_name||' '||last_name ì´ë¦„, job_id ì—…ë¬´, hire_date ì…ì‚¬ì¼ì, salary ê¸‰ì—¬, department_id ë¶€ì„œë²ˆí˜¸
 from employees
 where salary > (select max(salary) from employees where department_id=110);
 
-------------------------------------------------- ¹®Á¦Ç®ÀÌ
+------------------------------------------------- ë¬¸ì œí’€ì´
 
--- Q1) »ç¿ø°ú ºÎ¼­ TABLEÀ» JOINÇÏ¿© ºÎ¼­ID,ºÎ¼­¸í,ÀÌ¸§,±Ş¿©¸¦ Ãâ·ÂÇÏ¶ó. (´Ü, ANSI JOINÀ» »ç¿ëÇÏ¶ó.)
-select d.department_id ºÎ¼­ID, d.department_name ºÎ¼­¸í, first_name||' '||last_name ÀÌ¸§, salary ±Ş¿©
+-- Q1) ì‚¬ì›ê³¼ ë¶€ì„œ TABLEì„ JOINí•˜ì—¬ ë¶€ì„œID,ë¶€ì„œëª…,ì´ë¦„,ê¸‰ì—¬ë¥¼ ì¶œë ¥í•˜ë¼. (ë‹¨, ANSI JOINì„ ì‚¬ìš©í•˜ë¼.)
+select d.department_id ë¶€ì„œID, d.department_name ë¶€ì„œëª…, first_name||' '||last_name ì´ë¦„, salary ê¸‰ì—¬
 from employees e join departments d
 on e.department_id = d.department_id;
 
--- Q2) ÀÌ¸§ÀÌ 'Steven'ÀÎ »ç¿øÀÇ ºÎ¼­¸íÀ» Ãâ·ÂÇÏ¶ó.
+-- Q2) ì´ë¦„ì´ 'Steven'ì¸ ì‚¬ì›ì˜ ë¶€ì„œëª…ì„ ì¶œë ¥í•˜ë¼.
 select department_name
 from departments
 where department_id in (select department_id from employees where first_name='Steven');
 
--- Q3) ºÎ¼­TABLE¿¡ ÀÖ´Â ¸ğµç ºÎ¼­¸¦ Ãâ·ÂÇÏ°í, »ç¿ø TABLE¿¡ ÀÖ´Â DATA¿Í JOINÇÏ¿© ¸ğµç »ç¿øÀÇ ÀÌ¸§,ºÎ¼­ID,ºÎ¼­¸í,±Ş¿©¸¦ Ãâ·ÂÇÏ¶ó.
+-- Q3) ë¶€ì„œTABLEì— ìˆëŠ” ëª¨ë“  ë¶€ì„œë¥¼ ì¶œë ¥í•˜ê³ , ì‚¬ì› TABLEì— ìˆëŠ” DATAì™€ JOINí•˜ì—¬ ëª¨ë“  ì‚¬ì›ì˜ ì´ë¦„,ë¶€ì„œID,ë¶€ì„œëª…,ê¸‰ì—¬ë¥¼ ì¶œë ¥í•˜ë¼.
 select department_name from departments;
 
-select first_name||' '||last_name ÀÌ¸§,d.department_id ºÎ¼­ID,d.department_name ºÎ¼­¸í,salary ±Ş¿©
+select first_name||' '||last_name ì´ë¦„,d.department_id ë¶€ì„œID,d.department_name ë¶€ì„œëª…,salary ê¸‰ì—¬
 from employees e left join departments d
 on e.department_id = d.department_id;
 
--- Q4)»ç¿ø TABLE¿¡ ÀÖ´Â ¸ğµç employee_id¿Í manager_idÀ» ÀÌ¿ëÇÏ¿© ¼­·ÎÀÇ °ü°è¸¦ ´ÙÀ½°ú °°ÀÌ Ãâ·ÂÇÏ¶ó.
--- (¿¹: NeenaÀÇ ¸Å´ÏÀú´Â StevenÀÌ´Ù. ´Ü, ¸Å´ÏÀú°¡ ¾øÀ¸¸é ¾øÀ½À¸·Î Ç¥½ÃÇÒ °Í.)
-select e1.employee_id, e1.first_name || 'ÀÇ ¸Å´ÏÀú´Â ' || NVL(e2.first_name, '¾øÀ½')
+-- Q4)ì‚¬ì› TABLEì— ìˆëŠ” ëª¨ë“  employee_idì™€ manager_idì„ ì´ìš©í•˜ì—¬ ì„œë¡œì˜ ê´€ê³„ë¥¼ ë‹¤ìŒê³¼ ê°™ì´ ì¶œë ¥í•˜ë¼.
+-- (ì˜ˆ: Neenaì˜ ë§¤ë‹ˆì €ëŠ” Stevenì´ë‹¤. ë‹¨, ë§¤ë‹ˆì €ê°€ ì—†ìœ¼ë©´ ì—†ìŒìœ¼ë¡œ í‘œì‹œí•  ê²ƒ.)
+select e1.employee_id, e1.first_name || 'ì˜ ë§¤ë‹ˆì €ëŠ” ' || NVL(e2.first_name, 'ì—†ìŒ')
 from employees e1 , employees e2
 where e1.manager_id = e2.employee_id(+)
 order by e1.employee_id;
 
--- Q5-1)'Neena'ÀÇ Á÷¹«¿Í °°Àº »ç¿øÀÌ¸§,ºÎ¼­ID,±Ş¿©,Á÷¹«¸¦ Ãâ·ÂÇÏ¶ó.
-select first_name||' '||last_name ÀÌ¸§,department_id ºÎ¼­ID, salary ±Ş¿©, job_id
+-- Q5-1)'Neena'ì˜ ì§ë¬´ì™€ ê°™ì€ ì‚¬ì›ì´ë¦„,ë¶€ì„œID,ê¸‰ì—¬,ì§ë¬´ë¥¼ ì¶œë ¥í•˜ë¼.
+select first_name||' '||last_name ì´ë¦„,department_id ë¶€ì„œID, salary ê¸‰ì—¬, job_id
 from employees
 where job_id = (select job_id from employees where first_name='Neena');
 
--- Q5-2)'Neena'ÀÇ Á÷¹«¿Í °°Àº »ç¿øÀÌ¸§,ºÎ¼­¸í,±Ş¿©,Á÷¹«¸¦ Ãâ·ÂÇÏ¶ó.
-select e.first_name||' '||e.last_name ÀÌ¸§,d.department_name ºÎ¼­¸í, e.salary ±Ş¿©, e.job_id
+-- Q5-2)'Neena'ì˜ ì§ë¬´ì™€ ê°™ì€ ì‚¬ì›ì´ë¦„,ë¶€ì„œëª…,ê¸‰ì—¬,ì§ë¬´ë¥¼ ì¶œë ¥í•˜ë¼.
+select e.first_name||' '||e.last_name ì´ë¦„,d.department_name ë¶€ì„œëª…, e.salary ê¸‰ì—¬, e.job_id
 from employees e , departments d
 where e.department_id = d.department_id
 and job_id = (select job_id from employees where first_name='Neena');
 
--- Q6) 'John'ÀÌ ¼ÓÇØÀÖ´Â ºÎ¼­ÀÇ ¸ğµç »ç¶÷ÀÇ ºÎ¼­¹øÈ£, »ç¿øID, ÀÌ¸§, ÀÔ»çÀÏ, ±Ş¿©¸¦ Ãâ·ÂÇÏ¶ó.
+-- Q6) 'John'ì´ ì†í•´ìˆëŠ” ë¶€ì„œì˜ ëª¨ë“  ì‚¬ëŒì˜ ë¶€ì„œë²ˆí˜¸, ì‚¬ì›ID, ì´ë¦„, ì…ì‚¬ì¼, ê¸‰ì—¬ë¥¼ ì¶œë ¥í•˜ë¼.
 select employee_id, first_name||' '||last_name, department_id, hire_date, salary
 from employees
 where department_id in(select department_id from employees where first_name='John');
 
--- Q7-1) ÀüÃ¼ »ç¿øÀÇ Æò±ÕÀÓ±İº¸´Ù ¸¹Àº »ç¿øÀÇ »ç¿ø¹øÈ£, ÀÌ¸§, ºÎ¼­¸í, ÀÔ»çÀÏ , ±Ş¿©¸¦ Ãâ·ÂÇÏ¶ó.
+-- Q7-1) ì „ì²´ ì‚¬ì›ì˜ í‰ê· ì„ê¸ˆë³´ë‹¤ ë§ì€ ì‚¬ì›ì˜ ì‚¬ì›ë²ˆí˜¸, ì´ë¦„, ë¶€ì„œëª…, ì…ì‚¬ì¼ , ê¸‰ì—¬ë¥¼ ì¶œë ¥í•˜ë¼.
 select e.employee_id, e.first_name||' '||e.last_name, d.department_name, e.hire_date,e.salary
 from employees e join departments d
 on e.department_id=d.department_id
@@ -742,14 +742,14 @@ and  e.department_id=d.department_id;
 
 
 
--- Q7-2) ÀüÃ¼ »ç¿øÀÇ Æò±ÕÀÓ±İº¸´Ù ¸¹Àº »ç¿øÀÇ »ç¿ø¹øÈ£, ÀÌ¸§, ºÎ¼­¸í, ÀÔ»çÀÏ ,Áö¿ª¸í ,±Ş¿©¸¦ Ãâ·ÂÇÏ¶ó.
+-- Q7-2) ì „ì²´ ì‚¬ì›ì˜ í‰ê· ì„ê¸ˆë³´ë‹¤ ë§ì€ ì‚¬ì›ì˜ ì‚¬ì›ë²ˆí˜¸, ì´ë¦„, ë¶€ì„œëª…, ì…ì‚¬ì¼ ,ì§€ì—­ëª… ,ê¸‰ì—¬ë¥¼ ì¶œë ¥í•˜ë¼.
 select e.employee_id, e.first_name||' '||e.last_name, d.department_name, e.hire_date,loc.city ,e.salary
 from employees e, departments d, locations loc
 where salary > (select avg(salary) from employees)
 and e.department_id=d.department_id
 and d.location_id = loc.location_id;
 
--- Q8) 10¹ø ºÎ¼­ »ç¶÷µé Áß¿¡ 20¹ø ºÎ¼­ÀÇ »ç¿ø°ú °°Àº ¾÷¹«¸¦ ÇÏ´Â »ç¿øÀÇ »ç¿ø¹øÈ£,¾÷¹«,ÀÌ¸§,ºÎ¼­¸í,ÀÔ»çÀÏ,Áö¿ª¸íÀ» Ãâ·ÂÇÏ¶ó.
+-- Q8) 10ë²ˆ ë¶€ì„œ ì‚¬ëŒë“¤ ì¤‘ì— 20ë²ˆ ë¶€ì„œì˜ ì‚¬ì›ê³¼ ê°™ì€ ì—…ë¬´ë¥¼ í•˜ëŠ” ì‚¬ì›ì˜ ì‚¬ì›ë²ˆí˜¸,ì—…ë¬´,ì´ë¦„,ë¶€ì„œëª…,ì…ì‚¬ì¼,ì§€ì—­ëª…ì„ ì¶œë ¥í•˜ë¼.
 -- select job_id from employees where department_id = 10; -- AD_ASST
 -- select job_id from employees where department_id = 20; -- MK_MAN. MK_REP
 --select e.employee_id, job_id, e.first_name||' '||e.last_name, d.department_name, e.hire_date, loc.city
@@ -767,7 +767,7 @@ and e.department_id =10
 and job_id in (select job_id from employees where department_id = 20 );
 
 
--- Q9) 10¹ø ºÎ¼­ Áß¿¡¼­ 30¹ø ºÎ¼­¿¡´Â ¾ø´Â ¾÷¹«¸¦ ÇÏ´Â »ç¿øÀÇ »ç¿ø¹øÈ£, ¾÷¹«, ÀÌ¸§, ºÎ¼­¸í, ÀÔ»çÀÏ, Áö¿ªÀ» Ãâ·ÂÇÏ¶ó.
+-- Q9) 10ë²ˆ ë¶€ì„œ ì¤‘ì—ì„œ 30ë²ˆ ë¶€ì„œì—ëŠ” ì—†ëŠ” ì—…ë¬´ë¥¼ í•˜ëŠ” ì‚¬ì›ì˜ ì‚¬ì›ë²ˆí˜¸, ì—…ë¬´, ì´ë¦„, ë¶€ì„œëª…, ì…ì‚¬ì¼, ì§€ì—­ì„ ì¶œë ¥í•˜ë¼.
 select e.employee_id, job_id, e.first_name||' '||e.last_name, d.department_name, e.hire_date, loc.city
 from employees e, departments d, locations loc
 where job_id not in (select job_id from employees where department_id =30)
@@ -783,7 +783,7 @@ on d.location_id = loc.location_id
 and e.department_id =10
 and job_id not in (select job_id from employees where department_id = 20 );
 
--- Q10) 10¹ø ºÎ¼­¿Í °°Àº ÀÏÀ» ÇÏ´Â »ç¿øÀÇ »ç¿ø¹øÈ£, ¾÷¹«, ÀÌ¸§, ºÎ¼­¹øÈ£, ºÎ¼­¸í, Áö¿ª, ±Ş¿©¸¦ Ãâ·ÂÇÏ¶ó.
+-- Q10) 10ë²ˆ ë¶€ì„œì™€ ê°™ì€ ì¼ì„ í•˜ëŠ” ì‚¬ì›ì˜ ì‚¬ì›ë²ˆí˜¸, ì—…ë¬´, ì´ë¦„, ë¶€ì„œë²ˆí˜¸, ë¶€ì„œëª…, ì§€ì—­, ê¸‰ì—¬ë¥¼ ì¶œë ¥í•˜ë¼.
 select e.employee_id, job_id, e.first_name||' '||e.last_name, e.department_id, d.department_name,loc.city, e.salary
 from employees e join departments d
 on e.department_id=d.department_id
@@ -791,34 +791,34 @@ join locations loc
 on d.location_id = loc.location_id
 and (job_id in (select job_id from employees where e.department_id=10));
 
--- Q11) 'Neena' È¤Àº 'David'ÀÇ ±Ş¿©¿Í °°Àº »ç¿øÀÇ »ç¿ø¹øÈ£, ÀÌ¸§, ±Ş¿©¸¦ Ãâ·ÂÇÏ¶ó.
+-- Q11) 'Neena' í˜¹ì€ 'David'ì˜ ê¸‰ì—¬ì™€ ê°™ì€ ì‚¬ì›ì˜ ì‚¬ì›ë²ˆí˜¸, ì´ë¦„, ê¸‰ì—¬ë¥¼ ì¶œë ¥í•˜ë¼.
 select employee_id, first_name||' '|| last_name, salary
 from employees
 where salary in (select salary from employees where first_name='Neena' or (first_name='David' and last_name = 'Austin'));
 
--- Q12) ±Ş¿©°¡ 30¹ø ºÎ¼­ÀÇ ÃÖ°í ±Ş¿©º¸´Ù ³ôÀº »ç¿øÀÇ »ç¿ø¹øÈ£, ÀÌ¸§, ±Ş¿©¸¦ Ãâ·ÂÇÏ¶ó.
+-- Q12) ê¸‰ì—¬ê°€ 30ë²ˆ ë¶€ì„œì˜ ìµœê³  ê¸‰ì—¬ë³´ë‹¤ ë†’ì€ ì‚¬ì›ì˜ ì‚¬ì›ë²ˆí˜¸, ì´ë¦„, ê¸‰ì—¬ë¥¼ ì¶œë ¥í•˜ë¼.
 select employee_id, first_name||' '||last_name, salary
 from employees
 where salary >all (select salary from employees where department_id=30);
 
--- Q13) ±Ş¿©°¡ 30¹ø ºÎ¼­ÀÇ ÃÖÀú ±Ş¿©º¸´Ù ³·Àº »ç¿øÀÇ »ç¿ø¹øÈ£, ÀÌ¸§, ±Ş¿©¸¦ Ãâ·ÂÇÏ¶ó.
+-- Q13) ê¸‰ì—¬ê°€ 30ë²ˆ ë¶€ì„œì˜ ìµœì € ê¸‰ì—¬ë³´ë‹¤ ë‚®ì€ ì‚¬ì›ì˜ ì‚¬ì›ë²ˆí˜¸, ì´ë¦„, ê¸‰ì—¬ë¥¼ ì¶œë ¥í•˜ë¼.
 select employee_id, first_name||' '||last_name, salary
 from employees
 where salary <all (select salary from employees where department_id=30);
 
--- Q14) ±Ş¿©°¡ 90¹ø ºÎ¼­ÀÇ ÃÖÀú ±Ş¿©º¸´Ù ³ôÀº »ç¿øÀÇ »ç¿ø¹øÈ£, ÀÌ¸§, ±Ş¿©¸¦ Ãâ·ÂÇÏ¶ó.
+-- Q14) ê¸‰ì—¬ê°€ 90ë²ˆ ë¶€ì„œì˜ ìµœì € ê¸‰ì—¬ë³´ë‹¤ ë†’ì€ ì‚¬ì›ì˜ ì‚¬ì›ë²ˆí˜¸, ì´ë¦„, ê¸‰ì—¬ë¥¼ ì¶œë ¥í•˜ë¼.
 select salary from employees where department_id=90;
 
 select employee_id, first_name||' '||last_name, salary
 from employees
 where salary >any (select salary from employees where department_id=90);
 
--- Q15) ±Ş¿©°¡ 90¹ø ºÎ¼­ÀÇ ÃÖ°í ±Ş¿©º¸´Ù ³·Àº »ç¿øÀÇ »ç¿ø¹øÈ£, ÀÌ¸§, ±Ş¿©¸¦ Ãâ·ÂÇÏ¶ó.
+-- Q15) ê¸‰ì—¬ê°€ 90ë²ˆ ë¶€ì„œì˜ ìµœê³  ê¸‰ì—¬ë³´ë‹¤ ë‚®ì€ ì‚¬ì›ì˜ ì‚¬ì›ë²ˆí˜¸, ì´ë¦„, ê¸‰ì—¬ë¥¼ ì¶œë ¥í•˜ë¼.
 select employee_id, first_name||' '||last_name, salary
 from employees
 where salary <any (select salary from employees where department_id=90);
 
--- Q16) »ç¿øÀÌ¸§°ú ºÎ¼­¸íÀ» Ãâ·ÂÇÏ¶ó.(´Ü, ºä³ª Á¶ÀÎÀ» »ç¿ëÇÏÁö ¸»°í ¼­ºêÄõ¸® ¾µ °Í)
+-- Q16) ì‚¬ì›ì´ë¦„ê³¼ ë¶€ì„œëª…ì„ ì¶œë ¥í•˜ë¼.(ë‹¨, ë·°ë‚˜ ì¡°ì¸ì„ ì‚¬ìš©í•˜ì§€ ë§ê³  ì„œë¸Œì¿¼ë¦¬ ì“¸ ê²ƒ)
 select e.first_name||' '||e.last_name, (select d.department_name from departments d where e.department_id=d.department_id)
 from employees e;
 
@@ -834,7 +834,7 @@ create table job as select * from jobs;
 
 CREATE TABLE TEST_TCL AS SELECT * FROM DEPARTMENTS;
 SELECT * FROM TEST_TCL;
-COMMIT; --//Æ®·£Àè¼Ç ½ÃÀÛ
+COMMIT; --//íŠ¸ëœì­ì…˜ ì‹œì‘
 UPDATE TEST_TCL SET DEPARTMENT_ID=50;
 savepoint aaa;
 UPDATE TEST_TCL SET LOCATION_ID=1004 WHERE DEPARTMENT_NAME='IT';
@@ -860,7 +860,7 @@ select e.first_name, d.department_name
 from employees e join departments d
 on d.department_id = e.department_id;
 
--- joinÇÏ°í view·Î ¸¸µé±â
+-- joiní•˜ê³  viewë¡œ ë§Œë“¤ê¸°
 create or replace view test_join_view
 as
 select e.first_name, d.department_name
@@ -869,15 +869,15 @@ on d.department_id = e.department_id;
 
 select * from test_join_view;
 
--- self joinÇÏ°í view·Î ¸¸µé±â
-select e1.employee_id, e1.first_name||'ÀÇ ¸Å´ÏÀú'||e2.first_name ¸Å´ÏÀú
+-- self joiní•˜ê³  viewë¡œ ë§Œë“¤ê¸°
+select e1.employee_id, e1.first_name||'ì˜ ë§¤ë‹ˆì €'||e2.first_name ë§¤ë‹ˆì €
 from employees e1 join employees e2
 on e1.manager_id = e2.employee_id
 order by e1.employee_id asc;
 
 create or replace view test_self_join_view
 as
-select e1.employee_id, e1.first_name||'ÀÇ ¸Å´ÏÀú'||e2.first_name ¸Å´ÏÀú
+select e1.employee_id, e1.first_name||'ì˜ ë§¤ë‹ˆì €'||e2.first_name ë§¤ë‹ˆì €
 from employees e1 join employees e2
 on e1.manager_id = e2.employee_id
 order by e1.employee_id asc;
@@ -885,12 +885,12 @@ order by e1.employee_id asc;
 select * from test_self_join_view;
 
 
--- ¾Æ·¡¿Í °°Àº Å×ÀÌºí »ı¼º
+-- ì•„ë˜ì™€ ê°™ì€ í…Œì´ë¸” ìƒì„±
 
-drop TABLE test4_dept CASCADE CONSTRAINTS PURGE; -- // Á¦¾àÁ¶°Ç ¹«½ÃÇÏ°í »èÁ¦
+drop TABLE test4_dept CASCADE CONSTRAINTS PURGE; -- // ì œì•½ì¡°ê±´ ë¬´ì‹œí•˜ê³  ì‚­ì œ
     CREATE TABLE test4_dept(
     deptno NUMBER(2), 
-    dname VARCHAR2(15) default '°³¹ßºÎ', 
+    dname VARCHAR2(15) default 'ê°œë°œë¶€', 
     loc_id CHAR(1), 
     CONSTRAINT test4_dept_deptno_pk PRIMARY KEY (deptno), 
     CONSTRAINT test4_dept_loc_ck CHECK(loc_id IN('1', '2'))
@@ -907,20 +907,20 @@ CONSTRAINT test4_emp_no_pk PRIMARY KEY (empno),
 CONSTRAINT test4_emp_jumin_uq UNIQUE (jumin), 
 CONSTRAINT test4_emp_deptno_fk FOREIGN KEY (deptno) REFERENCES test4_dept(deptno)
 );
-INSERT INTO test4_dept VALUES(10, '¿µ¾÷ºÎ', '1'); 
-INSERT INTO test4_dept VALUES(20, '±âÈ¹ºÎ', '1'); 
-INSERT INTO test4_dept VALUES(30, 'È«º¸ºÎ', '2'); 
-INSERT INTO test4_dept VALUES(40, '°ü¸®ºÎ', '2'); 
-INSERT INTO test4_emp VALUES(1001, 'È«±æµ¿', '¼­¿ï', '1234561234567', 10,3000); 
-INSERT INTO test4_emp VALUES(1002, 'ÃÖ±æµ¿', '¼­¿ï', '1234561234568', 10,4000); 
-INSERT INTO test4_emp VALUES(1003, '¹Ú±æµ¿', '°æ±â', '1234561234569', 20,5000); 
-INSERT INTO test4_emp VALUES(1004, '¾ç±æµ¿', '°æ±â', '1234561234571', 30,6000); 
-INSERT INTO test4_emp VALUES(1005, 'ÇÑ±æµ¿', '¼­¿ï', '1234561234572', 40,7000); 
-INSERT INTO test4_emp VALUES(1006, '°­±æµ¿', '¼­¿ï', '1234561234573', 40,8000); 
+INSERT INTO test4_dept VALUES(10, 'ì˜ì—…ë¶€', '1'); 
+INSERT INTO test4_dept VALUES(20, 'ê¸°íšë¶€', '1'); 
+INSERT INTO test4_dept VALUES(30, 'í™ë³´ë¶€', '2'); 
+INSERT INTO test4_dept VALUES(40, 'ê´€ë¦¬ë¶€', '2'); 
+INSERT INTO test4_emp VALUES(1001, 'í™ê¸¸ë™', 'ì„œìš¸', '1234561234567', 10,3000); 
+INSERT INTO test4_emp VALUES(1002, 'ìµœê¸¸ë™', 'ì„œìš¸', '1234561234568', 10,4000); 
+INSERT INTO test4_emp VALUES(1003, 'ë°•ê¸¸ë™', 'ê²½ê¸°', '1234561234569', 20,5000); 
+INSERT INTO test4_emp VALUES(1004, 'ì–‘ê¸¸ë™', 'ê²½ê¸°', '1234561234571', 30,6000); 
+INSERT INTO test4_emp VALUES(1005, 'í•œê¸¸ë™', 'ì„œìš¸', '1234561234572', 40,7000); 
+INSERT INTO test4_emp VALUES(1006, 'ê°•ê¸¸ë™', 'ì„œìš¸', '1234561234573', 40,8000); 
 Commit;
 
--- Q1) ºÎ¼­ID°¡ 10¹øÀÎ »ç¿øµ¥ÀÌÅÍ¸¦ °®´Â ÀÌ¸§ÀÌ test4_emp_viewÀÎ ºä¸¦ »ı¼º½Ã 
--- empno, ename µÎ °³ ÄÃ·³¸¸À¸·Î »ı¼ºÈÄ,ºä°Ë»ö,ºä±¸Á¶¸¦ È®ÀÎÇÏ¶ó.
+-- Q1) ë¶€ì„œIDê°€ 10ë²ˆì¸ ì‚¬ì›ë°ì´í„°ë¥¼ ê°–ëŠ” ì´ë¦„ì´ test4_emp_viewì¸ ë·°ë¥¼ ìƒì„±ì‹œ 
+-- empno, ename ë‘ ê°œ ì»¬ëŸ¼ë§Œìœ¼ë¡œ ìƒì„±í›„,ë·°ê²€ìƒ‰,ë·°êµ¬ì¡°ë¥¼ í™•ì¸í•˜ë¼.
 select * from test4_emp
 where deptno =10;
 
@@ -931,8 +931,8 @@ where deptno =10;
 
 select * from test4_emp_view;
 
--- Q2) ºÎ¼­ID°¡ 20¹øÀÎ ºÎ¼­µ¥ÀÌÅÍ¸¦ °®´Â ÀÌ¸§ÀÌ test4_dept_viewÀÎ ºä¸¦ »ı¼º½Ã 
--- deptno, dname µÎ °³ ÄÃ·³¸¸À¸·Î »ı¼ºÈÄ,ºä°Ë»ö,ºä±¸Á¶¸¦ È®ÀÎÇÏ¶ó.
+-- Q2) ë¶€ì„œIDê°€ 20ë²ˆì¸ ë¶€ì„œë°ì´í„°ë¥¼ ê°–ëŠ” ì´ë¦„ì´ test4_dept_viewì¸ ë·°ë¥¼ ìƒì„±ì‹œ 
+-- deptno, dname ë‘ ê°œ ì»¬ëŸ¼ë§Œìœ¼ë¡œ ìƒì„±í›„,ë·°ê²€ìƒ‰,ë·°êµ¬ì¡°ë¥¼ í™•ì¸í•˜ë¼.
 select * from test4_dept
 where deptno =20;
 
@@ -942,8 +942,8 @@ where deptno =20;
 
 select * from test4_dept_view;
 
--- Q3) ºÎ¼­ID°¡ 10¹øÀÎ »ç¿øµ¥ÀÌÅÍ¸¦ °®´Â ÀÌ¸§ÀÌ test4_emp_viewÀÎ ºä¸¦ »ı¼º½Ã 
--- empno¸¦ employee_id, enameÀ» employee_nameÀ¸·Î º°Äª ¼³Á¤ÇÏ¶ó.
+-- Q3) ë¶€ì„œIDê°€ 10ë²ˆì¸ ì‚¬ì›ë°ì´í„°ë¥¼ ê°–ëŠ” ì´ë¦„ì´ test4_emp_viewì¸ ë·°ë¥¼ ìƒì„±ì‹œ 
+-- empnoë¥¼ employee_id, enameì„ employee_nameìœ¼ë¡œ ë³„ì¹­ ì„¤ì •í•˜ë¼.
 select * from test4_emp
 where deptno =10; 
 
@@ -953,8 +953,8 @@ where deptno =10;
 
 select * from test4_emp_view;
 
--- Q4) ºÎ¼­ID°¡ 20¹øÀÎ ºÎ¼­µ¥ÀÌÅÍ¸¦ °®´Â ÀÌ¸§ÀÌ test4_dept_viewÀÎ ºä¸¦ »ı¼º½Ã 
--- deptno¸¦ department_id, dnameÀ» department_nameÀ¸·Î º°Äª ¼³Á¤ÇÏ¶ó.
+-- Q4) ë¶€ì„œIDê°€ 20ë²ˆì¸ ë¶€ì„œë°ì´í„°ë¥¼ ê°–ëŠ” ì´ë¦„ì´ test4_dept_viewì¸ ë·°ë¥¼ ìƒì„±ì‹œ 
+-- deptnoë¥¼ department_id, dnameì„ department_nameìœ¼ë¡œ ë³„ì¹­ ì„¤ì •í•˜ë¼.
 select * from test4_dept
 where deptno =20; 
 
@@ -964,27 +964,27 @@ where deptno =20;
 
 select * from test4_dept_view;
 
--- Q5) test4_emp Å×ÀÌºí°ú test4_dept Å×ÀÌºíÀ» Á¶ÀÎÇÏ¿© empno¸¦ »ç¿ø¹øÈ£·Î, enameÀ» »ç¿ø¸íÀ¸·Î, 
--- dnameÀ» ºÎ¼­¸íÀ¸·Î, loc_nameÀ» Áö¿ª¸íÀ¸·Î ¹Ù²Ù´Â test4_emp_join_dept_view¸¦ »ı¼ºÇÏ½Ã¿À.
+-- Q5) test4_emp í…Œì´ë¸”ê³¼ test4_dept í…Œì´ë¸”ì„ ì¡°ì¸í•˜ì—¬ empnoë¥¼ ì‚¬ì›ë²ˆí˜¸ë¡œ, enameì„ ì‚¬ì›ëª…ìœ¼ë¡œ, 
+-- dnameì„ ë¶€ì„œëª…ìœ¼ë¡œ, loc_nameì„ ì§€ì—­ëª…ìœ¼ë¡œ ë°”ê¾¸ëŠ” test4_emp_join_dept_viewë¥¼ ìƒì„±í•˜ì‹œì˜¤.
 select * from
 test4_emp join test4_dept
 on test4_emp.deptno = test4_dept.deptno;
 
-create or replace view test4_emp_join_dept_view(»ç¿ø¹øÈ£,»ç¿ø¸í,ºÎ¼­¸í,Áö¿ª¸í) as
+create or replace view test4_emp_join_dept_view(ì‚¬ì›ë²ˆí˜¸,ì‚¬ì›ëª…,ë¶€ì„œëª…,ì§€ì—­ëª…) as
 select e.empno , e.ename, d.dname, e.loc_name 
 from test4_emp e join test4_dept d
 on e.deptno = d.deptno;
 
 select * from test4_emp_join_dept_view;
 
--- Q6) test4_emp Å×ÀÌºí°ú test4_dept Å×ÀÌºíÀ» Á¶ÀÎÇÏ¿© dnameÀ» ºÎ¼­¸íÀ¸·Î,
--- min(e.sal)À» ÃÖÀú±Ş¿©·Î, max(e.sal)À» ÃÖ°í±Ş¿©·Î, avg(e.sal)À» Æò±Õ±Ş¿©·Î ¹Ù²Ù°í
--- ºÎ¼­ÀÌ¸§º°·Î test4_emp_join_dept_view¸¦ »ı¼ºÇÏ½Ã¿À.
+-- Q6) test4_emp í…Œì´ë¸”ê³¼ test4_dept í…Œì´ë¸”ì„ ì¡°ì¸í•˜ì—¬ dnameì„ ë¶€ì„œëª…ìœ¼ë¡œ,
+-- min(e.sal)ì„ ìµœì €ê¸‰ì—¬ë¡œ, max(e.sal)ì„ ìµœê³ ê¸‰ì—¬ë¡œ, avg(e.sal)ì„ í‰ê· ê¸‰ì—¬ë¡œ ë°”ê¾¸ê³ 
+-- ë¶€ì„œì´ë¦„ë³„ë¡œ test4_emp_join_dept_viewë¥¼ ìƒì„±í•˜ì‹œì˜¤.
 select * from
 test4_emp e join test4_dept d
 on e.deptno = d.deptno;
 
-create or replace view test4_emp_join_dept_view(ºÎ¼­¸í,ÃÖÀú±Ş¿©,ÃÖ°í±Ş¿©,Æò±Õ±Ş¿©) as
+create or replace view test4_emp_join_dept_view(ë¶€ì„œëª…,ìµœì €ê¸‰ì—¬,ìµœê³ ê¸‰ì—¬,í‰ê· ê¸‰ì—¬) as
 select d.dname, min(e.sal), max(e.sal),avg(e.sal)
 from test4_emp e join test4_dept d
 on e.deptno = d.deptno
@@ -992,8 +992,8 @@ group by d.dname;
 
 select * from test4_emp_join_dept_view;
 
--- 10 °³Çà¾¿ Àß¶ó¼­ °Ë»öµÇµµ·Ï DQLÀ» ÀÛ¼ºÇÏ¼¼¿ä. -----------------------
--- ¿¹:1,10(100-109)-11,20(110,119)
+-- 10 ê°œí–‰ì”© ì˜ë¼ì„œ ê²€ìƒ‰ë˜ë„ë¡ DQLì„ ì‘ì„±í•˜ì„¸ìš”. -----------------------
+-- ì˜ˆ:1,10(100-109)-11,20(110,119)
 select * from employees;
 
 select *
@@ -1004,11 +1004,11 @@ select *
 from (select e.* ,rownum rnum from employees e)
 where rnum>10 and rnum<=20;
 
--- À¥ÆäÀÌÁö¿¡¼­ 1 2 3 4 5 ÆäÀÌÁöºí·° ±¸Çö½Ã ÀÚÁÖ »ç¿ëµÊ.
+-- ì›¹í˜ì´ì§€ì—ì„œ 1 2 3 4 5 í˜ì´ì§€ë¸”ëŸ­ êµ¬í˜„ì‹œ ìì£¼ ì‚¬ìš©ë¨.
 
 
 -- rollup 
--- ¿¹) ºÎ¼­¹øÈ£°¡ 40¹øÀÌÇÏÀÎ »ç¿øµé¿¡ ´ëÇØ ºÎ¼­º°, Á÷±Şº°, ¿ù±ŞÀÌ ¾ó¸¶ÀÎÁö Á¶È¸ÇÏ¶ó.
+-- ì˜ˆ) ë¶€ì„œë²ˆí˜¸ê°€ 40ë²ˆì´í•˜ì¸ ì‚¬ì›ë“¤ì— ëŒ€í•´ ë¶€ì„œë³„, ì§ê¸‰ë³„, ì›”ê¸‰ì´ ì–¼ë§ˆì¸ì§€ ì¡°íšŒí•˜ë¼.
 select department_id,job_id,sum(salary)
 from employees
 where department_id <=40
@@ -1021,7 +1021,7 @@ where department_id <=40
 group by cube(department_id, job_id)
 order by department_id;
 
---with Äõ¸® Àı
+--with ì¿¼ë¦¬ ì ˆ
 with e as
     (select employee_id,manager_id,salary,last_name
     from employees
@@ -1034,7 +1034,7 @@ select e.employee_id, e.last_name, e.salary
 from e,d
 where e.salary < d.avg_salary;
 
--- ÀüÃ¼ ºÎ¼­º° Æò±Õ ±Ş¿©¾×º¸´Ù ºÎ¼­º° ±Ş¿©ÇÕ°è¾×ÀÌ Å« ºÎ¼­ÀÇ ¸í´ÜÀ» ÃßÃâÇÏ¶ó.
+-- ì „ì²´ ë¶€ì„œë³„ í‰ê·  ê¸‰ì—¬ì•¡ë³´ë‹¤ ë¶€ì„œë³„ ê¸‰ì—¬í•©ê³„ì•¡ì´ í° ë¶€ì„œì˜ ëª…ë‹¨ì„ ì¶”ì¶œí•˜ë¼.
 with dept_costs as
     (select department_name,sum(salary) sum_sal
     from employees e join departments d
@@ -1046,8 +1046,8 @@ from dept_costs, avg_cost
 where dept_costs.sum_sal > avg_cost.avg;
 
 -- mission 
--- 0.ÇÁ·ÎÁ§Æ®¸í java22jdbc_hr, ÆĞÅ°Áö¸í(test.com.emp,test.com.dept,test.com.job,test.com.main)
--- 1.Å×ÀÌºí º¹Á¦ employees->emp, departments->dept, jobs->job ¿øº»µ¥ÀÌÅÍ À¯Áö
+-- 0.í”„ë¡œì íŠ¸ëª… java22jdbc_hr, íŒ¨í‚¤ì§€ëª…(test.com.emp,test.com.dept,test.com.job,test.com.main)
+-- 1.í…Œì´ë¸” ë³µì œ employees->emp, departments->dept, jobs->job ì›ë³¸ë°ì´í„° ìœ ì§€
 create table emp as select * from employees;
 create table dept as select * from departments;
 create table job as select * from jobs;
@@ -1056,7 +1056,7 @@ drop sequence seq_emp;
 create sequence seq_emp;
 drop sequence seq_dept;
 create sequence seq_dept;
--- 2.Á¦¾àÁ¶°Ç¼³Á¤(pk,fk)
--- 3.°´Ã¼»ı¼º(EmpVO,DeptVO,JobVO)
--- 4.°¢ °´Ã¼¿¡ µû¸¥ CRUDÃ³¸®°´Ã¼(~~DAO<---~DAOimpl)
--- 5.jdbc¿¬µ¿ÇØ¼­ °¢ ¸ŞÀÎÅ¬·¡½º(EmpMain,DeptMain,JobMain) ¿¡¼­ ÀÔ·ÂÃ³¸® ¿Ï¼ºÇÏ±â.
+-- 2.ì œì•½ì¡°ê±´ì„¤ì •(pk,fk)
+-- 3.ê°ì²´ìƒì„±(EmpVO,DeptVO,JobVO)
+-- 4.ê° ê°ì²´ì— ë”°ë¥¸ CRUDì²˜ë¦¬ê°ì²´(~~DAO<---~DAOimpl)
+-- 5.jdbcì—°ë™í•´ì„œ ê° ë©”ì¸í´ë˜ìŠ¤(EmpMain,DeptMain,JobMain) ì—ì„œ ì…ë ¥ì²˜ë¦¬ ì™„ì„±í•˜ê¸°.

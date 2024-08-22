@@ -1,4 +1,4 @@
--- ºÎ¼­+»ç¿ø Á¶ÀÎ=ºä-view_dept_emp
+-- ë¶€ì„œ+ì‚¬ì› ì¡°ì¸=ë·°-view_dept_emp
 CREATE OR REPLACE VIEW view_dept_emp AS
 SELECT emp.employee_id, emp.first_name, emp.last_name, emp.email
 , emp.phone_number, emp.hire_date, emp.job_id, emp.salary, emp.commission_pct
@@ -8,7 +8,7 @@ ON dept.department_id = emp.department_id;
 
 select * from view_dept_emp order by employee_id desc;
 
--- ¾÷¹«+»ç¿ø Á¶ÀÎ=ºä-view_job_emp
+-- ì—…ë¬´+ì‚¬ì› ì¡°ì¸=ë·°-view_job_emp
 create or replace view view_job_emp as
 select emp.employee_id, emp.first_name, emp.last_name, emp.email
 , emp.phone_number, emp.hire_date, emp.job_id, job.job_title, job.min_salary, job.max_salary
@@ -19,3 +19,5 @@ on job.job_id = emp.job_id;
 select * from view_job_emp order by employee_id desc;
 
 select job_id from job;
+
+

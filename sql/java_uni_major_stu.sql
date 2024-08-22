@@ -1,17 +1,17 @@
--- ÇÐ±³, ÇÐ°ú, Àü°ø, ÇÐ»ý ÇÑ ¹ø¿¡ µ¥ÀÌÅÍ »ý¼ºÇÏ±â
+-- í•™êµ, í•™ê³¼, ì „ê³µ, í•™ìƒ í•œ ë²ˆì— ë°ì´í„° ìƒì„±í•˜ê¸°
 
--- ÇÐ±³Å×ÀÌºí - ÀÓÀÇÀÇ ÄÃ·³pk¿ë ¹øÈ£Æ÷ÇÔ 5ÄÃ·³(µ¥ÀÌÅÍ´Â 10°³Çà ¾¿ Ãß°¡)-----
-drop table ´ëÇÐ±³ cascade constraints;
-CREATE TABLE ´ëÇÐ±³ 
+-- í•™êµí…Œì´ë¸” - ìž„ì˜ì˜ ì»¬ëŸ¼pkìš© ë²ˆí˜¸í¬í•¨ 5ì»¬ëŸ¼(ë°ì´í„°ëŠ” 10ê°œí–‰ ì”© ì¶”ê°€)-----
+drop table ëŒ€í•™êµ cascade constraints;
+CREATE TABLE ëŒ€í•™êµ 
 (
-  ´ëÇÐ±³ID NUMBER NOT NULL 
-, ´ëÇÐ±³ÀÌ¸§ VARCHAR2(40) NOT NULL 
-, À§Ä¡ VARCHAR2(100) NOT NULL 
-, ¼³¸³¿¬µµ NUMBER NOT NULL 
-, ÇÐ»ý¼ö NUMBER NOT NULL 
-, CONSTRAINT ´ëÇÐ±³_PK PRIMARY KEY 
+  ëŒ€í•™êµID NUMBER NOT NULL 
+, ëŒ€í•™êµì´ë¦„ VARCHAR2(40) NOT NULL 
+, ìœ„ì¹˜ VARCHAR2(100) NOT NULL 
+, ì„¤ë¦½ì—°ë„ NUMBER NOT NULL 
+, í•™ìƒìˆ˜ NUMBER NOT NULL 
+, CONSTRAINT ëŒ€í•™êµ_PK PRIMARY KEY 
   (
-    ´ëÇÐ±³ID 
+    ëŒ€í•™êµID 
   )
   ENABLE 
 );
@@ -20,20 +20,20 @@ drop sequence seq_universary;
 create sequence seq_universary;
 exec pc_universary_insert;
 
------- end ÇÐ±³Å×ÀÌºí ----------------
+------ end í•™êµí…Œì´ë¸” ----------------
 
--- ÇÐ°úÅ×ÀÌºí - ÀÓÀÇÀÇ ÄÃ·³pk¿ë ¹øÈ£Æ÷ÇÔ 5ÄÃ·³(µ¥ÀÌÅÍ´Â 10°³Çà ¾¿ Ãß°¡) ------
-drop table ÇÐ°ú cascade constraints;
-CREATE TABLE ÇÐ°ú 
+-- í•™ê³¼í…Œì´ë¸” - ìž„ì˜ì˜ ì»¬ëŸ¼pkìš© ë²ˆí˜¸í¬í•¨ 5ì»¬ëŸ¼(ë°ì´í„°ëŠ” 10ê°œí–‰ ì”© ì¶”ê°€) ------
+drop table í•™ê³¼ cascade constraints;
+CREATE TABLE í•™ê³¼ 
 (
-  ÇÐ°úID NUMBER NOT NULL 
-, ÇÐ°ú¸í VARCHAR2(50) NOT NULL 
-, ´ëÇÐ±³ID NUMBER NOT NULL 
-, ¼³¸³¿¬µµ NUMBER NOT NULL 
-, ÇÐ»ý¼ö NUMBER NOT NULL 
-, CONSTRAINT ÇÐ°ú_PK PRIMARY KEY 
+  í•™ê³¼ID NUMBER NOT NULL 
+, í•™ê³¼ëª… VARCHAR2(50) NOT NULL 
+, ëŒ€í•™êµID NUMBER NOT NULL 
+, ì„¤ë¦½ì—°ë„ NUMBER NOT NULL 
+, í•™ìƒìˆ˜ NUMBER NOT NULL 
+, CONSTRAINT í•™ê³¼_PK PRIMARY KEY 
   (
-    ÇÐ°úID 
+    í•™ê³¼ID 
   )
   ENABLE 
 );
@@ -42,21 +42,21 @@ drop sequence seq_major;
 create sequence seq_major;
 exec pc_major_insert;
 
------------end ÇÐ°úÅ×ÀÌºí ------------------------
+-----------end í•™ê³¼í…Œì´ë¸” ------------------------
 
--- ÇÐ»ýÅ×ÀÌºí - ÀÓÀÇÀÇ ÄÃ·³pk¿ë ¹øÈ£Æ÷ÇÔ 5ÄÃ·³(µ¥ÀÌÅÍ´Â 10°³Çà ¾¿ Ãß°¡)
-drop table ÇÐ»ý;
-CREATE TABLE ÇÐ»ý 
+-- í•™ìƒí…Œì´ë¸” - ìž„ì˜ì˜ ì»¬ëŸ¼pkìš© ë²ˆí˜¸í¬í•¨ 5ì»¬ëŸ¼(ë°ì´í„°ëŠ” 10ê°œí–‰ ì”© ì¶”ê°€)
+drop table í•™ìƒ;
+CREATE TABLE í•™ìƒ 
 (
-  ÇÐ»ýID NUMBER NOT NULL 
-, ÀÌ¸§ VARCHAR2(40) NOT NULL 
-, ÇÐ°úID NUMBER NOT NULL 
-, ÀÔÇÐ³âµµ NUMBER NOT NULL 
-, ³ªÀÌ NUMBER NOT NULL
-, Àü°øID NUMBER NOT NULL
-, CONSTRAINT ÇÐ»ý_PK PRIMARY KEY 
+  í•™ìƒID NUMBER NOT NULL 
+, ì´ë¦„ VARCHAR2(40) NOT NULL 
+, í•™ê³¼ID NUMBER NOT NULL 
+, ìž…í•™ë…„ë„ NUMBER NOT NULL 
+, ë‚˜ì´ NUMBER NOT NULL
+, ì „ê³µID NUMBER NOT NULL
+, CONSTRAINT í•™ìƒ_PK PRIMARY KEY 
   (
-    ÇÐ»ýID 
+    í•™ìƒID 
   )
   ENABLE 
 );
@@ -65,21 +65,21 @@ drop sequence seq_student;
 create sequence seq_student;
 exec pc_student_insert;
 
-----------end ÇÐ»ýÅ×ÀÌºí ------------
+----------end í•™ìƒí…Œì´ë¸” ------------
 
 
--- Àü°øÅ×ÀÌºí - ÀÓÀÇÀÇ ÄÃ·³pk¿ë ¹øÈ£Æ÷ÇÔ 5ÄÃ·³(µ¥ÀÌÅÍ´Â 10°³Çà ¾¿ Ãß°¡)
-drop table Àü°ø cascade constraints;
-CREATE TABLE Àü°ø 
+-- ì „ê³µí…Œì´ë¸” - ìž„ì˜ì˜ ì»¬ëŸ¼pkìš© ë²ˆí˜¸í¬í•¨ 5ì»¬ëŸ¼(ë°ì´í„°ëŠ” 10ê°œí–‰ ì”© ì¶”ê°€)
+drop table ì „ê³µ cascade constraints;
+CREATE TABLE ì „ê³µ 
 (
-  Àü°øID NUMBER NOT NULL 
-, Àü°ø¸í VARCHAR2(50) NOT NULL 
-, ÇÐ°úID NUMBER NOT NULL 
-, ¼ö°­ÇÐ»ý¼ö NUMBER NOT NULL 
-, ÇÐÁ¡ NUMBER NOT NULL 
-, CONSTRAINT Àü°ø_PK PRIMARY KEY 
+  ì „ê³µID NUMBER NOT NULL 
+, ì „ê³µëª… VARCHAR2(50) NOT NULL 
+, í•™ê³¼ID NUMBER NOT NULL 
+, ìˆ˜ê°•í•™ìƒìˆ˜ NUMBER NOT NULL 
+, í•™ì  NUMBER NOT NULL 
+, CONSTRAINT ì „ê³µ_PK PRIMARY KEY 
   (
-    Àü°øID 
+    ì „ê³µID 
   )
   ENABLE 
 );
@@ -88,12 +88,12 @@ drop sequence seq_jg;
 create sequence seq_jg;
 exec pc_jg_insert;
 
----------end Àü°øÅ×ÀÌºí --------
+---------end ì „ê³µí…Œì´ë¸” --------
 
------ÂüÁ¶ Á¦¾àÁ¶°Ç Ãß°¡---------------
-ALTER TABLE ÇÐ°ú ADD CONSTRAINT ÇÐ°ú_FK1 FOREIGN KEY(´ëÇÐ±³ID)
-    REFERENCES ´ëÇÐ±³(´ëÇÐ±³ID)ENABLE;
-ALTER TABLE ÇÐ»ý ADD CONSTRAINT ÇÐ»ý_FK1 FOREIGN KEY(ÇÐ°úID)
-    REFERENCES ÇÐ°ú(ÇÐ°úID)ENABLE;
-ALTER TABLE ÇÐ»ý ADD CONSTRAINT ÇÐ»ý_FK2 FOREIGN KEY(Àü°øID )
-    REFERENCES Àü°ø(Àü°øID )ENABLE;
+-----ì°¸ì¡° ì œì•½ì¡°ê±´ ì¶”ê°€---------------
+ALTER TABLE í•™ê³¼ ADD CONSTRAINT í•™ê³¼_FK1 FOREIGN KEY(ëŒ€í•™êµID)
+    REFERENCES ëŒ€í•™êµ(ëŒ€í•™êµID)ENABLE;
+ALTER TABLE í•™ìƒ ADD CONSTRAINT í•™ìƒ_FK1 FOREIGN KEY(í•™ê³¼ID)
+    REFERENCES í•™ê³¼(í•™ê³¼ID)ENABLE;
+ALTER TABLE í•™ìƒ ADD CONSTRAINT í•™ìƒ_FK2 FOREIGN KEY(ì „ê³µID )
+    REFERENCES ì „ê³µ(ì „ê³µID )ENABLE;
