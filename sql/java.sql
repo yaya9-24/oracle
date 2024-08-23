@@ -145,6 +145,9 @@ delete from person where num>=3 and num<5;
 
 
 ------------------DML
+drop sequence seq_member;
+create sequence seq_member;
+
 insert into member(num,id,pw,name,tel)
 values(seq_member.nextval, 'admin','hi1111','kim1','010-2222-4444');
 
@@ -581,3 +584,26 @@ select num, fname from test_tab where fname >'0' and rownum=1;
 
 select * from member order by num desc;
 select * from board order by num desc;
+
+drop table sample;
+CREATE TABLE sample 
+(
+  NUM NUMBER NOT NULL 
+, PNAME VARCHAR2(50) NOT NULL 
+, MODEL VARCHAR2(2000) NOT NULL 
+, PRICE NUMBER NOT NULL 
+, COUNT NUMBER default 0
+, user_id varchar(20) not null
+, img_name varchar(50) default 'default.png'
+, CONSTRAINT sample_PK PRIMARY KEY 
+  (
+    NUM 
+  )
+  ENABLE 
+);
+drop sequence seq_sample;
+CREATE SEQUENCE seq_sample;
+
+create table sample as select * from product;
+ALTER TABLE SAMPLE 
+ADD (IMG_NAME VARCHAR2(200) DEFAULT default.png );
